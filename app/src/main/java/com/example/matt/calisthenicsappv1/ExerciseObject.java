@@ -1,5 +1,7 @@
 package com.example.matt.calisthenicsappv1;
 
+import android.util.Log;
+
 /**
  * Created by Matt on 07/01/2018.
  */
@@ -54,8 +56,6 @@ public class ExerciseObject {
     3.3.6 - Param 6 : _selected
     3.3.7 - Assign parameter values to object's variable values
     3.3.8 - Assign default value 0 to variable : suggestedTime
-
-    3.4 -
 
      */
 
@@ -128,6 +128,33 @@ public class ExerciseObject {
         this.IsSelected = false;
     }
 
+
+    //Default constructor that receives all objects as strings from table and converts to desired variable as necessary
+    public ExerciseObject(String _exerciseName, String _muscleGroup,
+                          String _difficulty, String _lowerRepRange,
+                          String _upperRepRange, String _suggestedTime,
+                          String _selected)
+    {
+
+
+        this.ExerciseName = _exerciseName;
+        this.MuscleGroup = _muscleGroup;
+        this.Difficulty = _difficulty;
+
+        //converts the strings to ints
+        this.LowerRepRange = Integer.parseInt(_lowerRepRange);
+        this.UpperRepRange = Integer.parseInt(_upperRepRange);
+        this.SuggestedTime = Integer.parseInt(_suggestedTime);
+
+        //set IsSelected to default false as we will not need to select just one CURRENTLY
+        this.IsSelected = false;
+
+        String log = "Name: "+_exerciseName+ " ,MuscleGroup: " + _muscleGroup + " ,Difficulty: " + _difficulty + " ,Lower Rep Range: " + _lowerRepRange
+                + " ,Upper Rep Range: " + _upperRepRange + " ,SuggestedTime: " + _suggestedTime;
+        // Writing Contacts to log
+        Log.d("Exercise: ", log);
+
+    }
 
 
     public String getExerciseName() {
