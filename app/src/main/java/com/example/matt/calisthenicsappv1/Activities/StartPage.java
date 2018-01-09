@@ -1,7 +1,9 @@
-package com.example.matt.calisthenicsappv1;
+package com.example.matt.calisthenicsappv1.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.matt.calisthenicsappv1.R;
 
 public class StartPage extends AppCompatActivity {
 

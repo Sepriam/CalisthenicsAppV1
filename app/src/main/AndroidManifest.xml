@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartPage">
+        <activity android:name=".Activities.StartPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectObjectsAct"
+            android:name=".Activities.SelectObjectsAct"
             android:label="@string/title_activity_select_objects"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

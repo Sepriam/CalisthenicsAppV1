@@ -1,4 +1,4 @@
-package com.example.matt.calisthenicsappv1;
+package com.example.matt.calisthenicsappv1.Objects;
 
 import android.util.Log;
 

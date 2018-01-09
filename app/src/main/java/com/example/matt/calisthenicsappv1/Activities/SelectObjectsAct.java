@@ -1,4 +1,4 @@
-package com.example.matt.calisthenicsappv1;
+package com.example.matt.calisthenicsappv1.Activities;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.matt.calisthenicsappv1.Adapters.SectionsPageAdapter;
+import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab1Fragment;
+import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab2Fragment;
+import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab3Fragment;
+import com.example.matt.calisthenicsappv1.R;
+
 import java.util.ArrayList;
 
 public class SelectObjectsAct extends AppCompatActivity {
@@ -41,7 +47,7 @@ public class SelectObjectsAct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_select_objects);
 
         //Merge button with it's source in XML
         //---------------------- Need to create a method here that displays all currently displayed items in a list.
@@ -93,9 +99,9 @@ public class SelectObjectsAct extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager)
     {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new tab1Fragment(), "Legs");
-        adapter.addFragment(new tab2Fragment(), "Chest");
-        adapter.addFragment(new tab3Fragment(), "Core");
+        adapter.addFragment(new SelectObjectsTab1Fragment(), "Legs");
+        adapter.addFragment(new SelectObjectsTab2Fragment(), "Chest");
+        adapter.addFragment(new SelectObjectsTab3Fragment(), "Core");
         viewPager.setAdapter(adapter);
     }
 
