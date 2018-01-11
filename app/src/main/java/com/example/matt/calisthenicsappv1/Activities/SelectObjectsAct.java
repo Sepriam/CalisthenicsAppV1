@@ -96,9 +96,14 @@ public class SelectObjectsAct extends AppCompatActivity {
 
     }
 
+
+    //PageViewer is the tabs across top of this activity
     private void setupViewPager(ViewPager viewPager)
     {
+        //Included functionality from pageViewer import
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+
+        //renaming
         adapter.addFragment(new SelectObjectsTab1Fragment(), "Legs");
         adapter.addFragment(new SelectObjectsTab2Fragment(), "Chest");
         adapter.addFragment(new SelectObjectsTab3Fragment(), "Core");
