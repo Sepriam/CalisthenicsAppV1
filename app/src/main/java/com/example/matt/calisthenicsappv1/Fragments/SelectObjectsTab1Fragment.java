@@ -32,6 +32,8 @@ public class SelectObjectsTab1Fragment extends Fragment {
 
         //btrTEST = (Button) view.findViewById(R.id.button1);
 
+
+
         ListAdapter myListAdapter = new SelectObjCustomAdapter1(getContext(), exercisesList);
         lvTEST = (ListView) view.findViewById(R.id.listview1);
         lvTEST.setAdapter(myListAdapter);

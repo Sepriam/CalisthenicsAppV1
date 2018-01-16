@@ -64,10 +64,10 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
 
     // Database Name
-    private static final String DATABASE_NAME = "exerciseDatabase.db";
+    private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
 
     // Contacts table name
     private static final String TABLE_EXERCISES = "exercises";
@@ -96,7 +96,6 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 + KEY_UPPER_REP_RANGE + " TEXT," + KEY_SUGGESTED_TIME + " TEXT,"
                 + KEY_SELECTED + " TEXT" + ")";
 
-        //add all values to table
 
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
@@ -113,6 +112,43 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     }
 
+
+    public void AddExerciseToDB(ExerciseObject _newexercise)
+    {
+        //open connection to db to write to it
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        //VALUE ORDER: NAME > MUSCLE_GROUP, DIFFICULTY, LOWER_REP_RANGE, UPPER_REP_RANGE, SUGGESTED_TIME, SELECTED
+
+        //NOTED -- All the values passed should be strings
+        //Must convert to string: LowerRepRange, UpperRepRange, SuggestedTime and isSelected
+        values.put(KEY_NAME, _newexercise.getExerciseName());
+        values.put(KEY_MUSCLE_GROUP, _newexercise.getMuscleGroup());
+        values.put(KEY_DIFFICULTY, _newexercise.getDifficulty());
+        values.put(KEY_LOWER_REP_RANGE, String.valueOf(_newexercise.getLowerRepRange()));
+        values.put(KEY_UPPER_REP_RANGE, String.valueOf(_newexercise.getUpperRepRange()));
+        values.put(KEY_SUGGESTED_TIME, String.valueOf(_newexercise.getSuggestedTime()));
+        values.put(KEY_SELECTED, String.valueOf(_newexercise.isSelected()));
+
+        //inserting row
+        db.insert(TABLE_EXERCISES, null, values);
+        db.close();
+    }
+
+
+    public void setDeafaultValues()
+    {
+        AddExerciseToDB(new ExerciseObject("Handstand Press ups", "Shoulders", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Handstand Kick-Ups", "Shoulders", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Military Press", "Shoulders", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Dumbbell Shoulder Press", "Shoulders", "Intermediate",
+                6, 12, 0));
+    }
 
     //If one item needs to be returned from the exercise table
     public ExerciseObject getExercise(String _exerciseName)
@@ -248,4 +284,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
         //DON'T NEED TO RETURN ANYTHING AS JUST UPDATING DATABASE WITH 1 NEW VALUE
 
     }
+
+
+
 }
