@@ -1,9 +1,12 @@
 package com.example.matt.calisthenicsappv1.Activities;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
@@ -13,10 +16,14 @@ import java.util.List;
 
 public class StartPage extends AppCompatActivity {
 
+    private Button changePageBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
+
+        changePageBtn = (Button) findViewById(R.id.toSelectPageButton);
 
         AppDBHandler db = new AppDBHandler(this);
 
@@ -60,4 +67,12 @@ public class StartPage extends AppCompatActivity {
             Log.d("Exercise: ", log);
         }
     }
+
+    public void ToSelectPage(View v)
+    {
+        Intent intent = new Intent(this, SelectObjectsAct.class);
+        startActivity(intent);
+
+    }
+
 }

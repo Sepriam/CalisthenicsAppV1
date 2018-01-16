@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.matt.calisthenicsappv1.Adapters.SectionsPageAdapter;
+import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab1Fragment;
 import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab2Fragment;
 import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab3Fragment;

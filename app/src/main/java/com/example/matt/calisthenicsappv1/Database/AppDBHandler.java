@@ -222,6 +222,51 @@ public class AppDBHandler extends SQLiteOpenHelper{
     }
 
 
+    // Getting All Exercises with specific MuscleGroup
+    public List<ExerciseObject> getAllCExercises(String _muscleGroup) {
+        List<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a new ExerciseObject
+                ExerciseObject eObject = new ExerciseObject();
+
+                //Setting the variables of object to current query row
+                eObject.setExerciseName(cursor.getString(0));
+                eObject.setMuscleGroup(cursor.getString(1));
+                eObject.setDifficulty(cursor.getString(2));
+                eObject.setLowerRepRange(Integer.parseInt(cursor.getString(3)));
+                eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
+                eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
+                //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+
+                //if the muscleGroup of exercise is same as one passed in params, then add to list
+                 if (eObject.getMuscleGroup().equals(_muscleGroup))
+                 {
+                     //Adding the exerciseObject to the list
+                     exerciseList.add(eObject);
+                 }
+
+
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //close entry to database
+        db.close();
+
+        // return exercise list
+        return exerciseList;
+    }
+
+
     // Updating single exercise
     public int updateExercise(ExerciseObject exerciseObject) {
         //allow editing on database
