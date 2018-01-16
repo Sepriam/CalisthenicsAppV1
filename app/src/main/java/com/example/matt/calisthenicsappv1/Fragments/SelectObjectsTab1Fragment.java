@@ -54,22 +54,10 @@ public class SelectObjectsTab1Fragment extends Fragment {
             }
 
 
-        //creating a string array that contains names of exercises for use in customListView
-        String[] ExerciseNameArray = new String[ExerciseList.size()];
-
-        //create an int to increment through array elements
-        int incrementArray = 0;
-
-        for (ExerciseObject e : ExerciseList)
-        {
-            //assign name array element to exercise name in object
-            ExerciseNameArray[incrementArray] = e.getExerciseName();
-            //increment the array for next assignment
-            incrementArray++;
-        }
+        ArrayList<ExerciseObject> arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
 
 
-        ListAdapter myListAdapter = new SelectObjCustomAdapter1(getContext(), ExerciseNameArray);
+        ListAdapter myListAdapter = new SelectObjCustomAdapter1(getContext(), R.layout.activity_list_view_element, arrayListExercises);
         lvTEST = (ListView) view.findViewById(R.id.listview1);
         lvTEST.setAdapter(myListAdapter);
 

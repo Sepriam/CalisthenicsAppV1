@@ -64,7 +64,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 7;
 
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
@@ -132,6 +132,13 @@ public class AppDBHandler extends SQLiteOpenHelper{
         values.put(KEY_SUGGESTED_TIME, String.valueOf(_newexercise.getSuggestedTime()));
         values.put(KEY_SELECTED, String.valueOf(_newexercise.isSelected()));
 
+
+        String log = "EName: " + _newexercise.getExerciseName() + " ,MGroup: " + _newexercise.getMuscleGroup() + " ,Difficulty: " + _newexercise.getDifficulty() +
+                " ,LowerRepRange: " + String.valueOf(_newexercise.getLowerRepRange()) + " ,UpperRepRange: " + String.valueOf(_newexercise.getUpperRepRange()) +
+                " ,SuggestedTime: " + String.valueOf(_newexercise.getSuggestedTime()) + " ,Selected: " + String.valueOf(_newexercise.isSelected());
+        // Writing Contacts to log
+        Log.d("Exercise: ", "Exercise Input to Table: \n" +log);
+
         //inserting row
         db.insert(TABLE_EXERCISES, null, values);
         db.close();
@@ -140,7 +147,8 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     public void setDeafaultValues()
     {
-        AddExerciseToDB(new ExerciseObject("Handstand Press ups", "Shoulders", "Intermediate",
+        //Shoulder Values
+        AddExerciseToDB(new ExerciseObject("Handstand Press ups", "Shoulders", "Advanced",
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Handstand Kick-Ups", "Shoulders", "Intermediate",
                 6, 12, 0));
@@ -148,6 +156,29 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Dumbbell Shoulder Press", "Shoulders", "Intermediate",
                 6, 12, 0));
+
+
+        //Chest Values
+        AddExerciseToDB(new ExerciseObject("Push-ups", "Chest", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Dips", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Bench Dips", "Chest", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("TypeWriter Push-ups", "Chest", "Advanced",
+                6, 12, 0));
+
+
+        //Back Values
+        AddExerciseToDB(new ExerciseObject("Pull-ups", "Back", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("One-arm Pull-ups", "Back", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Australian Pull-ups", "Back", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Bent-over Dumbbell Row", "Back", "Intermediate",
+                6, 12, 0));
+
     }
 
     //If one item needs to be returned from the exercise table
@@ -300,19 +331,22 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
         ContentValues cv = new ContentValues();
 
+        cv.put(KEY_NAME, exerciseObject.getExerciseName());
         cv.put(KEY_MUSCLE_GROUP, exerciseObject.getMuscleGroup());
         cv.put(KEY_DIFFICULTY, exerciseObject.getDifficulty());
         cv.put(KEY_LOWER_REP_RANGE, String.valueOf(exerciseObject.getLowerRepRange()));
         cv.put(KEY_UPPER_REP_RANGE, String.valueOf(exerciseObject.getUpperRepRange()));
         cv.put(KEY_SUGGESTED_TIME, String.valueOf(exerciseObject.getSuggestedTime()));
 
-        if(!exerciseObject.isSelected())
+        if(String.valueOf(exerciseObject.isSelected()).equals("false"))
         {
             cv.put(KEY_SELECTED, "true");
+            exerciseObject.setSelected(true);
         }
         else
         {
             cv.put(KEY_SELECTED, "false");
+            exerciseObject.setSelected(false);
         }
 
         String log = "Exercise Name: " + exerciseObject.getExerciseName() + " ,isSelected new Value:"
@@ -320,14 +354,12 @@ public class AppDBHandler extends SQLiteOpenHelper{
         // Writing Contacts to log
         Log.d("Updated_Selected:", log);
 
-        //close entry to database
-        db.close();
 
         db.update(TABLE_EXERCISES, cv, KEY_NAME + " = ?",
                 new String[] { exerciseObject.getExerciseName() });
 
         //DON'T NEED TO RETURN ANYTHING AS JUST UPDATING DATABASE WITH 1 NEW VALUE
-
+        db.close();
     }
 
 
