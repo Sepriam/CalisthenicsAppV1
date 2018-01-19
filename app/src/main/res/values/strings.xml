@@ -4,4 +4,8 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="Select">Select</string>
+    <string name="enter_number_of_required_exercises">Enter Number of Required Exercises:</string>
+    <string name="NumOfExercisesEdittextHint">(0-9)</string>
+    <string name="display_suggested_time_repetitions_textview">Display Suggested Time / Repetitions?</string>
+    <string name="done_RandomDoneButtonResource">Done</string>
 </resources>

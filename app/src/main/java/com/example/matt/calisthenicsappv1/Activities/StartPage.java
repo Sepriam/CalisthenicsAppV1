@@ -75,4 +75,10 @@ public class StartPage extends AppCompatActivity {
 
     }
 
+    public void ToRandomSettingPage(View v)
+    {
+        Intent intent = new Intent(this, RandomRoutineSettingsAct.class);
+        startActivity(intent);
+    }
+
 }

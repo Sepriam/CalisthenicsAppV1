@@ -113,7 +113,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
     }
 
 
-    public void AddExerciseToDB(ExerciseObject _newexercise)
+    private void AddExerciseToDB(ExerciseObject _newexercise)
     {
         //open connection to db to write to it
         SQLiteDatabase db = this.getWritableDatabase();
@@ -363,5 +363,156 @@ public class AppDBHandler extends SQLiteOpenHelper{
     }
 
 
+    //retrieving all exercises across multiple muscl groups
+    public List<ExerciseObject> getAllMuscleGroupExercises(String[] _muscleGroups)
+    {
+        //todo:
+        //go to sql database
+        //check if each exercise has muscle group within string array passed
+        //retrieve al these and place into list of exercise objects
+
+        List<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a new ExerciseObject
+                ExerciseObject eObject = new ExerciseObject();
+
+                //Setting the variables of object to current query row
+                eObject.setExerciseName(cursor.getString(0));
+                eObject.setMuscleGroup(cursor.getString(1));
+                eObject.setDifficulty(cursor.getString(2));
+                eObject.setLowerRepRange(Integer.parseInt(cursor.getString(3)));
+                eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
+                eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
+                //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+
+                //if the muscleGroup of exercise is same as one passed in params, then add to list
+                for (int i = 0 ; i< _muscleGroups.length - 1; i++) {
+                    if (eObject.getMuscleGroup().equals(_muscleGroups[i])) {
+                        //Adding the exerciseObject to the list
+                        exerciseList.add(eObject);
+
+
+                        //note -- not the most efficient way of doing the search, sufficient for now though!9.,
+                    }
+                }
+
+
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //close entry to database
+        db.close();
+
+        // return exercise list
+        return exerciseList;
+
+
+    }
+
+
+    //retrieving all the exercises from sql database that have specific difficulty setting
+    //need to log these for now....
+    public List<ExerciseObject> getDifficultyExercises(String _difficulty)
+    {
+        if (_difficulty != "Easy" || _difficulty != "Intermediate" || _difficulty != "Advanced")
+        {
+            List<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+            // Select All Query
+            String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(selectQuery, null);
+
+            //moveToFirst will 'move' cursor to first item in database
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    //creating a new ExerciseObject
+                    ExerciseObject eObject = new ExerciseObject();
+
+                    //Setting the variables of object to current query row
+                    eObject.setExerciseName(cursor.getString(0));
+                    eObject.setMuscleGroup(cursor.getString(1));
+                    eObject.setDifficulty(cursor.getString(2));
+                    eObject.setLowerRepRange(Integer.parseInt(cursor.getString(3)));
+                    eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
+                    eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
+                    //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+
+                    //go through each exercise
+                    //if exercise's difficult matches that passed, then add to list
+                    if (eObject.getDifficulty().contains(_difficulty))
+                    {
+                        exerciseList.add(eObject);
+                    }
+
+
+                } while (cursor.moveToNext());
+                //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+            }
+
+            //close entry to database
+            db.close();
+
+            // return exercise list
+            return exerciseList;
+
+        }
+        else
+        {
+            //do the exact same thing, just log that exercise X does not have the right difficulty wording
+
+            List<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+            // Select All Query
+            String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(selectQuery, null);
+
+            //moveToFirst will 'move' cursor to first item in database
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    //creating a new ExerciseObject
+                    ExerciseObject eObject = new ExerciseObject();
+
+                    //Setting the variables of object to current query row
+                    eObject.setExerciseName(cursor.getString(0));
+                    eObject.setMuscleGroup(cursor.getString(1));
+                    eObject.setDifficulty(cursor.getString(2));
+                    eObject.setLowerRepRange(Integer.parseInt(cursor.getString(3)));
+                    eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
+                    eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
+                    //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+
+                    //go through each exercise
+                    //if exercise's difficult matches that passed, then add to list
+                    if (eObject.getDifficulty().contains(_difficulty))
+                    {
+                        exerciseList.add(eObject);
+                    }
+
+
+                } while (cursor.moveToNext());
+                //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+            }
+
+            //close entry to database
+            db.close();
+
+            // return exercise list
+            return exerciseList;
+        }
+    }
 
 }

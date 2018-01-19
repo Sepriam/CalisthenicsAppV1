@@ -93,6 +93,11 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
 
         //The CustomView is the one we created above
 
+        //AppDBHandler db = new AppDBHandler(getContext());
+        /*String ExerciseName = singleExercise.getExerciseName();
+        singleExercise = db.getExercise(ExerciseName);
+        */
+        //db.close();
 
         holder.exerciseName.setText(singleExercise.getExerciseName());
         holder.checkBox.setChecked(singleExercise.isSelected());
