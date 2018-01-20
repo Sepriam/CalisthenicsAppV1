@@ -57,7 +57,7 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
         {
             LayoutInflater myInflater = LayoutInflater.from(getContext());
 
-            /*View customView*/ convertView = myInflater.inflate(R.layout.CustomLV_choose_exercise_element, parent, false);
+            /*View customView*/ convertView = myInflater.inflate(R.layout.customlv_choose_exercise_element, parent, false);
 
             holder = new ViewHolder();
             holder.exerciseName = (TextView) convertView.findViewById(R.id.myTextview);
