@@ -24,11 +24,10 @@ import java.util.List;
  */
 
 public class SelectObjectsTab1Fragment extends Fragment {
-    private static final String TAG = "SelectObjectsTab1FragmentSelectObjectsTab1Fragment";
+    private static final String TAG = "SelectObjectsTab1Fragment";
 
 
 
-    private Button btrTEST;
     private ListView lvTEST;
 
     @Nullable
@@ -36,7 +35,7 @@ public class SelectObjectsTab1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_select_objects1,container,false);
 
-        //btrTEST = (Button) view.findViewById(R.id.button1);
+        String log ="";
 
         //createNewLink to database?
         AppDBHandler db = new AppDBHandler(getContext());
@@ -45,33 +44,22 @@ public class SelectObjectsTab1Fragment extends Fragment {
         List<ExerciseObject> ExerciseList = db.getAllCExercises("Shoulders");
 
         //Log the exercises inside the shoulder exercise list
-        for (ExerciseObject cn : ExerciseList) {
-                String log = "EName: " + cn.getExerciseName() + " ,MGroup: " + cn.getMuscleGroup() + " ,Difficulty: " + cn.getDifficulty() +
+        for (ExerciseObject cn : ExerciseList)
+        {
+                log = log + "EName: " + cn.getExerciseName() + " ,MGroup: " + cn.getMuscleGroup() + " ,Difficulty: " + cn.getDifficulty() +
                         " ,LowerRepRange: " + String.valueOf(cn.getLowerRepRange()) + " ,UpperRepRange: " + String.valueOf(cn.getUpperRepRange()) +
-                        " ,SuggestedTime: " + String.valueOf(cn.getSuggestedTime()) + " ,Selected: " + String.valueOf(cn.isSelected());
-                // Writing Contacts to log
-                Log.d("Exercise: ", "Shoulder Exercise List Contains: \n" +log);
-            }
+                        " ,SuggestedTime: " + String.valueOf(cn.getSuggestedTime()) + " ,Selected: " + String.valueOf(cn.isSelected()) + "\n";
+        }
+        // Writing Contacts to log
+        Log.d("Exercise: ", "Shoulder Exercise List Contains: \n" +log);
 
-
+        //pushing all the exercises from list to arraylist for display in LV
         ArrayList<ExerciseObject> arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
 
-
+        //Setting adapter to custom listview with previously created arraylist
         ListAdapter myListAdapter = new SelectObjCustomAdapter1(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
         lvTEST = (ListView) view.findViewById(R.id.listview1);
         lvTEST.setAdapter(myListAdapter);
-
-
-
-        if (savedInstanceState == null)
-        {
-
-        }
-        else
-        {
-
-        }
-
 
         return view;
     }

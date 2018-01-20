@@ -27,6 +27,7 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
 
     public ArrayList<ExerciseObject> exerciseList;
 
+    AppDBHandler db = new AppDBHandler(getContext());
 
     public SelectObjCustomAdapter1(@NonNull Context context, @LayoutRes int resource, /*This is the resource we're passing in*/ ArrayList<ExerciseObject> _exerciseList) {
 
@@ -47,11 +48,14 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
     public View getView(int position, View convertView, ViewGroup parent) {
 
 
-
         ViewHolder holder = null;
 
         //logging the value of the position of item
         Log.v("ConvertView", String.valueOf(position));
+
+        //the position is just the position of the item in the list
+        ExerciseObject singleExercise = getItem(position);
+        singleExercise = db.getExercise(singleExercise.getExerciseName());
 
         if (convertView == null)
         {
@@ -69,13 +73,31 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
                 @Override
                 public void onClick(View view) {
                     CheckBox cb = (CheckBox) view;
+                    //get the associated name from tag
+                    //grab this exercise from db
+                    //update this exercise
+
                     ExerciseObject _exercise = (ExerciseObject) cb.getTag();
+
+                    if (_exercise == null)
+                    {
+                        String log = "Null Object";
+                        // Writing Contacts to log
+                        Log.d("Didn't grab exercise as", log);
+                    }
+                    else
+                    {
+                        String log = "Exercise Name: " + _exercise.getExerciseName();
+                        // Writing Contacts to log
+                        Log.d("Contains:", log);
+                    }
+
 
                     //We have the object,
                     //next thing to do is to.....
                     //Pass the name into the update method which should update the isselected option
                     //createNewLink to database?
-                    AppDBHandler db = new AppDBHandler(getContext());
+                    //AppDBHandler db = new AppDBHandler(getContext());
                     db.updateIsSelected(_exercise);
                 }
             });
@@ -86,17 +108,6 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
             holder = (ViewHolder) convertView.getTag();
         }
 
-
-        //the position is just the position of the item in the list
-        ExerciseObject singleExercise = getItem(position);
-
-        //The CustomView is the one we created above
-
-        //AppDBHandler db = new AppDBHandler(getContext());
-        /*String ExerciseName = singleExercise.getExerciseName();
-        singleExercise = db.getExercise(ExerciseName);
-        */
-        //db.close();
 
         holder.exerciseName.setText(singleExercise.getExerciseName());
         holder.checkBox.setChecked(singleExercise.isSelected());

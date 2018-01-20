@@ -149,12 +149,12 @@ public class ExerciseObject implements Serializable{
         this.SuggestedTime = Integer.parseInt(_suggestedTime);
 
         //set IsSelected to default false as we will not need to select just one CURRENTLY
-        this.IsSelected = false;
+        this.IsSelected = Boolean.parseBoolean(_selected);
 
         String log = "Name: "+_exerciseName+ " ,MuscleGroup: " + _muscleGroup + " ,Difficulty: " + _difficulty + " ,Lower Rep Range: " + _lowerRepRange
-                + " ,Upper Rep Range: " + _upperRepRange + " ,SuggestedTime: " + _suggestedTime;
+                + " ,Upper Rep Range: " + _upperRepRange + " ,SuggestedTime: " + _suggestedTime + " ,Selected: " + _selected;
         // Writing Contacts to log
-        Log.d("Exercise: ", log);
+        Log.d("New Exercise: ", log);
 
     }
 

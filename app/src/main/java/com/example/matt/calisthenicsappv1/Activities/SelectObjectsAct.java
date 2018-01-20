@@ -27,6 +27,7 @@ import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab1Fragment;
 import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab2Fragment;
 import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab3Fragment;
+import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
 import com.example.matt.calisthenicsappv1.R;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class SelectObjectsAct extends AppCompatActivity {
 
     private ViewPager lastView;
 
-    ArrayList<String> checkedExercisesArray = new ArrayList<>();
+    ArrayList<ExerciseObject> checkedExerciseList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

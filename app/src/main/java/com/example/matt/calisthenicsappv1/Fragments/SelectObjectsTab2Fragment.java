@@ -16,6 +16,7 @@ import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
 import com.example.matt.calisthenicsappv1.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,13 +28,14 @@ public class SelectObjectsTab2Fragment extends Fragment {
 
 
 
-    private Button btrTEST;
     private ListView lvTEST;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_select_objects3,container,false);
+       View view = inflater.inflate(R.layout.fragment_select_objects2,container,false);
+
+        String log = "";
 
         //createNewLink to database?
         AppDBHandler db = new AppDBHandler(getContext());
@@ -43,32 +45,22 @@ public class SelectObjectsTab2Fragment extends Fragment {
 
         //Log the exercises inside the shoulder exercise list
         for (ExerciseObject cn : ExerciseList) {
-            String log = "EName: " + cn.getExerciseName() + " ,MGroup: " + cn.getMuscleGroup() + " ,Difficulty: " + cn.getDifficulty() +
+            log = log + "EName: " + cn.getExerciseName() + " ,MGroup: " + cn.getMuscleGroup() + " ,Difficulty: " + cn.getDifficulty() +
                     " ,LowerRepRange: " + String.valueOf(cn.getLowerRepRange()) + " ,UpperRepRange: " + String.valueOf(cn.getUpperRepRange()) +
-                    " ,SuggestedTime: " + String.valueOf(cn.getSuggestedTime()) + " ,Selected: " + String.valueOf(cn.isSelected());
-            // Writing Contacts to log
-            Log.d("Exercise: ", "Chest Exercise List Contains: \n" +log);
+                    " ,SuggestedTime: " + String.valueOf(cn.getSuggestedTime()) + " ,Selected: " + String.valueOf(cn.isSelected()) + "\n";
+
         }
 
+        // Writing Contacts to log
+        Log.d("Exercise: ", "Chest Exercise List Contains: \n" +log);
 
         //creating a string array that contains names of exercises for use in customListView
-        String[] ExerciseNameArray2 = new String[ExerciseList.size()];
+        ArrayList<ExerciseObject> arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
 
-        //create an int to increment through array elements
-        int incrementArray = 0;
-
-        for (ExerciseObject e : ExerciseList)
-        {
-            //assign name array element to exercise name in object
-            ExerciseNameArray2[incrementArray] = e.getExerciseName();
-            //increment the array for next assignment
-            incrementArray++;
-        }
-
-
-        ListAdapter myListAdapter = new SelectObjCustomAdapter2(getContext(), ExerciseNameArray2);
-        lvTEST = (ListView) view.findViewById(R.id.listview2);
-        lvTEST.setAdapter(myListAdapter);
+        //Setting adapter to custom listview with previously created arraylist
+        ListAdapter myListAdapter2 = new SelectObjCustomAdapter2(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
+        lvTEST = (ListView) view.findViewById(R.id.listview3);
+        lvTEST.setAdapter(myListAdapter2);
 
 
         return view;

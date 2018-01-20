@@ -283,7 +283,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         //moveToFirst will 'move' cursor to first item in database
@@ -362,7 +362,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
         cv.put(KEY_UPPER_REP_RANGE, String.valueOf(exerciseObject.getUpperRepRange()));
         cv.put(KEY_SUGGESTED_TIME, String.valueOf(exerciseObject.getSuggestedTime()));
 
-        if(String.valueOf(exerciseObject.isSelected()).equals("false"))
+        if(!exerciseObject.isSelected())
         {
             cv.put(KEY_SELECTED, "true");
             exerciseObject.setSelected(true);
@@ -379,8 +379,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
         Log.d("Updated_Selected:", log);
 
 
-        db.update(TABLE_EXERCISES, cv, KEY_NAME + " = ?",
-                new String[] { exerciseObject.getExerciseName() });
+        db.update(TABLE_EXERCISES, cv, KEY_NAME + " = ?", new String[] {exerciseObject.getExerciseName()});
 
         //DON'T NEED TO RETURN ANYTHING AS JUST UPDATING DATABASE WITH 1 NEW VALUE
         db.close();
