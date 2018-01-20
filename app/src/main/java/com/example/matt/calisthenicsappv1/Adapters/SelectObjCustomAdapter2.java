@@ -23,7 +23,7 @@ public class SelectObjCustomAdapter2 extends ArrayAdapter<String>{
     public SelectObjCustomAdapter2(Context context, /*This is the resource we're passing in*/ String[] exercises) {
 
         //this will be the what the listview's element's layout will look like and from array we're passing in params above
-        super(context, R.layout.activity_list_view_element ,exercises);
+        super(context, R.layout.CustomLV_choose_exercise_element,exercises);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class SelectObjCustomAdapter2 extends ArrayAdapter<String>{
 
         LayoutInflater myInflater = LayoutInflater.from(getContext());
 
-        View customView = myInflater.inflate(R.layout.activity_list_view_element, parent, false);
+        View customView = myInflater.inflate(R.layout.CustomLV_choose_exercise_element, parent, false);
 
         //the position is just the position of the item in the list
         String singleExercise = getItem(position);

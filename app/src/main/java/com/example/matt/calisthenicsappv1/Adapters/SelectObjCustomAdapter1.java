@@ -1,7 +1,6 @@
 package com.example.matt.calisthenicsappv1.Adapters;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -58,7 +57,7 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
         {
             LayoutInflater myInflater = LayoutInflater.from(getContext());
 
-            /*View customView*/ convertView = myInflater.inflate(R.layout.activity_list_view_element, parent, false);
+            /*View customView*/ convertView = myInflater.inflate(R.layout.CustomLV_choose_exercise_element, parent, false);
 
             holder = new ViewHolder();
             holder.exerciseName = (TextView) convertView.findViewById(R.id.myTextview);

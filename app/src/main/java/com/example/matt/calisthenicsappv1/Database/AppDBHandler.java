@@ -64,7 +64,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 9;
 
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
@@ -145,17 +145,25 @@ public class AppDBHandler extends SQLiteOpenHelper{
     }
 
 
-    public void setDeafaultValues()
+    public void setDefaultValues()
     {
         //Shoulder Values
         AddExerciseToDB(new ExerciseObject("Handstand Press ups", "Shoulders", "Advanced",
                 6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Handstand Kick-Ups", "Shoulders", "Intermediate",
+        AddExerciseToDB(new ExerciseObject("Handstand Kick-Ups", "Shoulders", "Advanced",
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Military Press", "Shoulders", "Intermediate",
                 6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Dumbbell Shoulder Press", "Shoulders", "Intermediate",
+        AddExerciseToDB(new ExerciseObject("Dumbbell Shoulder Press", "Shoulders", "Easy",
                 6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Pike Hold", "Shoulders", "Easy",
+                0 , 0, 30));
+        AddExerciseToDB(new ExerciseObject("Elevated Pike Hold", "Shoulders", "Intermediate",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Pike Push-ups", "Shoulders", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Wall Walks", "Shoulders", "Advanced",
+                3, 7, 0));
 
 
         //Chest Values
@@ -167,6 +175,14 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("TypeWriter Push-ups", "Chest", "Advanced",
                 6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Bench Press", "Chest", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Straight Bar Dips", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Weighted Dips", "Chest", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Korean Dips", "Chest", "Advanced",
+                6, 12, 0));
 
 
         //Back Values
@@ -177,6 +193,14 @@ public class AppDBHandler extends SQLiteOpenHelper{
         AddExerciseToDB(new ExerciseObject("Australian Pull-ups", "Back", "Easy",
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Bent-over Dumbbell Row", "Back", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Bent-over Barbell Row", "Back", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Deadlifts", "Back", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Band Assisted Pull-ups", "Back", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Archer Australian Pull-ups", "Back", "Intermediate",
                 6, 12, 0));
 
     }

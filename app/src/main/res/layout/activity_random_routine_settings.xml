@@ -18,8 +18,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/difficultyTextview"
-            android:text="Select Difficulty:"/>
+            android:text="@string/select_difficulty_Textview"/>
 
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/selectDifficultySpinner" />
         <!--
         need to insert the drop down list here...
         create a spinner
@@ -76,4 +81,12 @@
         android:text="@string/done_RandomDoneButtonResource"
         android:onClick="onDoneButtonClick"
         android:id="@+id/RandomSettingsDoneBtn"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/displayRandomExercisesTV"/>
 </LinearLayout>

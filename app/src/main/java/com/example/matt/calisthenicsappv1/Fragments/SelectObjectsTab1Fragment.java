@@ -34,7 +34,7 @@ public class SelectObjectsTab1Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_select_objects,container,false);
+       View view = inflater.inflate(R.layout.fragment_select_objects1,container,false);
 
         //btrTEST = (Button) view.findViewById(R.id.button1);
 
@@ -57,7 +57,7 @@ public class SelectObjectsTab1Fragment extends Fragment {
         ArrayList<ExerciseObject> arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
 
 
-        ListAdapter myListAdapter = new SelectObjCustomAdapter1(getContext(), R.layout.activity_list_view_element, arrayListExercises);
+        ListAdapter myListAdapter = new SelectObjCustomAdapter1(getContext(), R.layout.CustomLV_choose_exercise_element, arrayListExercises);
         lvTEST = (ListView) view.findViewById(R.id.listview1);
         lvTEST.setAdapter(myListAdapter);
 

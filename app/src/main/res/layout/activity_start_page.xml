@@ -14,13 +14,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/toSelectPageButton"
         android:onClick="ToSelectPage"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="@string/custom_routine_Button_Navigation_text"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toRandomSettingActButton"
+        android:onClick="ToRandomSettingPage"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="@string/Random_routine_Button_Navigation_Text"/>
 
 </LinearLayout>

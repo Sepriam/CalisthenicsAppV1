@@ -8,4 +8,13 @@
     <string name="NumOfExercisesEdittextHint">(0-9)</string>
     <string name="display_suggested_time_repetitions_textview">Display Suggested Time / Repetitions?</string>
     <string name="done_RandomDoneButtonResource">Done</string>
+    <string name="select_difficulty_Textview">Select Difficulty:</string>
+    <string name="custom_routine_Button_Navigation_text">Custom Routine</string>
+    <string name="Random_routine_Button_Navigation_Text">Random Routine</string>
+    <string-array name="Difficulty_Spinner_Array">
+        <item>Easy</item>
+        <item>Intermediate</item>
+        <item>Advanced</item>
+    </string-array>
+
 </resources>

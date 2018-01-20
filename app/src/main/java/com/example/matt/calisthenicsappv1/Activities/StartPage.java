@@ -44,7 +44,7 @@ public class StartPage extends AppCompatActivity {
             Log.d("Insert: ", "No Exercises found, Inserting default exercises..");
 
             //add default values to sqlite database
-            db.setDeafaultValues();
+            db.setDefaultValues();
 
 
             // Reading all contacts

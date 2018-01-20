@@ -2,11 +2,13 @@ package com.example.matt.calisthenicsappv1.Objects;
 
 import android.util.Log;
 
+import java.io.Serializable;
+
 /**
  * Created by Matt on 07/01/2018.
  */
 
-public class ExerciseObject {
+public class ExerciseObject implements Serializable{
 
     /*
     Requirements:
