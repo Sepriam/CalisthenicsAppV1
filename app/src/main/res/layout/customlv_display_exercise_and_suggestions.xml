@@ -6,29 +6,33 @@
     android:orientation="horizontal">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:id="@+id/suggestionsCLVTV1"
         android:text="Name"
-        android:layout_weight="0.25"/>
+        android:layout_weight="0.2"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:id="@+id/suggestionsCLVTV2"
         android:text="Muscle Group"
-        android:layout_weight="0.25"/>
+        android:layout_weight="0.3"
+        android:layout_gravity="center_horizontal"/>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:id="@+id/suggestionsCLVTV3"
         android:text="Suggested Rep-Range"
-        android:layout_weight="0.25"/>
+        android:layout_weight="0.35"
+        android:layout_gravity="center_horizontal"/>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:id="@+id/suggestionsCLVTV4"
         android:text="Suggested time"
-        android:layout_weight="0.25"/>
+        android:layout_weight="0.35"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
