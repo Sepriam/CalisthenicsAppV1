@@ -39,6 +39,7 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
 
     public class ViewHolder
     {
+        TextView exerciseDifficulty;
         TextView exerciseName;
         CheckBox checkBox;
     }
@@ -66,6 +67,7 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
             holder = new ViewHolder();
             holder.exerciseName = (TextView) convertView.findViewById(R.id.myTextview);
             holder.checkBox = (CheckBox) convertView.findViewById(R.id.myCheckbox);
+            holder.exerciseDifficulty = (TextView) convertView.findViewById(R.id.myDifficultyTV);
 
             convertView.setTag(holder);
 
@@ -111,6 +113,7 @@ public class SelectObjCustomAdapter1 extends ArrayAdapter<ExerciseObject>{
 
         holder.exerciseName.setText(singleExercise.getExerciseName());
         holder.checkBox.setChecked(singleExercise.isSelected());
+        holder.exerciseDifficulty.setText(singleExercise.getDifficulty());
 
         holder.checkBox.setTag(singleExercise);
 

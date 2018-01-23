@@ -7,13 +7,19 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/myCheckbox"
-        android:layout_weight="0.1"/>
+        android:id="@+id/myCheckbox"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/myTextview"
-        android:layout_weight="0.9"/>
+        android:layout_weight="0.2"
+        android:textAlignment="center"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:id="@+id/myDifficultyTV"
+        android:textAlignment="center"/>
 </LinearLayout>

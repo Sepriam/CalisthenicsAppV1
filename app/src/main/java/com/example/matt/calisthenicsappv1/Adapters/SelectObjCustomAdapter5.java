@@ -23,13 +23,13 @@ import java.util.ArrayList;
 
 //note to self - Context is basically just background infomation
 
-public class SelectObjCustomAdapter2 extends ArrayAdapter<ExerciseObject>{
+public class SelectObjCustomAdapter5 extends ArrayAdapter<ExerciseObject>{
 
     public ArrayList<ExerciseObject> exerciseList;
 
     AppDBHandler db = new AppDBHandler(getContext());
 
-    public SelectObjCustomAdapter2(@NonNull Context context, @LayoutRes int resource, /*This is the resource we're passing in*/ ArrayList<ExerciseObject> _exerciseList) {
+    public SelectObjCustomAdapter5(@NonNull Context context, @LayoutRes int resource, /*This is the resource we're passing in*/ ArrayList<ExerciseObject> _exerciseList) {
 
         //this will be the what the listview's element's layout will look like and from array we're passing in params above
         super(context, resource, _exerciseList);
@@ -44,10 +44,12 @@ public class SelectObjCustomAdapter2 extends ArrayAdapter<ExerciseObject>{
         CheckBox checkBox;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        SelectObjCustomAdapter2.ViewHolder holder = null;
+
+        ViewHolder holder = null;
 
         //logging the value of the position of item
         Log.v("ConvertView", String.valueOf(position));
@@ -62,7 +64,7 @@ public class SelectObjCustomAdapter2 extends ArrayAdapter<ExerciseObject>{
 
             /*View customView*/ convertView = myInflater.inflate(R.layout.customlv_choose_exercise_element, parent, false);
 
-            holder = new SelectObjCustomAdapter2.ViewHolder();
+            holder = new ViewHolder();
             holder.exerciseName = (TextView) convertView.findViewById(R.id.myTextview);
             holder.checkBox = (CheckBox) convertView.findViewById(R.id.myCheckbox);
             holder.exerciseDifficulty = (TextView) convertView.findViewById(R.id.myDifficultyTV);
@@ -105,7 +107,7 @@ public class SelectObjCustomAdapter2 extends ArrayAdapter<ExerciseObject>{
         }
         else
         {
-            holder = (SelectObjCustomAdapter2.ViewHolder) convertView.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
 
 

@@ -21,7 +21,8 @@
             android:label="@string/title_activity_select_objects"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.RandomRoutineSettingsAct" />
-        <activity android:name=".Activities.DisplayRandomRoutineAct"></activity>
+        <activity android:name=".Activities.DisplayRandomRoutineAct" />
+        <activity android:name=".Activities.DisplayCustomRoutineAct"></activity>
     </application>
 
 </manifest>

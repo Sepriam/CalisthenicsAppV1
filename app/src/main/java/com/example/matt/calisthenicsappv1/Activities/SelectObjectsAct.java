@@ -2,6 +2,7 @@ package com.example.matt.calisthenicsappv1.Activities;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -24,13 +25,12 @@ import android.widget.TextView;
 
 import com.example.matt.calisthenicsappv1.Adapters.SectionsPageAdapter;
 import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
-import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab1Fragment;
-import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab2Fragment;
-import com.example.matt.calisthenicsappv1.Fragments.SelectObjectsTab3Fragment;
+import com.example.matt.calisthenicsappv1.Fragments.*;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
 import com.example.matt.calisthenicsappv1.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SelectObjectsAct extends AppCompatActivity {
 
@@ -109,6 +109,8 @@ public class SelectObjectsAct extends AppCompatActivity {
         adapter.addFragment(new SelectObjectsTab1Fragment(), "Shoulders");
         adapter.addFragment(new SelectObjectsTab2Fragment(), "Chest");
         adapter.addFragment(new SelectObjectsTab3Fragment(), "Back");
+        adapter.addFragment(new SelectObjectsTab4Fragment(), "Arms");
+        adapter.addFragment(new SelectObjectsTab5Fragment(), "Core");
         viewPager.setAdapter(adapter);
     }
 
@@ -124,6 +126,43 @@ public class SelectObjectsAct extends AppCompatActivity {
         //AppDBHandler db = new AppDBHandler(this);
 
         //db.returnTrueExercises();
+
+    }
+
+    public void _PassCustomRoutineToDisplay(View view)
+    {
+        AppDBHandler db = new AppDBHandler(this);
+
+
+        /*ArrayList<ExerciseObject> exerciseListToPass =  new ArrayList<>();
+
+        //transfer the first x amount of exercises into new exercise list
+        for (int i = 0; i < numOfExercises; i++)
+        {
+            //note -- not very efficient for memory usage
+            //this will transfer only x amount
+            exerciseListToPass.add(difficultyExerciseList.get(i));
+        }
+
+        //clear the difficultyExerciseList just ot clear memory..
+        difficultyExerciseList.clear();*/
+
+        ArrayList<ExerciseObject> selectExercisesList = new ArrayList<>();
+
+        List<ExerciseObject> tempList = db.getAllSelectedExercises();
+
+        for (int i = 0; i < tempList.size()-1; i++)
+        {
+            selectExercisesList.add(tempList.get(i));
+        }
+
+        tempList.clear();
+
+        Intent i = new Intent(this, DisplayCustomRoutineAct.class);
+        Bundle passBundle = new Bundle();
+        passBundle.putSerializable("CheckedExerciseList", selectExercisesList);
+        i.putExtras(passBundle);
+        startActivity(i);
 
     }
 }

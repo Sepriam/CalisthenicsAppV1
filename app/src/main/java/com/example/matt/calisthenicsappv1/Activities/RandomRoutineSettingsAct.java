@@ -138,10 +138,10 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         difficultyExerciseList.clear();
 
 
-        for(ExerciseObject e : exerciseListToPass)
+        /*for(ExerciseObject e : exerciseListToPass)
         {
             displayRandomExercisesTV.append("Exercise: " + e.getExerciseName() + "\n");
-        }
+        }*/
 
 
         Intent i = new Intent(this, DisplayRandomRoutineAct.class);
