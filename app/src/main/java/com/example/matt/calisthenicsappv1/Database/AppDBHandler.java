@@ -152,10 +152,6 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Handstand Kick-Ups", "Shoulders", "Advanced",
                 6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Military Press", "Shoulders", "Intermediate",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Dumbbell Shoulder Press", "Shoulders", "Easy",
-                6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Pike Hold", "Shoulders", "Easy",
                 0 , 0, 30));
         AddExerciseToDB(new ExerciseObject("Elevated Pike Hold", "Shoulders", "Intermediate",
@@ -164,6 +160,38 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Wall Walks", "Shoulders", "Advanced",
                 3, 7, 0));
+        AddExerciseToDB(new ExerciseObject("Elevated Pike Push-ups", "Shoulders", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Handstand Hold", "Shoulders", "Intermediate",
+                0, 0, 45));
+        AddExerciseToDB(new ExerciseObject("Handstand Shoulder Taps", "Shoulders", "Advanced",
+                8, 16, 0));
+        AddExerciseToDB(new ExerciseObject("Straight Arm Plank Shoulder Taps", "Shoulders", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Shoulder To Shoulder", "Shoulders", "Intermediate",
+                4, 10, 0));
+        AddExerciseToDB(new ExerciseObject("One-Arm Handstand Hold", "Shoulders", "Advanced",
+                0, 0, 20));
+        AddExerciseToDB(new ExerciseObject("Handstand Press", "Shoulders", "Advanced",
+                3, 7, 0));
+        AddExerciseToDB(new ExerciseObject("Handstand Press Negative", "Shoulders", "Intermediate",
+                3, 7, 0));
+        AddExerciseToDB(new ExerciseObject("Wall Plank", "Shoulders", "Intermediate",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Low-to-High Plank", "Shoulders", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Tuck Planche Hold", "Shoulders", "Advanced",
+                0, 0, 10));
+
+        /*
+        @weights:
+        bumbell shoulder press
+        military press
+
+        @rings:
+        hanging inverted shoulder shrugs
+        skin-the-cat
+         */
 
 
         //Chest Values
@@ -175,14 +203,55 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("TypeWriter Push-ups", "Chest", "Advanced",
                 6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Bench Press", "Chest", "Easy",
-                6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Straight Bar Dips", "Chest", "Intermediate",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Weighted Dips", "Chest", "Easy",
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Korean Dips", "Chest", "Advanced",
                 6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Wide Push-ups", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Jump Negative Dips", "Chest", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Russian Dips", "Chest", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Korean Dips", "Chest", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Incline Push-ups", "Chest", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Decline Push-ups", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Explosive Push-ups", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Diamond Push-ups", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Spiderman Push-ups", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Side-To-Side Push-ups", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Slow Dips", "Chest", "Intermediate",
+                1, 4, 0));
+        AddExerciseToDB(new ExerciseObject("Slow Push-ups", "Chest", "Intermediate",
+                1, 4, 0));
+        AddExerciseToDB(new ExerciseObject("Tuck Planche Push-ups", "Chest", "Advanced",
+                4, 10, 0));
+        AddExerciseToDB(new ExerciseObject("Hindu Push-ups", "Chest", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Single Arm Push-ups", "Chest", "Advanced",
+                6, 12, 0));
+
+        /*
+Rings:
+Ring dips
+
+Band:
+Resistance band Push-ups
+Resistance Band Dips
+
+Weight Belt:
+Weighted Dips
+
+Weights:
+Bench Press
+         */
 
 
         //Back Values
@@ -192,17 +261,178 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Australian Pull-ups", "Back", "Easy",
                 6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Bent-over Dumbbell Row", "Back", "Intermediate",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Bent-over Barbell Row", "Back", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Deadlifts", "Back", "Advanced",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Band Assisted Pull-ups", "Back", "Easy",
-                6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Archer Australian Pull-ups", "Back", "Intermediate",
                 6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Australian Chin-ups", "Back", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Single Arm Australian Pull-ups", "Back", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Chin-ups", "Back", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Pull-up hold", "Back", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Chin-up Hold", "Back", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Archer Australian Pull-ups", "Back", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Slow Pull-ups", "Back", "Intermediate",
+                1, 4, 0));
+        AddExerciseToDB(new ExerciseObject("Slow Chin-ups", "Back", "Intermediate",
+                1, 4, 0));
+        AddExerciseToDB(new ExerciseObject("Archer Pull-ups", "Back", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Jump Negative Pull-ups", "Back", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Jump Negative Chin-ups", "Back", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Muscle-ups", "Back", "Advanced",
+                4, 10, 0));
+        AddExerciseToDB(new ExerciseObject("Negative Muscle-ups", "Back", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Commando Pull-ups", "Back", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Single Arm Negative Commando Pull-ups", "Back", "Intermediate",
+                4, 8, 0));
+        AddExerciseToDB(new ExerciseObject("Head Bangers", "Back", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Tucked Front Lever Pull-ups", "Back", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("L-sit Pull-ups", "Back", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Supermans", "Back", "Easy",
+                6, 12, 0));
 
+        /*
+        Bent over barbell row
+        bent over dumbell row
+        deadlift
+        band assisted pull ups
+        band assisted muscle-ups
+        Scapular shrugs
+        ring pull-ups
+        Supermans (weighted)
+         */
+
+        //Arms
+        AddExerciseToDB(new ExerciseObject("Skull Crushers", "Arms", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Tricep Extensions (floor)", "Arms", "Easy",
+                6, 12, 0));
+
+
+        /*
+Skull Crushers
+Tricep Extensions (floor)
+
+Resistance band Push-ups
+Resistance bands tricep pull-downs
+Resistance Band Bicep Curl
+
+Close tricep Extension
+
+Single Arm Bench dips
+
+Bear Crawl
+Bar Curls
+
+Assisted One-arm Chins-ups
+
+Rope Climbs
+Rope climbs (floor)
+
+         */
+
+
+        //Core
+
+        AddExerciseToDB(new ExerciseObject("Crunches", "Core", "Easy",
+                8, 15, 0));
+        AddExerciseToDB(new ExerciseObject("Chair Crunches", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Star Crunches", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Bicycles", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Criucifix", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Crucifix Hold", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Boat Hold", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("V-Sit Hold", "Core", "Intermediate",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("V-ups", "Core", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Leg Raises (floor)", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Lower Abdominal Raises", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Plank", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Plank Up-And-Down", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Plank Side-To-Side", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Plank Knees-To-Elbow", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Toe Touches", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Russian Twitst", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Flutter Kicks", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Windshield Wipers", "Core", "Advanced",
+                0, 0, 10));
+        AddExerciseToDB(new ExerciseObject("Side Plank Hold", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Side Plank Raises", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Hanging Leg Raises", "Core", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Hanging Knee Raises", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Hanging Corner Raises", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Front Lever Raises", "Core", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Tuck Planche Raises", "Core", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("L-Sit Hold", "Core", "Intermediate",
+                0, 0, 20));
+        AddExerciseToDB(new ExerciseObject("Tucked L-sit Hold", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Toes-To-Bar", "Core", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Back Lever Drop", "Core", "Advanced",
+                3, 6, 0));
+        AddExerciseToDB(new ExerciseObject("Dragon Flag", "Core", "Advanced",
+                2, 5, 0));
+        AddExerciseToDB(new ExerciseObject("Bar Crunches", "Core", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Legs Down Hold", "Core", "Easy",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Inverted Hanging Deadlift", "Core", "Advanced",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Pull-Over", "Core", "Intermediate",
+                2, 8, 0));
+        AddExerciseToDB(new ExerciseObject("Skin-The-Cat", "Core", "Intermediate",
+                6, 12, 0));
+
+        /*bar crunches
+ab wheel
+hip raises
+legs down hold
+upside down deadlift
+pull-over
+skin-the-cat
+plank open-and-close
+wall plank
+Animal flow side jump - handstands
+Wall Plank knees to elbow
+Wall mountain climbers
+Lateral Plank Walk
+Hollow Hold
+         */
     }
 
     //If one item needs to be returned from the exercise table
@@ -264,6 +494,50 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
                 //Adding the exerciseObject to the list
                 exerciseList.add(eObject);
+
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //close entry to database
+        db.close();
+
+        // return exercise list
+        return exerciseList;
+    }
+
+
+    // Getting All Exercises
+    public List<ExerciseObject> getAllSelectedExercises() {
+        List<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a new ExerciseObject
+                ExerciseObject eObject = new ExerciseObject();
+
+                //Setting the variables of object to current query row
+                eObject.setExerciseName(cursor.getString(0));
+                eObject.setMuscleGroup(cursor.getString(1));
+                eObject.setDifficulty(cursor.getString(2));
+                eObject.setLowerRepRange(Integer.parseInt(cursor.getString(3)));
+                eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
+                eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
+                eObject.setSelected(Boolean.parseBoolean(cursor.getString(6)));
+
+                if (eObject.isSelected())
+                {
+                    //Adding the exerciseObject to the list
+                    exerciseList.add(eObject);
+                }
+
 
             } while (cursor.moveToNext());
             //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
@@ -536,6 +810,21 @@ public class AppDBHandler extends SQLiteOpenHelper{
             // return exercise list
             return exerciseList;
         }
+    }
+
+
+    //create a query that will return all exercises who's Selected value is true
+    public void returnTrueExercises()
+    {
+       //query
+        /*
+        for each exercise, update column x with x
+
+        UDPATE <table> SET <column 1> = <value 1>, <column 2> = <value 2>;
+         */
+        SQLiteDatabase db = this.getWritableDatabase();
+        String resetQuery = "UPDATE " + TABLE_EXERCISES + " SET " + KEY_SELECTED + " = false";
+        db.execSQL(resetQuery);
     }
 
 }

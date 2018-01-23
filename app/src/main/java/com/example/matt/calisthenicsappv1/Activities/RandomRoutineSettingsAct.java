@@ -82,6 +82,11 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
 
         //grab the number from the text box associated with number of exercises wanted
         //use this to grab that amount of exercises from the shuffled list
+        if (exerciseNumberTV.getText().toString() == null)
+        {
+            Toast.makeText(getApplicationContext(), "Number of Exercises must be greater than 0", Toast.LENGTH_SHORT).show();
+            return;
+        }
         int numOfExercises = Integer.parseInt(exerciseNumberTV.getText().toString());
 
         //check whether the created int is bigger than 0

@@ -36,15 +36,29 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
 
-    <Button android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonMain"
-        android:text="@string/Select"
-        android:layout_gravity="center|bottom"/>
+        android:layout_gravity="center|bottom">
+
+
+        <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonMain"
+            android:text="@string/Select"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset Selection"
+            android:id="@+id/buttonReset"
+            android:onClick="_ResetSelection"/>
+    </LinearLayout>
 
 
 

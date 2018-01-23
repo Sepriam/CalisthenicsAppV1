@@ -112,5 +112,19 @@ public class SelectObjectsAct extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    //reset selection of each exercise
+    public void _ResetSelection(View view) {
+
+        return;
+        //we can remove the above fragment once you reset each checkbox to unticked
+
+
+
+
+        //AppDBHandler db = new AppDBHandler(this);
+
+        //db.returnTrueExercises();
+
+    }
 }
 
