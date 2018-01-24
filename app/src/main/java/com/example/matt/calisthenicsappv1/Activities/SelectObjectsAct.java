@@ -151,7 +151,7 @@ public class SelectObjectsAct extends AppCompatActivity {
 
         List<ExerciseObject> tempList = db.getAllSelectedExercises();
 
-        for (int i = 0; i < tempList.size()-1; i++)
+        for (int i = 0; i < tempList.size(); i++)
         {
             selectExercisesList.add(tempList.get(i));
         }

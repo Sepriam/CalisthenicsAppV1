@@ -213,8 +213,6 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Russian Dips", "Chest", "Advanced",
                 6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Korean Dips", "Chest", "Advanced",
-                6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Incline Push-ups", "Chest", "Easy",
                 6, 12, 0));
         AddExerciseToDB(new ExerciseObject("Decline Push-ups", "Chest", "Intermediate",
@@ -596,6 +594,57 @@ Hollow Hold
     }
 
 
+    //Returning all exercises that are of one of the passed muscle groups
+    public ArrayList<ExerciseObject> returnAllMuscleGroupExercises(ArrayList<String> _muscleGroups)
+    {
+        ArrayList<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a new ExerciseObject
+                ExerciseObject eObject = new ExerciseObject();
+
+                //Setting the variables of object to current query row
+                eObject.setExerciseName(cursor.getString(0));
+                eObject.setMuscleGroup(cursor.getString(1));
+                eObject.setDifficulty(cursor.getString(2));
+                eObject.setLowerRepRange(Integer.parseInt(cursor.getString(3)));
+                eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
+                eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
+                //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+
+                //cycle through each of the ArrayList<String> elements
+                for (int i = 0; i < _muscleGroups.size(); i++)
+                {
+                    //check if exercises' muscle group is equal to that of one selected
+                    if(eObject.getMuscleGroup() == _muscleGroups.get(i))
+                    {
+                        //if so, add this exercise to the list of exercises
+
+                        //Adding the exerciseObject to the list
+                        exerciseList.add(eObject);
+                    }
+                }
+
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //close entry to database
+        db.close();
+
+        // return exercise list
+        return exerciseList;
+    }
+
+
     // Updating single exercise
     public int updateExercise(ExerciseObject exerciseObject) {
         //allow editing on database
@@ -660,7 +709,7 @@ Hollow Hold
     }
 
 
-    //retrieving all exercises across multiple muscl groups
+    //retrieving all exercises across multiple muscle groups
     public List<ExerciseObject> getAllMuscleGroupExercises(String[] _muscleGroups)
     {
         //todo:
@@ -719,11 +768,12 @@ Hollow Hold
 
     //retrieving all the exercises from sql database that have specific difficulty setting
     //need to log these for now....
-    public List<ExerciseObject> getDifficultyExercises(String _difficulty)
+    public ArrayList<ExerciseObject> getDifficultyExercises(String _difficulty)
     {
+        ArrayList<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+
         if (_difficulty != "Easy" || _difficulty != "Intermediate" || _difficulty != "Advanced")
         {
-            List<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
             // Select All Query
             String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
 
@@ -769,7 +819,7 @@ Hollow Hold
         {
             //do the exact same thing, just log that exercise X does not have the right difficulty wording
 
-            List<ExerciseObject> exerciseList = new ArrayList<ExerciseObject>();
+
             // Select All Query
             String selectQuery = "SELECT  * FROM " + TABLE_EXERCISES;
 

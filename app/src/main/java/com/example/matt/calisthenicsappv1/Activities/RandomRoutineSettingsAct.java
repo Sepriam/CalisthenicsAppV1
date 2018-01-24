@@ -17,7 +17,6 @@ import java.util.Collections;
 import com.example.matt.calisthenicsappv1.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
@@ -28,14 +27,22 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
     int numOfExercises = 0;
 
     //initialising variables for widgets
-    Button doneButton;
+    Button doneButton, selectMuscleGroupsBtn;
     EditText exerciseNumberTV;
-    CheckBox toggleSuggestionsCB;
+    CheckBox toggleSuggestionsCB, toggleMuscleGroupsCB;
     Spinner selectDifficultySpinner;
     TextView displayRandomExercisesTV;
 
+    //string array for the muscleGroups selected (if any)
+    ArrayList<String> _selectedMuscleGroups;
+
+    //exerciseObject Arraylist to share exercises in
+
     //defining a boolean to toggle whether the suggested time / ranges should be displayed
     private boolean displaySuggestions = false;
+
+    //defining variable to see if the user want to choose specific muscle groups
+    private boolean chooseSpecificMuscleGroups = false;
 
 
     @Override
@@ -45,8 +52,10 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
 
         //initialise the variables to their respective widgets
         doneButton = (Button) findViewById(R.id.RandomSettingsDoneBtn);
+        selectMuscleGroupsBtn = (Button) findViewById(R.id.selectMuscleGroupsBtn);
         exerciseNumberTV = (EditText) findViewById(R.id.numOfExercisesET);
         toggleSuggestionsCB = (CheckBox) findViewById(R.id.toggleSuggestionsCB);
+        toggleMuscleGroupsCB =  (CheckBox) findViewById(R.id.selectMuscleGroupsCB);
         selectDifficultySpinner = (Spinner) findViewById(R.id.selectDifficultySpinner);
         displayRandomExercisesTV = (TextView) findViewById(R.id.displayRandomExercisesTV);
 
@@ -71,89 +80,178 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
             }
         });
 
+        //set on click listener for the checkbox
+        toggleMuscleGroupsCB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //if display suggestions is true then switch to false, else switch to true
+                //only works if default the checkbox is unchecked
+                if(chooseSpecificMuscleGroups) {
+                    //set boolean to false
+                    chooseSpecificMuscleGroups = false;
+                    //Disable button to select objects page
+                    selectMuscleGroupsBtn.setEnabled(false);
+                    Toast.makeText(getApplicationContext(), "Selected All Muscle Groups", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    chooseSpecificMuscleGroups = true;
+                    selectMuscleGroupsBtn.setEnabled(true);
+                }
+            }
+        });
+
 
     }
 
     //on button click
     public void onDoneButtonClick(View v)
     {
-        //reset the textview
-        displayRandomExercisesTV.setText("");
-
-        //grab the number from the text box associated with number of exercises wanted
-        //use this to grab that amount of exercises from the shuffled list
-        if (exerciseNumberTV.getText().toString() == null)
-        {
-            Toast.makeText(getApplicationContext(), "Number of Exercises must be greater than 0", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        int numOfExercises = Integer.parseInt(exerciseNumberTV.getText().toString());
-
-        //check whether the created int is bigger than 0
-        if  (numOfExercises <= 0)
-        {
-            //got here if the number in edit text is either not implemented or it is not great than 0
-            Toast.makeText(getApplicationContext(), "Number of Exercises must be greater than 0", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        //get string from the selected spinner
-        String difficultySelection = selectDifficultySpinner.getSelectedItem().toString();
-        Toast.makeText(getApplicationContext(), "Selected difficulty: " + difficultySelection, Toast.LENGTH_SHORT).show();
-
-
         //new database connection
         AppDBHandler db = new AppDBHandler(this);
 
-        //use this to grab the exercises
-        List<ExerciseObject> difficultyExerciseList = db.getDifficultyExercises(difficultySelection);
+        //if any of the checks return false then don't continue the method
+        if (!checksBeforeSwap())
+            return;
 
-        //--------------------------------------------------------------------------------------------------------------
+        //get string from the selected spinner
+        String difficultySelection = selectDifficultySpinner.getSelectedItem().toString();
+
+        //use this to grab the exercises
+        ArrayList<ExerciseObject> difficultyExerciseList = db.getDifficultyExercises(difficultySelection);
+
+        //check whether user wants to define own muscleGroups (via CB boolean state)
+        if (chooseSpecificMuscleGroups)
+        {
+            if (_selectedMuscleGroups.size() == 0)
+            {
+                //make a toast to show user only x amount of exercises available
+                Toast.makeText(getApplicationContext(), "No Selected Muscle Groups, Selecting All.", Toast.LENGTH_SHORT).show();
+                _selectedMuscleGroups = _returnMuscleGroupsList();
+            }
+        }
+        else
+        {
+            _selectedMuscleGroups = _returnMuscleGroupsList();
+        }
+
+        //assigning value to numOfExercises
+        numOfExercises = Integer.parseInt(exerciseNumberTV.getText().toString());
+
+        //defining arrayLsit to store the right exercises with selected muscle group and difficulty.
+        ArrayList<ExerciseObject> muscleGroupAndDifficultyList = _returnMuscleGroupAndExerciseList(difficultyExerciseList);
+
+        //shuffle the array list of exercises with correct musclegroup and difficulty
+        Collections.shuffle(muscleGroupAndDifficultyList);
+
         //create an if condition to look to see if the number of exercises selected is greater than that of the total exercises in difficultyExerciseList
-        if(difficultyExerciseList.size() < numOfExercises)
+        if(muscleGroupAndDifficultyList.size() < numOfExercises)
         {
             //make a toast to show user only x amount of exercises available
             Toast.makeText(getApplicationContext(), "Only " + difficultyExerciseList.size() + " exercises available", Toast.LENGTH_SHORT).show();
 
             //swap the number of exercises selected to be that of the total size of list from database
-            numOfExercises = difficultyExerciseList.size() - 1;
+            numOfExercises = muscleGroupAndDifficultyList.size();
         }
 
-        //shuffle the exercises
-        //this shuffle will gaurantee no 2 identical exercises
-        Collections.shuffle(difficultyExerciseList);
+        //defining the last arraylist
+        ArrayList<ExerciseObject> exerciseListToPass = new ArrayList<>();
 
-        //initiate a new arraylist as size will be determined at runtime from user's input
-        ArrayList<ExerciseObject> exerciseListToPass =  new ArrayList<>();
-
-        //transfer the first x amount of exercises into new exercise list
-        for (int i = 0; i < numOfExercises; i++)
+        //loop to add first x amount from correct array list to new arraylist
+        for(int i = 0; i < numOfExercises; i++)
         {
-            //note -- not very efficient for memory usage
-            //this will transfer only x amount
-            exerciseListToPass.add(difficultyExerciseList.get(i));
+            exerciseListToPass.add(muscleGroupAndDifficultyList.get(i));
         }
 
-        //clear the difficultyExerciseList just ot clear memory..
+        //Garbage collection stuff
+        muscleGroupAndDifficultyList.clear();
         difficultyExerciseList.clear();
 
-
-        /*for(ExerciseObject e : exerciseListToPass)
-        {
-            displayRandomExercisesTV.append("Exercise: " + e.getExerciseName() + "\n");
-        }*/
-
-
+        //create new intent
         Intent i = new Intent(this, DisplayRandomRoutineAct.class);
+        //create a new bundle to encompass ArrayList<ExerciseObject> to be passed
         Bundle passBundle = new Bundle();
+        //put the arraylist<exerciseObject> into bundle
         passBundle.putSerializable("ExerciseList", exerciseListToPass);
+        //add this to intent putExtras
         i.putExtras(passBundle);
+        //adding the boolean to show the user wants the additional suggested reps / time
         i.putExtra("Suggestions", displaySuggestions);
+        //starting the next activity
         startActivity(i);
     }
 
+    public void selectSpecificMuscleGroupsActSwitch(View view) {
 
 
+
+    }
+
+
+    //Checks on widgets before activity swap
+    private boolean checksBeforeSwap()
+    {
+        //grab the number from the text box associated with number of exercises wanted
+        //use this to grab that amount of exercises from the shuffled list
+        if (exerciseNumberTV.getText().toString().isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Please enter Value for Number of Exercises", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        //assigning value to numOfExercises
+        numOfExercises = Integer.parseInt(exerciseNumberTV.getText().toString());
+
+        if  (numOfExercises <= 0)
+        {
+            //got here if the number in edit text is either not implemented or it is not great than 0
+            Toast.makeText(getApplicationContext(), "Number of Exercises must be greater than 0", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    //return the complete list of muscle groups
+    private ArrayList<String> _returnMuscleGroupsList()
+    {
+        //creating an arraylist to return selected muscle groups if any
+        ArrayList<String> muscleGroupsSelected = new ArrayList<>();
+
+        //add all the muscle groups to list (not accurate to hard-code in)
+        //in future would need to change this to find all types of musclegroup and add it to list
+        muscleGroupsSelected.add("Shoulders");
+        muscleGroupsSelected.add("Chest");
+        muscleGroupsSelected.add("Back");
+        muscleGroupsSelected.add("Arms");
+        muscleGroupsSelected.add("Core");
+
+        return muscleGroupsSelected;
+    }
+
+
+    private ArrayList<ExerciseObject> _returnMuscleGroupAndExerciseList(ArrayList<ExerciseObject> _difficultyList )
+    {
+        //Should not have to pass the array of selected muscleGroups as it's global variable
+
+        ArrayList<ExerciseObject> returnArrayList = new ArrayList<>();
+
+        //loop through all exercises passed
+        for (int i = 0; i < _difficultyList.size(); i++)
+        {
+            //for each exercise passed, loop through all selected muscle groups
+            for (int j = 0; j < _selectedMuscleGroups.size(); j++)
+            {
+                //check if the exercises' muscle group is equal to any of those required
+                if (_difficultyList.get(i).getMuscleGroup().equals(_selectedMuscleGroups.get(j)))
+                {
+                    //if the musclegroup is equal to any of those selected, add it to the array list
+                    returnArrayList.add(_difficultyList.get(i));
+                }
+            }
+        }
+
+        return returnArrayList;
+
+    }
 
      /*
      NO LONGER IN USE
