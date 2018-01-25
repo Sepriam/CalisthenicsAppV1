@@ -36,8 +36,6 @@ public class SelectObjectsAct extends AppCompatActivity {
 
     private Button btnMain;
 
-    private static final String TAG = "MainActivity";
-
     private SectionsPageAdapter mSectionPageAdapter;
 
     private ViewPager mViewPager;

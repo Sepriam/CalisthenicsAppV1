@@ -22,7 +22,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.RandomRoutineSettingsAct" />
         <activity android:name=".Activities.DisplayRandomRoutineAct" />
-        <activity android:name=".Activities.DisplayCustomRoutineAct"></activity>
+        <activity android:name=".Activities.DisplayCustomRoutineAct" />
+        <activity android:name=".Activities.exerciseExplanationAct" />
+        <activity android:name=".Activities.selectMuscleGroupsAct"></activity>
     </application>
 
 </manifest>
