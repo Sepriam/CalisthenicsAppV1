@@ -1,5 +1,6 @@
 package com.example.matt.calisthenicsappv1.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -182,10 +183,30 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
 
     public void selectSpecificMuscleGroupsActSwitch(View view) {
 
-
-
+        //starting new activity for the user to select muscle groups
+        Intent i = new Intent(this, selectMuscleGroupsAct.class);
+        startActivityForResult(i, 1);
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //checking request code is correct
+        if (requestCode == 1)
+        {
+            //checking if result code is correct
+            if(resultCode == Activity.RESULT_OK)
+            {
+                //getting the string array from other activity
+                ArrayList<String> resultArray = data.getStringArrayListExtra("_result");
+
+                //not going to check if empty as this is dealt with on the next button press
+                _selectedMuscleGroups.addAll(resultArray);
+            }
+        }
+    }
 
     //Checks on widgets before activity swap
     private boolean checksBeforeSwap()

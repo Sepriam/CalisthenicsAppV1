@@ -42,19 +42,20 @@ public class SelectMuscleGroupsCAdapter extends ArrayAdapter<muscleGroupObject> 
     }
 
 
+    @NonNull
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         ViewHolder holder = null;
 
         if (convertView == null) {
-            final LayoutInflater myInflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
+            LayoutInflater myInflater = LayoutInflater.from(getContext());
 
             /*View customView*/
             convertView = myInflater.inflate(R.layout.customlv_muscle_group_element, parent, false);
 
             holder = new ViewHolder();
-            holder.displayMuscleGroupTV = (TextView) convertView.findViewById(R.id.custom_display_MGTV);
-            holder.selectMuscleGroupCB = (CheckBox) convertView.findViewById(R.id.muscleGroupsCB);
+            holder.displayMuscleGroupTV = convertView.findViewById(R.id.custom_display_MGTV);
+            holder.selectMuscleGroupCB = convertView.findViewById(R.id.muscleGroupsCB);
 
             convertView.setTag(holder);
 

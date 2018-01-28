@@ -1,5 +1,7 @@
 package com.example.matt.calisthenicsappv1.Activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -63,10 +65,14 @@ public class selectMuscleGroupsAct extends AppCompatActivity {
 
                 //Here we can code in what to pass back to previous activity.
                 //creating an arraylist to hold the musclegroup objects
-                ArrayList<muscleGroupObject> muscleGroupsSelected = _selectMuscleGroupsCAdapter._muscleGroupsArrayList;
+                ArrayList<muscleGroupObject> muscleGroupsSelected = new ArrayList<>();
+
+                muscleGroupsSelected.addAll(_selectMuscleGroupsCAdapter._muscleGroupsArrayList);
 
                 //creating an arraylist of strings to pass back to previous activity
                 ArrayList<String> toPassBack = new ArrayList<>();
+
+
 
                 //looping through each musclegroup item
                 for (int i = 0; i < muscleGroupsSelected.size(); i++)
@@ -81,6 +87,11 @@ public class selectMuscleGroupsAct extends AppCompatActivity {
                         toPassBack.add(MGO.getMuscleGroup());
                     }
                 }
+
+                Intent i = getIntent();
+                i.putExtra("_result", toPassBack);
+                setResult(Activity.RESULT_OK, i);
+                finish();
 
             }
         });
