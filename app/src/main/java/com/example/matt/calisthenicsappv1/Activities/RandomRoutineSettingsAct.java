@@ -120,24 +120,8 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         //get string from the selected spinner
         String difficultySelection = selectDifficultySpinner.getSelectedItem().toString();
 
-        //use this to grab the exercises
-        ArrayList<ExerciseObject> difficultyExerciseList = db.getDifficultyExercises(difficultySelection);
-
-        //check whether user wants to define own muscleGroups (via CB boolean state)
-        if (chooseSpecificMuscleGroups)
-        {
-
-            if (_selectedMuscleGroups.size() == 0)
-            {
-                //make a toast to show user only x amount of exercises available
-                Toast.makeText(getApplicationContext(), "No Selected Muscle Groups, Selecting All.", Toast.LENGTH_SHORT).show();
-                _selectedMuscleGroups = _returnMuscleGroupsList();
-            }
-        }
-        else
-        {
-            _selectedMuscleGroups = _returnMuscleGroupsList();
-        }
+        //calls function to return all exercises of specific difficulty
+        ArrayList<ExerciseObject> difficultyExerciseList = _returnMultipleDifficultiesEList(difficultySelection);
 
         //assigning value to numOfExercises
         numOfExercises = Integer.parseInt(exerciseNumberTV.getText().toString());
@@ -160,6 +144,11 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
 
         //defining the last arraylist
         ArrayList<ExerciseObject> exerciseListToPass = new ArrayList<>();
+
+
+        //----------------------------------------------------------------------------
+        //create function to return correct number of easy / intermediate exercises
+
 
         //loop to add first x amount from correct array list to new arraylist
         for(int i = 0; i < numOfExercises; i++)
@@ -243,6 +232,23 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Number of Exercises must be greater than 0", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        //check whether user wants to define own muscleGroups (via CB boolean state)
+        if (chooseSpecificMuscleGroups)
+        {
+
+            if (_selectedMuscleGroups.size() == 0)
+            {
+                //make a toast to show user only x amount of exercises available
+                Toast.makeText(getApplicationContext(), "No Selected Muscle Groups, Selecting All.", Toast.LENGTH_SHORT).show();
+                _selectedMuscleGroups = _returnMuscleGroupsList();
+            }
+        }
+        else
+        {
+            _selectedMuscleGroups = _returnMuscleGroupsList();
+        }
+
         return true;
     }
 
@@ -288,6 +294,61 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         return returnArrayList;
 
     }
+
+
+    private ArrayList<ExerciseObject> _returnMultipleDifficultiesEList(String _chosenDifficulty)
+    {
+        //creating an arraylist of Exercise objects that will be returned
+        ArrayList<ExerciseObject> toBeReturned = new ArrayList<>();
+        //temporary array list for transferring 2+ arraylists
+        ArrayList<ExerciseObject> tempArrayList = new ArrayList<>();
+
+        AppDBHandler db = new AppDBHandler(this);
+
+        switch(_chosenDifficulty)
+        {
+            case "Easy":
+                toBeReturned = db.getDifficultyExercises("Easy");
+                break;
+
+            case "Easy + Intermediate":
+                toBeReturned = db.getDifficultyExercises("Easy");
+                tempArrayList =  db.getDifficultyExercises("Intermediate");
+                for (int i = 0; i < tempArrayList.size(); i++)
+                {
+                    toBeReturned.add(tempArrayList.get(i));
+                }
+                //little memory management
+                tempArrayList.clear();
+                break;
+
+            case "Intermediate":
+                toBeReturned = db.getDifficultyExercises("Intermediate");
+                break;
+
+            case "Intermediate + Advanced":
+                toBeReturned = db.getDifficultyExercises("Intermediate");
+                tempArrayList =  db.getDifficultyExercises("Advanced");
+                for (int i = 0; i < tempArrayList.size(); i++)
+                {
+                    toBeReturned.add(tempArrayList.get(i));
+                }
+                //little memory management
+                tempArrayList.clear();
+                break;
+
+            case "Advanced":
+                toBeReturned = db.getDifficultyExercises("Advanced");
+                break;
+        }
+
+        //all cases will break and return here
+        //saves on having every case return the arraylist
+        return toBeReturned;
+
+
+    }
+
 
      /*
      NO LONGER IN USE
