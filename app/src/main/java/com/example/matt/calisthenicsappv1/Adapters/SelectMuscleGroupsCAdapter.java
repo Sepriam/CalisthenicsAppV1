@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
@@ -48,10 +49,10 @@ public class SelectMuscleGroupsCAdapter extends ArrayAdapter<muscleGroupObject> 
         ViewHolder holder = null;
 
         if (convertView == null) {
-            LayoutInflater myInflater = LayoutInflater.from(getContext());
+            LayoutInflater myInflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
 
             /*View customView*/
-            convertView = myInflater.inflate(R.layout.customlv_muscle_group_element, parent, false);
+            convertView = myInflater.inflate(R.layout.customlv_muscle_group_element, null);
 
             holder = new ViewHolder();
             holder.displayMuscleGroupTV = convertView.findViewById(R.id.custom_display_MGTV);
@@ -66,6 +67,7 @@ public class SelectMuscleGroupsCAdapter extends ArrayAdapter<muscleGroupObject> 
                     muscleGroupObject muscleGroup = (muscleGroupObject) cb.getTag();
 
                     muscleGroup.setSelected(cb.isChecked());
+
 
                 }
             });

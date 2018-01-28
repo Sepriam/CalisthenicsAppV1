@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.Collections;
 
+import com.example.matt.calisthenicsappv1.Objects.muscleGroupObject;
 import com.example.matt.calisthenicsappv1.R;
 
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
     //creating class int to recall number of exercises selected...
     int numOfExercises = 0;
 
+    public static int REQUEST_CODE = 1;
+
     //initialising variables for widgets
     Button doneButton, selectMuscleGroupsBtn;
     EditText exerciseNumberTV;
@@ -35,7 +38,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
     TextView displayRandomExercisesTV;
 
     //string array for the muscleGroups selected (if any)
-    ArrayList<String> _selectedMuscleGroups;
+    ArrayList<String> _selectedMuscleGroups = new ArrayList<>();
 
     //exerciseObject Arraylist to share exercises in
 
@@ -123,6 +126,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         //check whether user wants to define own muscleGroups (via CB boolean state)
         if (chooseSpecificMuscleGroups)
         {
+
             if (_selectedMuscleGroups.size() == 0)
             {
                 //make a toast to show user only x amount of exercises available
@@ -185,7 +189,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
 
         //starting new activity for the user to select muscle groups
         Intent i = new Intent(this, selectMuscleGroupsAct.class);
-        startActivityForResult(i, 1);
+        startActivityForResult(i, REQUEST_CODE);
     }
 
 
@@ -194,16 +198,27 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         //checking request code is correct
-        if (requestCode == 1)
+        if (requestCode == REQUEST_CODE)
         {
+
+            Toast.makeText(getApplicationContext(),
+                    "GOT HERE 1", Toast.LENGTH_LONG).show();
+
             //checking if result code is correct
-            if(resultCode == Activity.RESULT_OK)
+            if(resultCode == RESULT_OK)
             {
+                _selectedMuscleGroups.clear();
+
+                Toast.makeText(getApplicationContext(),
+                        "GOT HERE 2", Toast.LENGTH_LONG).show();
+
                 //getting the string array from other activity
                 ArrayList<String> resultArray = data.getStringArrayListExtra("_result");
 
                 //not going to check if empty as this is dealt with on the next button press
                 _selectedMuscleGroups.addAll(resultArray);
+
+                chooseSpecificMuscleGroups = true;
             }
         }
     }

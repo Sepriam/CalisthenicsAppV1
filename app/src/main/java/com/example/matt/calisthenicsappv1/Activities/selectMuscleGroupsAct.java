@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.matt.calisthenicsappv1.Adapters.SelectMuscleGroupsCAdapter;
 import com.example.matt.calisthenicsappv1.Objects.muscleGroupObject;
@@ -63,7 +64,58 @@ public class selectMuscleGroupsAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Here we can code in what to pass back to previous activity.
+
+                ArrayList<muscleGroupObject> muscleGroupsSelected = _selectMuscleGroupsCAdapter._muscleGroupsArrayList;
+
+                //creating an arraylist of strings to pass back to previous activity
+                ArrayList<String> toPassBack = new ArrayList<>();
+
+                for(int i = 0; i < muscleGroupsSelected.size(); i++)
+                {
+                    muscleGroupObject muscleGroup = muscleGroupsSelected.get(i);
+
+                    if (muscleGroup.getSelected())
+                    {
+                        toPassBack.add(muscleGroup.getMuscleGroup());
+                    }
+                }
+
+                Intent a = new Intent();
+                a.putExtra("_result", toPassBack);
+                setResult(RESULT_OK,a);
+                finish();
+
+                /*
+                StringBuffer responseText = new StringBuffer();
+                responseText.append("The following were selected...\n");
+
+                ArrayList<muscleGroupObject> stateList = _selectMuscleGroupsCAdapter._muscleGroupsArrayList;
+
+                for(int i=0;i<stateList.size();i++)
+                {
+                    muscleGroupObject state = stateList.get(i);
+
+                    if(state.getSelected())
+                    {
+                        responseText.append("\n" + state.getMuscleGroup());
+                    }
+                }
+
+                Toast.makeText(getApplicationContext(),
+                        responseText, Toast.LENGTH_LONG).show();
+
+
+
+                 */
+
+            }
+        });
+
+    }
+}
+
+/*
+/Here we can code in what to pass back to previous activity.
                 //creating an arraylist to hold the musclegroup objects
                 ArrayList<muscleGroupObject> muscleGroupsSelected = new ArrayList<>();
 
@@ -92,9 +144,4 @@ public class selectMuscleGroupsAct extends AppCompatActivity {
                 i.putExtra("_result", toPassBack);
                 setResult(Activity.RESULT_OK, i);
                 finish();
-
-            }
-        });
-
-    }
-}
+ */
