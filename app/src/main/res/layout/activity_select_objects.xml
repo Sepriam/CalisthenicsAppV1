@@ -16,6 +16,8 @@
         android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -26,34 +28,11 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            app:tabMode="scrollable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </android.support.design.widget.AppBarLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:nestedScrollingEnabled="true"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:layout_weight="0.1"
-            android:scrollbarThumbVertical="@android:color/white"/>
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,35 +40,45 @@
                 android:text="@string/Select"
                 android:onClick="_PassCustomRoutineToDisplay"
                 android:layout_margin="5dp"
-                android:background="#6453a7ed"
-                android:textColor="#e0ffff"
-                android:layout_gravity="center"/>
+                android:background="#e0ffff"
+                android:textColor="#6453a7ed"
+                android:layout_weight="0.1"/>
 
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reset Selection"
+                android:text="Reset"
                 android:id="@+id/buttonReset"
                 android:onClick="_ResetSelection"
-                android:background="#6453a7ed"
-                android:layout_margin="5dp"
-                android:textColor="#e0ffff"
-                android:layout_gravity="center"/>
-
+                android:background="#e0ffff"
+                android:textColor="#6453a7ed"
+                android:layout_margin="5dp"/>
         </LinearLayout>
-
-
-
-    </LinearLayout>
-
-
-
-
-
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            app:tabMode="scrollable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
 
 
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:scrollbarThumbVertical="@android:color/white">
+
+
+
+    </android.support.v4.view.ViewPager>
 
 </android.support.design.widget.CoordinatorLayout>
