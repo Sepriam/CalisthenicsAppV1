@@ -5,36 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.matt.calisthenicsappv1.Activities.StartPage">
+    tools:context="com.example.matt.calisthenicsappv1.Activities.StartPage"
+    android:background="#292929">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/toSelectPageButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ToSelectPage"
+            android:text="@string/custom_routine_Button_Navigation_text"
+            android:background="#6453a7ed"
+            android:textColor="#e0ffff"
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toRandomSettingActButton"
+            android:onClick="ToRandomSettingPage"
+            android:background="#b153a7ed"
+            android:textColor="#e0ffff"
+            android:text="@string/Random_routine_Button_Navigation_Text"
+
+            android:layout_margin="5dp"
+            android:layout_weight="0.1"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toSelectPageButton"
-        android:onClick="ToSelectPage"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:text="@string/custom_routine_Button_Navigation_text"
-        />
+        android:layout_weight="0.1"
+        android:background="#53a7ed"
+        android:layout_margin="5dp"
+        android:text="STRETCHING?"
+        android:textColor="#e0ffff"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/toRandomSettingActButton"
-        android:onClick="ToRandomSettingPage"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"
-        android:text="@string/Random_routine_Button_Navigation_Text"/>
+
 
 </LinearLayout>

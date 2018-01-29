@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="#292929">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,7 +12,10 @@
         android:id="@+id/suggestionsCLVTV1"
         android:text="Name"
         android:layout_weight="0.2"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="#b153a7ed"
+        android:textColor="#e0ffff"
+        android:layout_margin="2dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -19,20 +23,29 @@
         android:id="@+id/suggestionsCLVTV2"
         android:text="Muscle Group"
         android:layout_weight="0.3"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="#b153a7ed"
+        android:textColor="#e0ffff"
+        android:layout_margin="2dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/suggestionsCLVTV3"
         android:text="Suggested Rep-Range"
         android:layout_weight="0.35"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="#b153a7ed"
+        android:textColor="#e0ffff"
+        android:layout_margin="2dp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/suggestionsCLVTV4"
         android:text="Suggested time"
         android:layout_weight="0.35"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="#b153a7ed"
+        android:textColor="#e0ffff"
+        android:layout_margin="2dp"/>
 
 </LinearLayout>

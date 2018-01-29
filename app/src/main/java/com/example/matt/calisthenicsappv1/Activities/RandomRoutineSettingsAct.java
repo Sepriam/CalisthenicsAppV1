@@ -61,7 +61,6 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         toggleSuggestionsCB = (CheckBox) findViewById(R.id.toggleSuggestionsCB);
         toggleMuscleGroupsCB =  (CheckBox) findViewById(R.id.selectMuscleGroupsCB);
         selectDifficultySpinner = (Spinner) findViewById(R.id.selectDifficultySpinner);
-        displayRandomExercisesTV = (TextView) findViewById(R.id.displayRandomExercisesTV);
 
         //set the spinner values when the page is created
         ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter.createFromResource(this,
@@ -146,7 +145,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         ArrayList<ExerciseObject> exerciseListToPass = new ArrayList<>();
 
 
-        //----------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------
         //create function to return correct number of easy / intermediate exercises
 
 

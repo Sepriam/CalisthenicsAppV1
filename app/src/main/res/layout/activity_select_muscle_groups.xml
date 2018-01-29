@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.matt.calisthenicsappv1.Activities.selectMuscleGroupsAct">
+    tools:context="com.example.matt.calisthenicsappv1.Activities.selectMuscleGroupsAct"
+    android:background="#292929">
 
     <ListView
         android:layout_width="match_parent"
@@ -17,7 +18,10 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.1"
         android:layout_gravity="center|bottom"
-        android:id="@+id/return_muscle_group_BTN"/>
+        android:id="@+id/return_muscle_group_BTN"
+        android:text="@string/select_Muscle_group_Btn_txt"
+        android:textColor="#e0ffff"
+        android:background="#b153a7ed"/>
 
 
 

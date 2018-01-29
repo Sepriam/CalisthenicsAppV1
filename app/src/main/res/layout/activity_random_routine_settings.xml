@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#292929">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -23,13 +24,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/difficultyTextview"
-            android:text="@string/select_difficulty_Textview"/>
+            android:text="@string/select_difficulty_Textview"
+            android:textColor="#e0ffff"/>
 
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/selectDifficultySpinner" />
+            android:id="@+id/selectDifficultySpinner"
+            android:backgroundTint="#b153a7ed"/>
         <!--
         need to insert the drop down list here...
         create a spinner
@@ -49,14 +52,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/numOfExercisesTextView"
-            android:text="@string/enter_number_of_required_exercises"/>
+            android:text="@string/enter_number_of_required_exercises"
+            android:textColor="#e0ffff"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/numOfExercisesET"
             android:hint="@string/NumOfExercisesEdittextHint"
             android:inputType="number"
-            android:maxLength="1"/>
+            android:maxLength="1"
+            android:textColor="#e0ffff"
+            android:backgroundTint="#b153a7ed"/>
     </LinearLayout>
 
 
@@ -70,11 +76,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/QuestionSuggestionsTextview"
-            android:text="@string/display_suggested_time_repetitions_textview"/>
+            android:text="@string/display_suggested_time_repetitions_textview"
+            android:textColor="#e0ffff"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/toggleSuggestionsCB"/>
+            android:id="@+id/toggleSuggestionsCB"
+            android:buttonTint="#b153a7ed"/>
     </LinearLayout>
 
     <LinearLayout
@@ -87,12 +95,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/select_specific_muscle_groups"/>
+            android:text="@string/select_specific_muscle_groups"
+            android:textColor="#e0ffff"/>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/selectMuscleGroupsCB"/>
+            android:id="@+id/selectMuscleGroupsCB"
+            android:buttonTint="#b153a7ed"/>
 
 
     </LinearLayout>
@@ -105,7 +115,9 @@
         android:text="@string/select_muscle_groups_Button"
         android:id="@+id/selectMuscleGroupsBtn"
         android:onClick="selectSpecificMuscleGroupsActSwitch"
-        android:enabled="false"/>
+        android:enabled="false"
+        android:textColor="#e0ffff"
+        android:background="#b153a7ed"/>
 
     <Button
         android:layout_marginTop="30dp"
@@ -114,14 +126,9 @@
         android:layout_gravity="center"
         android:text="@string/done_RandomDoneButtonResource"
         android:onClick="onDoneButtonClick"
-        android:id="@+id/RandomSettingsDoneBtn"/>
+        android:id="@+id/RandomSettingsDoneBtn"
+        android:textColor="#b153a7ed"/>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:id="@+id/displayRandomExercisesTV"/>
 </LinearLayout>
 </ScrollView>

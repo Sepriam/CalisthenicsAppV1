@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.matt.calisthenicsappv1.Activities.SelectObjectsAct">
+    tools:context="com.example.matt.calisthenicsappv1.Activities.SelectObjectsAct"
+    android:background="#292929">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -33,34 +34,61 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:nestedScrollingEnabled="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_weight="0.1"
+            android:scrollbarThumbVertical="@android:color/white"/>
 
 
-        <Button android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonMain"
-            android:text="@string/Select"
-            android:onClick="_PassCustomRoutineToDisplay"/>
+            android:orientation="vertical">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonMain"
+                android:text="@string/Select"
+                android:onClick="_PassCustomRoutineToDisplay"
+                android:layout_margin="5dp"
+                android:background="#6453a7ed"
+                android:textColor="#e0ffff"
+                android:layout_gravity="center"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reset Selection"
-            android:id="@+id/buttonReset"
-            android:onClick="_ResetSelection"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset Selection"
+                android:id="@+id/buttonReset"
+                android:onClick="_ResetSelection"
+                android:background="#6453a7ed"
+                android:layout_margin="5dp"
+                android:textColor="#e0ffff"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+
     </LinearLayout>
+
+
+
+
+
+
+
 
 
 

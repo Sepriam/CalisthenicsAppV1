@@ -13,9 +13,12 @@
     <string name="Random_routine_Button_Navigation_Text">Random Routine</string>
     <string name="select_specific_muscle_groups">Select specific muscle groups?</string>
     <string name="select_muscle_groups_Button">Select Muscle Groups</string>
+    <string name="select_Muscle_group_Btn_txt">Done</string>
     <string-array name="Difficulty_Spinner_Array">
         <item>Easy</item>
+        <item>Easy + Intermediate</item>
         <item>Intermediate</item>
+        <item>Intermediate + Advanced</item>
         <item>Advanced</item>
     </string-array>
 

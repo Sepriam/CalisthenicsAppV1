@@ -1,16 +1,22 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#292929">
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/muscleGroupsCB"/>
+        android:id="@+id/muscleGroupsCB"
+        android:buttonTint="#b153a7ed"
+        android:layout_margin="5dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/custom_display_MGTV"/>
+        android:id="@+id/custom_display_MGTV"
+        android:background="#b153a7ed"
+        android:textColor="#e0ffff"
+        android:layout_margin="5dp"/>
 
 </LinearLayout>

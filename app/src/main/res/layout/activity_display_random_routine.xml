@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.matt.calisthenicsappv1.Activities.DisplayRandomRoutineAct"
 
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="#292929">
 
     <ListView
         android:layout_width="match_parent"
