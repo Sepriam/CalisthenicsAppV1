@@ -314,9 +314,8 @@ Bench Press
         //Arms
         AddExerciseToDB(new ExerciseObject("Skull Crushers", "Arms", "Intermediate",
                 6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Tricep Extensions (floor)", "Arms", "Easy",
+        AddExerciseToDB(new ExerciseObject("Sphinx Push-ups", "Arms", "Easy",
                 6, 12, 0));
-
 
         /*
 Skull Crushers

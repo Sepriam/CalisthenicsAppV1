@@ -109,68 +109,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
     //on button click
     public void onDoneButtonClick(View v)
     {
-        //new database connection
-        AppDBHandler db = new AppDBHandler(this);
-
-        //if any of the checks return false then don't continue the method
-        if (!checksBeforeSwap())
-            return;
-
-        //get string from the selected spinner
-        String difficultySelection = selectDifficultySpinner.getSelectedItem().toString();
-
-        //calls function to return all exercises of specific difficulty
-        ArrayList<ExerciseObject> difficultyExerciseList = _returnMultipleDifficultiesEList(difficultySelection);
-
-        //assigning value to numOfExercises
-        numOfExercises = Integer.parseInt(exerciseNumberTV.getText().toString());
-
-        //defining arrayLsit to store the right exercises with selected muscle group and difficulty.
-        ArrayList<ExerciseObject> muscleGroupAndDifficultyList = _returnMuscleGroupAndExerciseList(difficultyExerciseList);
-
-        //shuffle the array list of exercises with correct musclegroup and difficulty
-        Collections.shuffle(muscleGroupAndDifficultyList);
-
-        //create an if condition to look to see if the number of exercises selected is greater than that of the total exercises in difficultyExerciseList
-        if(muscleGroupAndDifficultyList.size() < numOfExercises)
-        {
-            //make a toast to show user only x amount of exercises available
-            Toast.makeText(getApplicationContext(), "Only " + difficultyExerciseList.size() + " exercises available", Toast.LENGTH_SHORT).show();
-
-            //swap the number of exercises selected to be that of the total size of list from database
-            numOfExercises = muscleGroupAndDifficultyList.size();
-        }
-
-        //defining the last arraylist
-        ArrayList<ExerciseObject> exerciseListToPass = new ArrayList<>();
-
-
-        //--------------------------------------------------------------------------------------------
-        //create function to return correct number of easy / intermediate exercises
-
-
-        //loop to add first x amount from correct array list to new arraylist
-        for(int i = 0; i < numOfExercises; i++)
-        {
-            exerciseListToPass.add(muscleGroupAndDifficultyList.get(i));
-        }
-
-        //Garbage collection stuff
-        muscleGroupAndDifficultyList.clear();
-        difficultyExerciseList.clear();
-
-        //create new intent
-        Intent i = new Intent(this, DisplayRandomRoutineAct.class);
-        //create a new bundle to encompass ArrayList<ExerciseObject> to be passed
-        Bundle passBundle = new Bundle();
-        //put the arraylist<exerciseObject> into bundle
-        passBundle.putSerializable("ExerciseList", exerciseListToPass);
-        //add this to intent putExtras
-        i.putExtras(passBundle);
-        //adding the boolean to show the user wants the additional suggested reps / time
-        i.putExtra("Suggestions", displaySuggestions);
-        //starting the next activity
-        startActivity(i);
+        startNextActivity();
     }
 
     public void selectSpecificMuscleGroupsActSwitch(View view) {
@@ -207,6 +146,8 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
                 _selectedMuscleGroups.addAll(resultArray);
 
                 chooseSpecificMuscleGroups = true;
+
+                startNextActivity();
             }
         }
     }
@@ -346,6 +287,73 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         return toBeReturned;
 
 
+    }
+
+
+    private void startNextActivity()
+    {
+        //new database connection
+        AppDBHandler db = new AppDBHandler(this);
+
+        //if any of the checks return false then don't continue the method
+        if (!checksBeforeSwap())
+            return;
+
+        //get string from the selected spinner
+        String difficultySelection = selectDifficultySpinner.getSelectedItem().toString();
+
+        //calls function to return all exercises of specific difficulty
+        ArrayList<ExerciseObject> difficultyExerciseList = _returnMultipleDifficultiesEList(difficultySelection);
+
+        //assigning value to numOfExercises
+        numOfExercises = Integer.parseInt(exerciseNumberTV.getText().toString());
+
+        //defining arrayLsit to store the right exercises with selected muscle group and difficulty.
+        ArrayList<ExerciseObject> muscleGroupAndDifficultyList = _returnMuscleGroupAndExerciseList(difficultyExerciseList);
+
+        //shuffle the array list of exercises with correct musclegroup and difficulty
+        Collections.shuffle(muscleGroupAndDifficultyList);
+
+        //create an if condition to look to see if the number of exercises selected is greater than that of the total exercises in difficultyExerciseList
+        if(muscleGroupAndDifficultyList.size() < numOfExercises)
+        {
+            //make a toast to show user only x amount of exercises available
+            Toast.makeText(getApplicationContext(), "Only " + difficultyExerciseList.size() + " exercises available", Toast.LENGTH_SHORT).show();
+
+            //swap the number of exercises selected to be that of the total size of list from database
+            numOfExercises = muscleGroupAndDifficultyList.size();
+        }
+
+        //defining the last arraylist
+        ArrayList<ExerciseObject> exerciseListToPass = new ArrayList<>();
+
+
+        //--------------------------------------------------------------------------------------------
+        //create function to return correct number of easy / intermediate exercises
+
+
+        //loop to add first x amount from correct array list to new arraylist
+        for(int i = 0; i < numOfExercises; i++)
+        {
+            exerciseListToPass.add(muscleGroupAndDifficultyList.get(i));
+        }
+
+        //Garbage collection stuff
+        muscleGroupAndDifficultyList.clear();
+        difficultyExerciseList.clear();
+
+        //create new intent
+        Intent i = new Intent(this, DisplayRandomRoutineAct.class);
+        //create a new bundle to encompass ArrayList<ExerciseObject> to be passed
+        Bundle passBundle = new Bundle();
+        //put the arraylist<exerciseObject> into bundle
+        passBundle.putSerializable("ExerciseList", exerciseListToPass);
+        //add this to intent putExtras
+        i.putExtras(passBundle);
+        //adding the boolean to show the user wants the additional suggested reps / time
+        i.putExtra("Suggestions", displaySuggestions);
+        //starting the next activity
+        startActivity(i);
     }
 
 
