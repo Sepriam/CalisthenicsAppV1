@@ -64,7 +64,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 13;
 
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
@@ -430,6 +430,47 @@ Wall mountain climbers
 Lateral Plank Walk
 Hollow Hold
          */
+
+        //Legs
+        AddExerciseToDB(new ExerciseObject("Squats", "Legs", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Sumo Squats", "Legs", "Easy",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Bulgarian Split Squats", "Legs", "Easy",
+            10, 20, 0));
+        AddExerciseToDB(new ExerciseObject("Jump Squats", "Legs", "Intermediate",
+                6, 10, 0));
+        AddExerciseToDB(new ExerciseObject("Squat Kicks", "Legs", "Easy",
+                6, 10, 0));
+        AddExerciseToDB(new ExerciseObject("Wall Sit", "Legs", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Assisted Pistol Squats", "Legs", "Intermediate",
+                3, 8, 0));
+        AddExerciseToDB(new ExerciseObject("Pistol Squats", "Legs", "Advanced",
+                3, 8, 0));
+        AddExerciseToDB(new ExerciseObject("Broad Jumps", "Legs", "Intermediate",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Lunges", "Legs", "Easy",
+                10, 20, 0));
+        AddExerciseToDB(new ExerciseObject("Alternating Lunges", "Legs", "Intermediate",
+                0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Box Jumps", "Legs", "Intermediate",
+                5, 10, 30));
+        AddExerciseToDB(new ExerciseObject("Box Step-ups", "Legs", "Easy",
+                10, 20, 30));
+        AddExerciseToDB(new ExerciseObject("Calf Raises", "Legs", "Easy",
+                10, 20, 0));
+        AddExerciseToDB(new ExerciseObject("Calf Raise Hold", "Legs", "Easy",
+                0, 0, 20));
+        AddExerciseToDB(new ExerciseObject("Crab Walks", "Legs", "Intermediate",
+                0, 0, 20));
+        AddExerciseToDB(new ExerciseObject("Side Squats", "Legs", "Intermediate",
+                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Tip-toe Wall Sit", "Legs", "Intermediate",
+            0, 0, 30));
+
+
+
     }
 
     //If one item needs to be returned from the exercise table

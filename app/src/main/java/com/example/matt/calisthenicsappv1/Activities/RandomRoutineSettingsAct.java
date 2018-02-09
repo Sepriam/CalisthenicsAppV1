@@ -205,6 +205,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         muscleGroupsSelected.add("Back");
         muscleGroupsSelected.add("Arms");
         muscleGroupsSelected.add("Core");
+        muscleGroupsSelected.add("Legs");
 
         return muscleGroupsSelected;
     }

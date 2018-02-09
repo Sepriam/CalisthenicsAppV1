@@ -47,6 +47,8 @@ public class selectMuscleGroupsAct extends AppCompatActivity {
         muscleGroupArrayList.add(MGO);
         MGO = new muscleGroupObject("Core", false);
         muscleGroupArrayList.add(MGO);
+        MGO = new muscleGroupObject("Legs", false);
+        muscleGroupArrayList.add(MGO);
 
         _selectMuscleGroupsCAdapter = new SelectMuscleGroupsCAdapter(this, R.layout.customlv_muscle_group_element,
                 muscleGroupArrayList);
@@ -85,28 +87,6 @@ public class selectMuscleGroupsAct extends AppCompatActivity {
                 setResult(RESULT_OK,a);
                 finish();
 
-                /*
-                StringBuffer responseText = new StringBuffer();
-                responseText.append("The following were selected...\n");
-
-                ArrayList<muscleGroupObject> stateList = _selectMuscleGroupsCAdapter._muscleGroupsArrayList;
-
-                for(int i=0;i<stateList.size();i++)
-                {
-                    muscleGroupObject state = stateList.get(i);
-
-                    if(state.getSelected())
-                    {
-                        responseText.append("\n" + state.getMuscleGroup());
-                    }
-                }
-
-                Toast.makeText(getApplicationContext(),
-                        responseText, Toast.LENGTH_LONG).show();
-
-
-
-                 */
 
             }
         });

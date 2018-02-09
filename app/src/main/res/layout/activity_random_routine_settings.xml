@@ -32,7 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/selectDifficultySpinner"
-            android:backgroundTint="#b153a7ed"/>
+            android:backgroundTint="#b153a7ed"
+            android:foregroundTint="#e0ffff"/>
         <!--
         need to insert the drop down list here...
         create a spinner
@@ -62,6 +63,7 @@
             android:inputType="number"
             android:maxLength="1"
             android:textColor="#e0ffff"
+            android:textColorHint="#e0ffff"
             android:backgroundTint="#b153a7ed"/>
     </LinearLayout>
 

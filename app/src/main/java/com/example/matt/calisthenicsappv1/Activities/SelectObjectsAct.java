@@ -109,6 +109,7 @@ public class SelectObjectsAct extends AppCompatActivity {
         adapter.addFragment(new SelectObjectsTab3Fragment(), "Back");
         adapter.addFragment(new SelectObjectsTab4Fragment(), "Arms");
         adapter.addFragment(new SelectObjectsTab5Fragment(), "Core");
+        adapter.addFragment(new SelectObjectsTab6Fragment(), "Legs");
         viewPager.setAdapter(adapter);
     }
 
