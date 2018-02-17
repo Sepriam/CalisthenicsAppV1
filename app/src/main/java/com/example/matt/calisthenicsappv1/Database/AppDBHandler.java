@@ -64,7 +64,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 13;
+    private static final int DATABASE_VERSION = 14;
 
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
@@ -80,7 +80,9 @@ public class AppDBHandler extends SQLiteOpenHelper{
     private static final String KEY_UPPER_REP_RANGE = "upper_rep_range";
     private static final String KEY_SUGGESTED_TIME = "suggested_time";
     private static final String KEY_SELECTED = "selected";
-
+    //newly added
+    private static final String KEY_TIPS = "tips";
+    private static final String KEY_LINK = "videoURL";
 
 
     public AppDBHandler(Context context) {
@@ -94,7 +96,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 + KEY_NAME + " TEXT," + KEY_MUSCLE_GROUP + " TEXT,"
                 + KEY_DIFFICULTY + " TEXT," + KEY_LOWER_REP_RANGE + " TEXT,"
                 + KEY_UPPER_REP_RANGE + " TEXT," + KEY_SUGGESTED_TIME + " TEXT,"
-                + KEY_SELECTED + " TEXT" + ")";
+                + KEY_SELECTED + " TEXT, " + KEY_TIPS + " TEXT, " + KEY_LINK + " TEXT" + ")";
 
 
         db.execSQL(CREATE_CONTACTS_TABLE);
@@ -131,11 +133,14 @@ public class AppDBHandler extends SQLiteOpenHelper{
         values.put(KEY_UPPER_REP_RANGE, String.valueOf(_newexercise.getUpperRepRange()));
         values.put(KEY_SUGGESTED_TIME, String.valueOf(_newexercise.getSuggestedTime()));
         values.put(KEY_SELECTED, String.valueOf(_newexercise.isSelected()));
+        //newly added
+        values.put(KEY_TIPS, _newexercise.getTips());
+        values.put(KEY_LINK, _newexercise.getVideoURL());
 
 
         String log = "EName: " + _newexercise.getExerciseName() + " ,MGroup: " + _newexercise.getMuscleGroup() + " ,Difficulty: " + _newexercise.getDifficulty() +
                 " ,LowerRepRange: " + String.valueOf(_newexercise.getLowerRepRange()) + " ,UpperRepRange: " + String.valueOf(_newexercise.getUpperRepRange()) +
-                " ,SuggestedTime: " + String.valueOf(_newexercise.getSuggestedTime()) + " ,Selected: " + String.valueOf(_newexercise.isSelected());
+                " ,SuggestedTime: " + String.valueOf(_newexercise.getSuggestedTime()) + " ,Selected: " + String.valueOf(_newexercise.isSelected() + " ,Video URL: " + _newexercise.getVideoURL());
         // Writing Contacts to log
         Log.d("Exercise: ", "Exercise Input to Table: \n" +log);
 
@@ -482,7 +487,7 @@ Hollow Hold
         //
         Cursor cursor = db.query(TABLE_EXERCISES, new String[] {KEY_NAME,
                         KEY_MUSCLE_GROUP, KEY_DIFFICULTY, KEY_LOWER_REP_RANGE,
-                        KEY_UPPER_REP_RANGE, KEY_SUGGESTED_TIME, KEY_SELECTED}, KEY_NAME + "=?",
+                        KEY_UPPER_REP_RANGE, KEY_SUGGESTED_TIME, KEY_SELECTED, KEY_TIPS, KEY_LINK}, KEY_NAME + "=?",
                 new String[] {String.valueOf(_exerciseName)},null,null,null,null);
         //If the result of this query done not come up empty
         if(cursor != null)
@@ -492,9 +497,9 @@ Hollow Hold
         }
 
         //From the query result, assign each string to correct parameter position
-        //NAME > MUSCLE_GROUP > DIFFICULTY > LOWER_REP_RANGE > UPPER_REP_RANGE > SUGGESTED_TIME > SELECTED
+        //NAME > MUSCLE_GROUP > DIFFICULTY > LOWER_REP_RANGE > UPPER_REP_RANGE > SUGGESTED_TIME > SELECTED > TIPS > VIDEO_URL
         ExerciseObject eObject = new ExerciseObject(cursor.getString(0), cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+                cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8));
 
         //close entry to database
         db.close();
@@ -529,6 +534,8 @@ Hollow Hold
                 eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
                 eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
                 //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+                eObject.setTips(cursor.getString(7));
+                eObject.setVideoURL(cursor.getString(8));
 
                 //Adding the exerciseObject to the list
                 exerciseList.add(eObject);
@@ -569,6 +576,8 @@ Hollow Hold
                 eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
                 eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
                 eObject.setSelected(Boolean.parseBoolean(cursor.getString(6)));
+                eObject.setTips(cursor.getString(7));
+                eObject.setVideoURL(cursor.getString(8));
 
                 if (eObject.isSelected())
                 {
@@ -613,6 +622,9 @@ Hollow Hold
                 eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
                 eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
                 //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+                eObject.setTips(cursor.getString(7));
+                eObject.setVideoURL(cursor.getString(8));
+
 
                 //if the muscleGroup of exercise is same as one passed in params, then add to list
                  if (eObject.getMuscleGroup().equals(_muscleGroup))
@@ -660,6 +672,9 @@ Hollow Hold
                 eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
                 //Note -- ExerciseObject Constructor does not require isSelected as it set default False
 
+                eObject.setTips(cursor.getString(7));
+                eObject.setVideoURL(cursor.getString(8));
+
                 //cycle through each of the ArrayList<String> elements
                 for (int i = 0; i < _muscleGroups.size(); i++)
                 {
@@ -700,6 +715,8 @@ Hollow Hold
         values.put(KEY_UPPER_REP_RANGE, String.valueOf(exerciseObject.getUpperRepRange()));
         values.put(KEY_SUGGESTED_TIME, String.valueOf(exerciseObject.getSuggestedTime()));
         values.put(KEY_SELECTED, String.valueOf(exerciseObject.isSelected()));
+        values.put(KEY_TIPS, exerciseObject.getTips());
+        values.put(KEY_LINK, exerciseObject.getVideoURL());
 
         //close entry to database
         db.close();
@@ -724,6 +741,8 @@ Hollow Hold
         cv.put(KEY_LOWER_REP_RANGE, String.valueOf(exerciseObject.getLowerRepRange()));
         cv.put(KEY_UPPER_REP_RANGE, String.valueOf(exerciseObject.getUpperRepRange()));
         cv.put(KEY_SUGGESTED_TIME, String.valueOf(exerciseObject.getSuggestedTime()));
+        cv.put(KEY_TIPS, exerciseObject.getTips());
+        cv.put(KEY_LINK, exerciseObject.getVideoURL());
 
         if(!exerciseObject.isSelected())
         {
@@ -779,6 +798,9 @@ Hollow Hold
                 eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
                 eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
                 //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+
+                eObject.setTips(cursor.getString(7));
+                eObject.setVideoURL(cursor.getString(8));
 
                 //if the muscleGroup of exercise is same as one passed in params, then add to list
                 for (int i = 0 ; i< _muscleGroups.length - 1; i++) {
@@ -836,6 +858,9 @@ Hollow Hold
                     eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
                     //Note -- ExerciseObject Constructor does not require isSelected as it set default False
 
+                    eObject.setTips(cursor.getString(7));
+                    eObject.setVideoURL(cursor.getString(8));
+
                     //go through each exercise
                     //if exercise's difficult matches that passed, then add to list
                     if (eObject.getDifficulty().contains(_difficulty))
@@ -881,6 +906,9 @@ Hollow Hold
                     eObject.setUpperRepRange(Integer.parseInt(cursor.getString(4)));
                     eObject.setSuggestedTime(Integer.parseInt(cursor.getString(5)));
                     //Note -- ExerciseObject Constructor does not require isSelected as it set default False
+
+                    eObject.setTips(cursor.getString(7));
+                    eObject.setVideoURL(cursor.getString(8));
 
                     //go through each exercise
                     //if exercise's difficult matches that passed, then add to list

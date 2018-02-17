@@ -68,7 +68,9 @@ public class ExerciseObject implements Serializable{
     private int UpperRepRange;
     private int SuggestedTime;  //Suggested Time in Seconds
     private boolean IsSelected;
-
+    //newly added
+    private String Tips;
+    private String VideoURL;
 
     //Default constructor with all values assigned
     public ExerciseObject(String _exerciseName, String _muscleGroup,
@@ -158,6 +160,31 @@ public class ExerciseObject implements Serializable{
 
     }
 
+    public ExerciseObject(String _exerciseName, String _muscleGroup,
+                          String _difficulty, String _lowerRepRange,
+                          String _upperRepRange, String _suggestedTime,
+                          String _selected, String _tips, String _videoURL)
+    {
+        //Default Constructor
+        this.ExerciseName = _exerciseName;
+        this.MuscleGroup = _muscleGroup;
+        this.Difficulty = _difficulty;
+        this.LowerRepRange = Integer.parseInt(_lowerRepRange);
+        this.UpperRepRange = Integer.parseInt(_upperRepRange);
+        this.SuggestedTime = Integer.parseInt(_suggestedTime);
+        this.IsSelected = Boolean.parseBoolean(_selected);
+        this.Tips = _tips;
+        this.VideoURL = _videoURL;
+
+        String log = "Name: "+_exerciseName+ " ,MuscleGroup: " + _muscleGroup + " ,Difficulty: " + _difficulty + " ,Lower Rep Range: " + _lowerRepRange
+                + " ,Upper Rep Range: " + _upperRepRange + " ,SuggestedTime: " + _suggestedTime + " ,Selected: " + _selected + " ,Video URL: " + _videoURL;
+        // Writing Contacts to log
+        Log.d("New Exercise: ", log);
+
+    }
+
+
+
 
     public String getExerciseName() {
         return ExerciseName;
@@ -213,5 +240,21 @@ public class ExerciseObject implements Serializable{
 
     public void setSelected(boolean selected) {
         IsSelected = selected;
+    }
+
+    public String getTips() {
+        return Tips;
+    }
+
+    public void setTips(String tips) {
+        Tips = tips;
+    }
+
+    public String getVideoURL() {
+        return VideoURL;
+    }
+
+    public void setVideoURL(String videoURL) {
+        VideoURL = videoURL;
     }
 }
