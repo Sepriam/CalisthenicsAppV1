@@ -346,79 +346,79 @@ Rope climbs (floor)
 
         //Core
 
-        AddExerciseToDB(new ExerciseObject("Crunches", "Core", "Easy",
-                8, 15, 0));
-        AddExerciseToDB(new ExerciseObject("Chair Crunches", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Star Crunches", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Bicycles", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Criucifix", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Crucifix Hold", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Boat Hold", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("V-Sit Hold", "Core", "Intermediate",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("V-ups", "Core", "Intermediate",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Leg Raises (floor)", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Lower Abdominal Raises", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Plank", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Plank Up-And-Down", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Plank Side-To-Side", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Plank Knees-To-Elbow", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Toe Touches", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Russian Twitst", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Flutter Kicks", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Windshield Wipers", "Core", "Advanced",
-                0, 0, 10));
-        AddExerciseToDB(new ExerciseObject("Side Plank Hold", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Side Plank Raises", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Hanging Leg Raises", "Core", "Intermediate",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Hanging Knee Raises", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Hanging Corner Raises", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Front Lever Raises", "Core", "Advanced",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Tuck Planche Raises", "Core", "Advanced",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("L-Sit Hold", "Core", "Intermediate",
-                0, 0, 20));
-        AddExerciseToDB(new ExerciseObject("Tucked L-sit Hold", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Toes-To-Bar", "Core", "Advanced",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Back Lever Drop", "Core", "Advanced",
-                3, 6, 0));
-        AddExerciseToDB(new ExerciseObject("Dragon Flag", "Core", "Advanced",
-                2, 5, 0));
-        AddExerciseToDB(new ExerciseObject("Bar Crunches", "Core", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Legs Down Hold", "Core", "Easy",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Inverted Hanging Deadlift", "Core", "Advanced",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Pull-Over", "Core", "Intermediate",
-                2, 8, 0));
-        AddExerciseToDB(new ExerciseObject("Skin-The-Cat", "Core", "Intermediate",
-                6, 12, 0));
+        AddExerciseToDB(new ExerciseObject("Crunches", "Core", "Easy","8", "15", "0", "false", "5a", "none"));
 
+        AddExerciseToDB(new ExerciseObject("Chair Crunches", "Core", "Easy","6", "12", "0", "false", "5b", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Star Crunches", "Core", "Easy","6", "12", "0", "false", "5c", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Bicycles", "Core", "Easy","0", "0", "30", "false", "5d", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Criucifix", "Core", "Easy","6", "12", "0", "false", "5e", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Crucifix Hold", "Core", "Easy","0", "0", "30", "false", "5f", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Boat Hold", "Core", "Easy","0", "0", "30", "false", "5g", "none"));
+
+        AddExerciseToDB(new ExerciseObject("V-Sit Hold", "Core", "Intermediate","0", "0", "30", "false", "5h", "none"));
+
+        AddExerciseToDB(new ExerciseObject("V-ups", "Core", "Intermediate","6", "12", "0", "false", "5i", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Leg Raises (floor)", "Core", "Easy","6", "12", "0", "false", "5j", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Lower Abdominal Raises", "Core", "Easy","6", "12", "0", "false", "5k", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Plank", "Core", "Easy","0", "0", "30", "false", "5l", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Plank Up-And-Down", "Core", "Easy","0", "0", "30", "false", "5m", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Plank Side-To-Side", "Core", "Easy","0", "0", "30", "false", "5n", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Plank Knees-To-Elbow", "Core", "Easy","0", "0", "30", "false", "5o", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Toe Touches", "Core", "Easy","0", "0", "30", "false", "5p", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Russian Twitst", "Core", "Easy","6", "12", "0", "false", "5q", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Flutter Kicks", "Core", "Easy","0", "0", "30", "false", "5r", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Windshield Wipers", "Core", "Advanced","0", "0", "30", "false", "5s", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Side Plank Hold", "Core", "Easy","0", "0", "30", "false", "5t", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Side Plank Raises", "Core", "Easy","0", "0", "30", "false", "5u", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Hanging Leg Raises", "Core", "Intermediate","6", "12", "0", "false", "5v", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Hanging Knee Raises", "Core", "Easy","6", "12", "0", "false", "5w", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Hanging Corner Raises", "Core", "Easy","6", "12", "0", "false", "5x", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Front Lever Raises", "Core", "Advanced","6", "12", "0", "false", "5y", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Tuck Planche Raises", "Core", "Advanced","6", "12", "0", "false", "5z", "none"));
+
+        AddExerciseToDB(new ExerciseObject("L-Sit Hold", "Core", "Intermediate","0", "0", "20", "false", "5aa", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Tucked L-sit Hold", "Core", "Easy","0", "0", "30", "false", "5ab", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Toes-To-Bar", "Core", "Advanced","6", "12", "0", "false", "5ac", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Back Lever Drop", "Core", "Advanced","3", "6", "0", "false", "5ad", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Dragon Flag", "Core", "Advanced","2", "5", "0", "false", "5ae", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Bar Crunches", "Core", "Easy","6", "12", "0", "false", "5af", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Legs Down Hold", "Core", "Easy","0", "0", "30", "false", "5ag", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Inverted Hanging Deadlift", "Core", "Advanced","6", "12", "0", "false", "5ah", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Pull-Over", "Core", "Intermediate","2", "8", "0", "false", "5ai", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Skin-The-Cat", "Core", "Intermediate","6", "12", "0", "false", "5aj", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Hollow Body Hold", "Core", "Intermediate", "0", "0", "30", "false", "5ak", "none"));
         /*bar crunches
 ab wheel
 hip raises
@@ -436,43 +436,41 @@ Hollow Hold
          */
 
         //Legs
-        AddExerciseToDB(new ExerciseObject("Squats", "Legs", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Sumo Squats", "Legs", "Easy",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Bulgarian Split Squats", "Legs", "Easy",
-            10, 20, 0));
-        AddExerciseToDB(new ExerciseObject("Jump Squats", "Legs", "Intermediate",
-                6, 10, 0));
-        AddExerciseToDB(new ExerciseObject("Squat Kicks", "Legs", "Easy",
-                6, 10, 0));
-        AddExerciseToDB(new ExerciseObject("Wall Sit", "Legs", "Intermediate",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Assisted Pistol Squats", "Legs", "Intermediate",
-                3, 8, 0));
-        AddExerciseToDB(new ExerciseObject("Pistol Squats", "Legs", "Advanced",
-                3, 8, 0));
-        AddExerciseToDB(new ExerciseObject("Broad Jumps", "Legs", "Intermediate",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Lunges", "Legs", "Easy",
-                10, 20, 0));
-        AddExerciseToDB(new ExerciseObject("Alternating Lunges", "Legs", "Intermediate",
-                0, 0, 30));
-        AddExerciseToDB(new ExerciseObject("Box Jumps", "Legs", "Intermediate",
-                5, 10, 30));
-        AddExerciseToDB(new ExerciseObject("Box Step-ups", "Legs", "Easy",
-                10, 20, 30));
-        AddExerciseToDB(new ExerciseObject("Calf Raises", "Legs", "Easy",
-                10, 20, 0));
-        AddExerciseToDB(new ExerciseObject("Calf Raise Hold", "Legs", "Easy",
-                0, 0, 20));
-        AddExerciseToDB(new ExerciseObject("Crab Walks", "Legs", "Intermediate",
-                0, 0, 20));
-        AddExerciseToDB(new ExerciseObject("Side Squats", "Legs", "Intermediate",
-                6, 12, 0));
-        AddExerciseToDB(new ExerciseObject("Tip-toe Wall Sit", "Legs", "Intermediate",
-            0, 0, 30));
+        AddExerciseToDB(new ExerciseObject("Squats", "Legs", "Easy","6", "12", "0", "false", "6a", "none"));
 
+        AddExerciseToDB(new ExerciseObject("Sumo Squats", "Legs", "Easy","6", "12", "0", "false", "6b", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Bulgarian Split Squats", "Legs", "Easy","10", "20", "0", "false", "6c", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Jump Squats", "Legs", "Intermediate","6", "12", "0", "false", "6d", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Squat Kicks", "Legs", "Easy","6", "10", "0", "false", "6e", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Wall Sit", "Legs", "Intermediate","6", "12", "0", "false", "6f", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Assisted Pistol Squats", "Legs", "Intermediate","3", "8", "0", "false", "6g", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Pistol Squats", "Legs", "Advanced","3", "8", "0", "false", "6h", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Broad Jumps", "Legs", "Intermediate","0", "0", "30", "false", "6i", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Lunges", "Legs", "Easy","10", "20", "0", "false", "6j", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Alternating Lunges", "Legs", "Intermediate","0", "0", "30", "false", "6k", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Box Jumps", "Legs", "Intermediate","5", "10", "30", "false", "6l", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Box Step-ups", "Legs", "Easy","10", "20", "30", "false", "6m", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Calf Raises", "Legs", "Easy","10", "20", "0", "false", "6n", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Calf Raise Hold", "Legs", "Easy","0", "0", "20", "false", "6o", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Crab Walks", "Legs", "Intermediate","0", "0", "20", "false", "6p", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Side Squats", "Legs", "Intermediate","6", "12", "0", "false", "6r", "none"));
+
+        AddExerciseToDB(new ExerciseObject("Tip-toe Wall Sit", "Legs", "Intermediate","0", "0", "30", "false", "6s", "none"));
 
 
     }
