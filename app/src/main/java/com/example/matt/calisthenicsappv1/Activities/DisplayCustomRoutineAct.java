@@ -131,4 +131,12 @@ public class DisplayCustomRoutineAct extends AppCompatActivity {
         }
 
     };
+
+    /*
+    TODO:
+    Create functionality that finds value in listview and passes it across an intent to page : exerciseExplanationAct
+
+    Move the onClickListeners into separate methods to clean code a little
+     */
+
 }

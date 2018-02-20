@@ -53,6 +53,7 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
         //Copying arraylist to global arraylist for class
         passedExerciseObjectList = (ArrayList<ExerciseObject>) bundledObjects.getSerializable("ExerciseList");
 
+
         handler = new Handler() ;
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -163,5 +164,14 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
         }
 
     };
+
+
+    /*
+    TODO:
+    Create functionality that finds value in listview and passes it across an intent to page : exerciseExplanationAct
+
+
+    Move the onClickListeners into separate methods to clean code a little
+     */
 
 }
