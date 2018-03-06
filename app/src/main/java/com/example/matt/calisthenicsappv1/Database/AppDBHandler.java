@@ -126,7 +126,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
         //NOTED -- All the values passed should be strings
         //Must convert to string: LowerRepRange, UpperRepRange, SuggestedTime and isSelected
-        values.put(KEY_NAME, _newexercise.getExerciseName());
+       values.put(KEY_NAME, _newexercise.getExerciseName());
         values.put(KEY_MUSCLE_GROUP, _newexercise.getMuscleGroup());
         values.put(KEY_DIFFICULTY, _newexercise.getDifficulty());
         values.put(KEY_LOWER_REP_RANGE, String.valueOf(_newexercise.getLowerRepRange()));

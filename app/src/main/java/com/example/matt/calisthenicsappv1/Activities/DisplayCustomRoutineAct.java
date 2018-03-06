@@ -1,10 +1,13 @@
 package com.example.matt.calisthenicsappv1.Activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -36,6 +39,22 @@ public class DisplayCustomRoutineAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_custom_routine);
 
+        initiateWidgets();
+
+        setOnClickListeners();
+
+        assignAdapters();
+
+
+
+
+
+
+
+    }
+
+    public void initiateWidgets()
+    {
         //Initialising the ListView
         displayCustomRoutineListview = (ListView)findViewById(R.id.DisplayCustomRoutineListView);
         textView = (TextView)findViewById(R.id.textView);
@@ -43,6 +62,11 @@ public class DisplayCustomRoutineAct extends AppCompatActivity {
         pause = (Button)findViewById(R.id.button2);
         reset = (Button)findViewById(R.id.button3);
 
+
+    }
+
+    public void setOnClickListeners()
+    {
         handler = new Handler() ;
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +110,10 @@ public class DisplayCustomRoutineAct extends AppCompatActivity {
 
             }
         });
+    }
 
-
-
+    public void assignAdapters()
+    {
         //Retrieving the bundled content
         Bundle bundledObjects = getIntent().getExtras();
         //Copying arraylist to global arraylist for class
@@ -102,9 +127,15 @@ public class DisplayCustomRoutineAct extends AppCompatActivity {
         //assign custom adapter to listview
         displayCustomRoutineListview.setAdapter(trueListAdapter);
 
-
+        //setting the onClickListener for custom Listview Object
+        displayCustomRoutineListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getBaseContext(), exerciseExplanationAct.class);
+                startActivity(intent);
+            }
+        });
     }
-
 
 
     public Runnable runnable = new Runnable() {
