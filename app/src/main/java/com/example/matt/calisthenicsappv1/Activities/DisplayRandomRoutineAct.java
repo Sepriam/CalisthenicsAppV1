@@ -1,10 +1,12 @@
 package com.example.matt.calisthenicsappv1.Activities;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -41,19 +43,44 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_random_routine);
 
-        //Initialising the ListView
-        displayRandomRoutineListview = (ListView)findViewById(R.id.DisplayRandomRoutineListView);
-        textView = (TextView)findViewById(R.id.textView);
-        start = (Button)findViewById(R.id.button);
-        pause = (Button)findViewById(R.id.button2);
-        reset = (Button)findViewById(R.id.button3);
+        initiateWidgets();
+
+        setTimerOnClickListeners();
 
         //Retrieving the bundled content
         Bundle bundledObjects = getIntent().getExtras();
         //Copying arraylist to global arraylist for class
         passedExerciseObjectList = (ArrayList<ExerciseObject>) bundledObjects.getSerializable("ExerciseList");
 
+        //Copying boolean value passed into a global boolean for the class
+        toggleSuggestions = (Boolean) bundledObjects.get("Suggestions");
+        //Check to see whether the boolean value passed correctly
+        Toast.makeText(getApplicationContext(), "Boolean value: " + toggleSuggestions.toString(), Toast.LENGTH_SHORT).show();
 
+        //check to find which adapter to assign to listview
+        if (toggleSuggestions)
+        {
+            displayTrueListViewLayout(passedExerciseObjectList);
+        }
+        else
+        {
+            displayFalseListViewLayout(passedExerciseObjectList);
+        }
+
+    }
+
+    public void initiateWidgets()
+    {
+        //Initialising the ListView
+        displayRandomRoutineListview = (ListView)findViewById(R.id.DisplayRandomRoutineListView);
+        textView = (TextView)findViewById(R.id.textView);
+        start = (Button)findViewById(R.id.button);
+        pause = (Button)findViewById(R.id.button2);
+        reset = (Button)findViewById(R.id.button3);
+    }
+
+    public void setTimerOnClickListeners()
+    {
         handler = new Handler() ;
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -97,25 +124,8 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
 
             }
         });
-
-
-        //Copying boolean value passed into a global boolean for the class
-        toggleSuggestions = (Boolean) bundledObjects.get("Suggestions");
-        //Check to see whether the boolean value passed correctly
-        Toast.makeText(getApplicationContext(), "Boolean value: " + toggleSuggestions.toString(), Toast.LENGTH_SHORT).show();
-
-
-        //check to find which adapter to assign to listview
-        if (toggleSuggestions)
-        {
-            displayTrueListViewLayout(passedExerciseObjectList);
-        }
-        else
-        {
-            displayFalseListViewLayout(passedExerciseObjectList);
-        }
-
     }
+
 
     public void displayTrueListViewLayout(ArrayList<ExerciseObject> _trueExercises)
     {
@@ -126,6 +136,15 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
 
         //assign custom adapter to listview
         displayRandomRoutineListview.setAdapter(trueListAdapter);
+
+        //setting on click listener
+        displayRandomRoutineListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getBaseContext(), exerciseExplanationAct.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void displayFalseListViewLayout(ArrayList<ExerciseObject> _falseExercises)
@@ -137,6 +156,15 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
 
         //assign custom adapter to listview
         displayRandomRoutineListview.setAdapter(falseListAdapter);
+
+        //setting on click listener
+        displayRandomRoutineListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getBaseContext(), exerciseExplanationAct.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
