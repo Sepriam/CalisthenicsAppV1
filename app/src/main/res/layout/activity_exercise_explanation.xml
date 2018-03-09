@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.matt.calisthenicsappv1.Activities.exerciseExplanationAct">
+    tools:context="com.example.matt.calisthenicsappv1.Activities.exerciseExplanationAct"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:id="@+id/youtubePlayer">
+
+    </com.google.android.youtube.player.YouTubePlayerView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:text="Play vod"
+        android:id="@+id/playYoutubeVideo_btn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|top"
+        android:id="@+id/exerciseExplanation_TV2"
+        android:layout_weight="0.5"/>
+
+</LinearLayout>

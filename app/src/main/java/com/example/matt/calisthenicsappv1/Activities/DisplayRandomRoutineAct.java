@@ -140,8 +140,10 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
         //setting on click listener
         displayRandomRoutineListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getBaseContext(), exerciseExplanationAct.class);
+                ExerciseObject tempObject = passedExerciseObjectList.get(position);
+                intent.putExtra("itemPassed", tempObject);
                 startActivity(intent);
             }
         });

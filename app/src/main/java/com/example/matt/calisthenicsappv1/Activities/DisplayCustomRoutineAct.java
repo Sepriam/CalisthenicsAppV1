@@ -38,19 +38,9 @@ public class DisplayCustomRoutineAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_custom_routine);
-
         initiateWidgets();
-
         setOnClickListeners();
-
         assignAdapters();
-
-
-
-
-
-
-
     }
 
     public void initiateWidgets()
@@ -130,8 +120,10 @@ public class DisplayCustomRoutineAct extends AppCompatActivity {
         //setting the onClickListener for custom Listview Object
         displayCustomRoutineListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(getBaseContext(), exerciseExplanationAct.class);
+                ExerciseObject tempObject = passedExerciseObjectList.get(position);
+                intent.putExtra("itemPassed", tempObject);
                 startActivity(intent);
             }
         });
