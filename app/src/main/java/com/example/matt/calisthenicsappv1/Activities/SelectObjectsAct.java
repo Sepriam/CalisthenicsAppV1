@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -40,8 +41,6 @@ public class SelectObjectsAct extends AppCompatActivity {
 
     private ViewPager mViewPager;
 
-    private ViewPager lastView;
-
     ArrayList<ExerciseObject> checkedExerciseList = new ArrayList<>();
 
     @Override
@@ -55,43 +54,33 @@ public class SelectObjectsAct extends AppCompatActivity {
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+        setSupportActionBar(toolbar);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
-
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mViewPager);
 
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
-
-                //for each item in arraylist, check if it's bool is true. If true, mark the current checkbox and then delete from array
-
-
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
-
         });
 
     }
@@ -116,15 +105,25 @@ public class SelectObjectsAct extends AppCompatActivity {
     //reset selection of each exercise
     public void _ResetSelection(View view) {
 
-        return;
+
         //we can remove the above fragment once you reset each checkbox to unticked
+        AppDBHandler db = new AppDBHandler(this);
 
+        db.returnTrueExercises();
 
+        //restart the current activity to refresh all the listviews
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
 
+        /*
+        note to self:
+        could not find suitable / efficient way to refresh the current fragment
+        so instead i just restarted the entire activity
+        this removes the possibility of having reset items and still having checkboxes selected
+         */
 
-        //AppDBHandler db = new AppDBHandler(this);
-
-        //db.returnTrueExercises();
+        return;
 
     }
 

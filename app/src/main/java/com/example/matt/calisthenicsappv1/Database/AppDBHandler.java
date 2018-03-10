@@ -938,7 +938,7 @@ Hollow Hold
         UDPATE <table> SET <column 1> = <value 1>, <column 2> = <value 2>;
          */
         SQLiteDatabase db = this.getWritableDatabase();
-        String resetQuery = "UPDATE " + TABLE_EXERCISES + " SET " + KEY_SELECTED + " = false";
+        String resetQuery = "UPDATE " + TABLE_EXERCISES + " SET " + KEY_SELECTED + " = 'false'";
         db.execSQL(resetQuery);
     }
 

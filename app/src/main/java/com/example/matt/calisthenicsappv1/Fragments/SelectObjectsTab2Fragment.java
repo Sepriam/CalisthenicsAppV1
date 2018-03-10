@@ -26,14 +26,18 @@ import java.util.List;
 public class SelectObjectsTab2Fragment extends Fragment {
     private static final String TAG = "SelectObjectsTab2Fragment";
 
+    ListAdapter myListAdapter2;
 
+    ArrayList<ExerciseObject> arrayListExercises;
+
+    View view;
 
     private ListView lvTEST;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_select_objects2,container,false);
+       view = inflater.inflate(R.layout.fragment_select_objects2,container,false);
 
         String log = "";
 
@@ -55,14 +59,21 @@ public class SelectObjectsTab2Fragment extends Fragment {
         Log.d("Exercise: ", "Chest Exercise List Contains: \n" +log);
 
         //creating a string array that contains names of exercises for use in customListView
-        ArrayList<ExerciseObject> arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
+        arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
 
         //Setting adapter to custom listview with previously created arraylist
-        ListAdapter myListAdapter2 = new SelectObjCustomAdapter2(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
+        myListAdapter2 = new SelectObjCustomAdapter2(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
         lvTEST = (ListView) view.findViewById(R.id.listview3);
         lvTEST.setAdapter(myListAdapter2);
 
 
         return view;
+    }
+
+    public void updateFragment1ListView()
+    {
+        myListAdapter2 = new SelectObjCustomAdapter1(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
+        lvTEST = (ListView) view.findViewById(R.id.listview1);
+        lvTEST.setAdapter(myListAdapter2);
     }
 }

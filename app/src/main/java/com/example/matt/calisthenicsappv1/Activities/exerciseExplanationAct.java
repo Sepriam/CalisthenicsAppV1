@@ -20,7 +20,7 @@ public class exerciseExplanationAct extends YouTubeBaseActivity {
     TextView descriptionTV;
     YouTubePlayerView youTubePlayer;
     YouTubePlayer.OnInitializedListener onInitializedListener;
-    Button playYoutubeVidBtn;
+    //Button playYoutubeVidBtn;
 
     ExerciseObject passedObject;
 
@@ -60,7 +60,7 @@ public class exerciseExplanationAct extends YouTubeBaseActivity {
         //initiate the widgets
         descriptionTV = (TextView)findViewById(R.id.exerciseExplanation_TV2);
         youTubePlayer = (YouTubePlayerView)findViewById(R.id.youtubePlayer);
-        playYoutubeVidBtn = (Button)findViewById(R.id.playYoutubeVideo_btn);
+        //playYoutubeVidBtn = (Button)findViewById(R.id.playYoutubeVideo_btn);
 
         //set widget text
         descriptionTV.setText(passedObject.getTips());
@@ -81,12 +81,14 @@ public class exerciseExplanationAct extends YouTubeBaseActivity {
             }
         };
 
-        playYoutubeVidBtn.setOnClickListener(new View.OnClickListener() {
+        youTubePlayer.initialize("AIzaSyAXQZ_OJCmsqI24uTc9eDNFPrxp-q1L1rQ", onInitializedListener);
+
+        /*playYoutubeVidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                youTubePlayer.initialize("AIzaSyAXQZ_OJCmsqI24uTc9eDNFPrxp-q1L1rQ", onInitializedListener);
+
             }
-        });
+        });*/
 
     }
 }

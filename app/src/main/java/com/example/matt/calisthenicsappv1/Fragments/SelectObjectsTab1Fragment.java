@@ -26,14 +26,18 @@ import java.util.List;
 public class SelectObjectsTab1Fragment extends Fragment {
     private static final String TAG = "SelectObjectsTab1Fragment";
 
+    ListAdapter myListAdapter;
 
+    ArrayList<ExerciseObject> arrayListExercises;
+
+    View view;
 
     private ListView lvTEST;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_select_objects1,container,false);
+        view = inflater.inflate(R.layout.fragment_select_objects1,container,false);
 
         String log ="";
 
@@ -54,12 +58,12 @@ public class SelectObjectsTab1Fragment extends Fragment {
         Log.d("Exercise: ", "Shoulder Exercise List Contains: \n" +log);
 
         //pushing all the exercises from list to arraylist for display in LV
-        ArrayList<ExerciseObject> arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
+        arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
 
 
 
         //Setting adapter to custom listview with previously created arraylist
-        ListAdapter myListAdapter = new SelectObjCustomAdapter1(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
+        myListAdapter = new SelectObjCustomAdapter1(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
         lvTEST = (ListView) view.findViewById(R.id.listview1);
         lvTEST.setAdapter(myListAdapter);
 
@@ -70,6 +74,13 @@ public class SelectObjectsTab1Fragment extends Fragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+    }
+
+    public void updateFragment1ListView()
+    {
+        myListAdapter = new SelectObjCustomAdapter1(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
+        lvTEST = (ListView) view.findViewById(R.id.listview1);
+        lvTEST.setAdapter(myListAdapter);
     }
 
 }

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.matt.calisthenicsappv1.Adapters.SelectObjCustomAdapter1;
 import com.example.matt.calisthenicsappv1.Adapters.SelectObjCustomAdapter4;
 import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
@@ -29,14 +30,18 @@ import java.util.List;
 public class SelectObjectsTab4Fragment extends Fragment {
     private static final String TAG = "SelectObjectsTab4Fragment";
 
+    ListAdapter myListAdapter4;
 
+    ArrayList<ExerciseObject> arrayListExercises;
+
+    View view;
 
     private ListView lvTEST;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_select_objects4,container,false);
+        view = inflater.inflate(R.layout.fragment_select_objects4,container,false);
 
         String log ="";
 
@@ -57,20 +62,22 @@ public class SelectObjectsTab4Fragment extends Fragment {
         Log.d("Exercise: ", "Shoulder Exercise List Contains: \n" +log);
 
         //pushing all the exercises from list to arraylist for display in LV
-        ArrayList<ExerciseObject> arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
+        arrayListExercises = new ArrayList<ExerciseObject>(ExerciseList);
 
         //Setting adapter to custom listview with previously created arraylist
-        ListAdapter myListAdapter = new SelectObjCustomAdapter4(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
+        myListAdapter4 = new SelectObjCustomAdapter4(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
         lvTEST = (ListView) view.findViewById(R.id.listview4);
-        lvTEST.setAdapter(myListAdapter);
+        lvTEST.setAdapter(myListAdapter4);
 
         return view;
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
 
+    public void updateFragment1ListView()
+    {
+        myListAdapter4 = new SelectObjCustomAdapter1(getContext(), R.layout.customlv_choose_exercise_element, arrayListExercises);
+        lvTEST = (ListView) view.findViewById(R.id.listview1);
+        lvTEST.setAdapter(myListAdapter4);
     }
 
 }
