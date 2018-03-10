@@ -1,7 +1,6 @@
 package com.example.matt.calisthenicsappv1.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +22,8 @@ public class exerciseExplanationAct extends YouTubeBaseActivity {
     YouTubePlayer.OnInitializedListener onInitializedListener;
     Button playYoutubeVidBtn;
 
+    ExerciseObject passedObject;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,17 +31,17 @@ public class exerciseExplanationAct extends YouTubeBaseActivity {
 
         //retrieval of the item passed across intent
         Intent i = getIntent();
-        ExerciseObject passedObject = (ExerciseObject) i.getSerializableExtra("itemPassed");
+        passedObject = (ExerciseObject) i.getSerializableExtra("itemPassed");
 
         if (passedObject.getMuscleGroup().equals(""))
         {
-            //small hack - checks whether there's a musclegroup attached to object, this should always be false as object is required to have musclegroup attached
+            //small hack - checks whether there's a musclegroup attached to object, 1this should always be false as object is required to have musclegroup attached
             Log.d("exercise Explanation:", " Exercise failed to be retrieved across intents");
             //display that this error occured in a toast
             Toast.makeText(this, "Exercise Not Passed Across Intent", Toast.LENGTH_SHORT).show();
         }
 
-        initiateWidgets(passedObject);
+        initiateWidgets();
 
         /*
         Todo:
@@ -54,7 +55,7 @@ public class exerciseExplanationAct extends YouTubeBaseActivity {
     }
 
 
-    private void initiateWidgets(ExerciseObject passedObject)
+    private void initiateWidgets()
     {
         //initiate the widgets
         descriptionTV = (TextView)findViewById(R.id.exerciseExplanation_TV2);
@@ -64,12 +65,14 @@ public class exerciseExplanationAct extends YouTubeBaseActivity {
         //set widget text
         descriptionTV.setText(passedObject.getTips());
 
+        final String vidURL = passedObject.getVideoURL();
+
         //initialise youtubePlayer
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 //takes the url of video
-                youTubePlayer.loadVideo("PMivT7MJ41M");
+                youTubePlayer.loadVideo(vidURL);
             }
 
             @Override

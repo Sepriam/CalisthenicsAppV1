@@ -72,8 +72,13 @@ public class ExerciseObject implements Serializable{
     private String Tips;
     private String VideoURL;
 
+    public ExerciseObject()
+    {
+        //Default constructor if empty exercise object needed
+    }
+
     //Default constructor with all values assigned
-    public ExerciseObject(String _exerciseName, String _muscleGroup,
+    /*public ExerciseObject(String _exerciseName, String _muscleGroup,
                           String _difficulty, int _lowerRepRange,
                           int _upperRepRange, int _suggestedTime)
     {
@@ -91,10 +96,7 @@ public class ExerciseObject implements Serializable{
     }
 
 
-    public ExerciseObject()
-    {
-        //Default constructor if empty exercise object needed
-    }
+
 
 
     //Default constructor if rep ranges not given
@@ -158,7 +160,7 @@ public class ExerciseObject implements Serializable{
         // Writing Contacts to log
         Log.d("New Exercise: ", log);
 
-    }
+    }*/
 
     public ExerciseObject(String _exerciseName, String _muscleGroup,
                           String _difficulty, String _lowerRepRange,

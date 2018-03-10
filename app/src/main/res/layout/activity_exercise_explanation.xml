@@ -7,21 +7,28 @@
     tools:context="com.example.matt.calisthenicsappv1.Activities.exerciseExplanationAct"
     android:orientation="vertical">
 
-
-    <com.google.android.youtube.player.YouTubePlayerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.5"
-        android:id="@+id/youtubePlayer">
+        android:orientation="vertical"
+        android:layout_weight="0.5">
 
-    </com.google.android.youtube.player.YouTubePlayerView>
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:id="@+id/youtubePlayer"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.5"
-        android:text="Play vod"
-        android:id="@+id/playYoutubeVideo_btn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:text="Play vod"
+            android:layout_gravity="center"
+            android:id="@+id/playYoutubeVideo_btn"/>
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"

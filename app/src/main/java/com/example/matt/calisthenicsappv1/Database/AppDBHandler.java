@@ -64,7 +64,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 16;
+    private static final int DATABASE_VERSION = 17;
 
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
@@ -154,39 +154,39 @@ public class AppDBHandler extends SQLiteOpenHelper{
     public void setDefaultValues()
     {
         //Shoulder Values
-        AddExerciseToDB(new ExerciseObject("Handstand Press ups", "Shoulders", "Advanced","6", "12", "0", "false", "1a" , "none"));
+        AddExerciseToDB(new ExerciseObject("Handstand Press ups", "Shoulders", "Advanced","6", "12", "0", "false", "1a" , "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Handstand Kick-Ups", "Shoulders", "Advanced","6", "12", "0", "false", "1b", "none"));
+        AddExerciseToDB(new ExerciseObject("Handstand Kick-Ups", "Shoulders", "Advanced","6", "12", "0", "false", "1b", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Pike Hold", "Shoulders", "Easy","0" , "0", "30", "false", "1c", "none"));
+        AddExerciseToDB(new ExerciseObject("Pike Hold", "Shoulders", "Easy","0" , "0", "30", "false", "1c", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Elevated Pike Hold", "Shoulders", "Intermediate","0", "0", "30", "false", "1d", "none"));
+        AddExerciseToDB(new ExerciseObject("Elevated Pike Hold", "Shoulders", "Intermediate","0", "0", "30", "false", "1d", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Pike Push-ups", "Shoulders", "Intermediate","6", "12", "0", "false", "1e", "none"));
+        AddExerciseToDB(new ExerciseObject("Pike Push-ups", "Shoulders", "Intermediate","6", "12", "0", "false", "1e", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Wall Walks", "Shoulders", "Advanced","3", "7", "0", "false", "1f", "none"));
+        AddExerciseToDB(new ExerciseObject("Wall Walks", "Shoulders", "Advanced","3", "7", "0", "false", "1f", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Elevated Pike Push-ups", "Shoulders", "Intermediate","6", "12", "0", "false", "1g", "none"));
+        AddExerciseToDB(new ExerciseObject("Elevated Pike Push-ups", "Shoulders", "Intermediate","6", "12", "0", "false", "1g", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Handstand Hold", "Shoulders", "Intermediate","0", "0", "45", "false", "1h", "none"));
+        AddExerciseToDB(new ExerciseObject("Handstand Hold", "Shoulders", "Intermediate","0", "0", "45", "false", "1h", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Handstand Shoulder Taps", "Shoulders", "Advanced","8", "16", "0", "false", "1i", "none"));
+        AddExerciseToDB(new ExerciseObject("Handstand Shoulder Taps", "Shoulders", "Advanced","8", "16", "0", "false", "1i", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Straight Arm Plank Shoulder Taps", "Shoulders", "Easy","0", "0", "30", "false", "1j", "none"));
+        AddExerciseToDB(new ExerciseObject("Straight Arm Plank Shoulder Taps", "Shoulders", "Easy","0", "0", "30", "false", "1j", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Shoulder To Shoulder", "Shoulders", "Intermediate","4", "10", "0", "false", "1k", "none"));
+        AddExerciseToDB(new ExerciseObject("Shoulder To Shoulder", "Shoulders", "Intermediate","4", "10", "0", "false", "1k", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("One-Arm Handstand Hold", "Shoulders", "Advanced","0", "0", "20", "false", "1l", "none"));
+        AddExerciseToDB(new ExerciseObject("One-Arm Handstand Hold", "Shoulders", "Advanced","0", "0", "20", "false", "1l", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Handstand Press", "Shoulders", "Advanced","3", "7", "0", "false", "1m", "none"));
+        AddExerciseToDB(new ExerciseObject("Handstand Press", "Shoulders", "Advanced","3", "7", "0", "false", "1m", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Handstand Press Negative", "Shoulders", "Intermediate","3", "7", "0", "false", "1n", "none"));
+        AddExerciseToDB(new ExerciseObject("Handstand Press Negative", "Shoulders", "Intermediate","3", "7", "0", "false", "1n", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Wall Plank", "Shoulders", "Intermediate","0", "0", "30", "false", "1o", "none"));
+        AddExerciseToDB(new ExerciseObject("Wall Plank", "Shoulders", "Intermediate","0", "0", "30", "false", "1o", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Low-to-High Plank", "Shoulders", "Easy","0", "0", "30", "false", "1p", "none"));
+        AddExerciseToDB(new ExerciseObject("Low-to-High Plank", "Shoulders", "Easy","0", "0", "30", "false", "1p", "zBUx6zTxr98"));
 
-        AddExerciseToDB(new ExerciseObject("Tuck Planche Hold", "Shoulders", "Advanced","0", "0", "10", "false", "1q", "none"));
+        AddExerciseToDB(new ExerciseObject("Tuck Planche Hold", "Shoulders", "Advanced","0", "0", "10", "false", "1q", "zBUx6zTxr98"));
 
         /*
         @weights:
@@ -200,45 +200,45 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
 
         //Chest Values
-        AddExerciseToDB(new ExerciseObject("Push-ups", "Chest", "Easy","6", "12", "0", "false", "2a", "none"));
+        AddExerciseToDB(new ExerciseObject("Push-ups", "Chest", "Easy","6", "12", "0", "false", "2a", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Dips", "Chest", "Intermediate","6", "12", "0", "false", "2b", "none"));
+        AddExerciseToDB(new ExerciseObject("Dips", "Chest", "Intermediate","6", "12", "0", "false", "2b", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Bench Dips", "Chest", "Easy","6", "12", "0", "false", "2c", "none"));
+        AddExerciseToDB(new ExerciseObject("Bench Dips", "Chest", "Easy","6", "12", "0", "false", "2c", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("TypeWriter Push-ups", "Chest", "Advanced","6", "12", "0", "false", "2d", "none"));
+        AddExerciseToDB(new ExerciseObject("TypeWriter Push-ups", "Chest", "Advanced","6", "12", "0", "false", "2d", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Straight Bar Dips", "Chest", "Intermediate","6", "12", "0", "false", "2e", "none"));
+        AddExerciseToDB(new ExerciseObject("Straight Bar Dips", "Chest", "Intermediate","6", "12", "0", "false", "2e", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Korean Dips", "Chest", "Advanced","6", "12", "0", "false", "2f", "none"));
+        AddExerciseToDB(new ExerciseObject("Korean Dips", "Chest", "Advanced","6", "12", "0", "false", "2f", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Wide Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2g", "none"));
+        AddExerciseToDB(new ExerciseObject("Wide Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2g", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Jump Negative Dips", "Chest", "Easy","6", "12", "0", "false", "2h", "none"));
+        AddExerciseToDB(new ExerciseObject("Jump Negative Dips", "Chest", "Easy","6", "12", "0", "false", "2h", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Russian Dips", "Chest", "Advanced","6", "12", "0", "false", "2i", "none"));
+        AddExerciseToDB(new ExerciseObject("Russian Dips", "Chest", "Advanced","6", "12", "0", "false", "2i", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Incline Push-ups", "Chest", "Easy","6", "12", "0", "false", "2j", "none"));
+        AddExerciseToDB(new ExerciseObject("Incline Push-ups", "Chest", "Easy","6", "12", "0", "false", "2j", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Decline Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2k", "none"));
+        AddExerciseToDB(new ExerciseObject("Decline Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2k", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Explosive Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2l", "none"));
+        AddExerciseToDB(new ExerciseObject("Explosive Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2l", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Diamond Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2m", "none"));
+        AddExerciseToDB(new ExerciseObject("Diamond Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2m", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Spiderman Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2n", "none"));
+        AddExerciseToDB(new ExerciseObject("Spiderman Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2n", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Side-To-Side Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2o", "none"));
+        AddExerciseToDB(new ExerciseObject("Side-To-Side Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2o", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Slow Dips", "Chest", "Intermediate","1", "4", "0", "false", "2p", "none"));
+        AddExerciseToDB(new ExerciseObject("Slow Dips", "Chest", "Intermediate","1", "4", "0", "false", "2p", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Slow Push-ups", "Chest", "Intermediate","1", "4", "0", "false", "2r", "none"));
+        AddExerciseToDB(new ExerciseObject("Slow Push-ups", "Chest", "Intermediate","1", "4", "0", "false", "2r", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Tuck Planche Push-ups", "Chest", "Advanced","4", "10", "0", "false", "2s", "none"));
+        AddExerciseToDB(new ExerciseObject("Tuck Planche Push-ups", "Chest", "Advanced","4", "10", "0", "false", "2s", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Hindu Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2t", "none"));
+        AddExerciseToDB(new ExerciseObject("Hindu Push-ups", "Chest", "Intermediate","6", "12", "0", "false", "2t", "_AsPY1bQx70"));
 
-        AddExerciseToDB(new ExerciseObject("Single Arm Push-ups", "Chest", "Advanced","6", "12", "0", "false", "2u", "none"));
+        AddExerciseToDB(new ExerciseObject("Single Arm Push-ups", "Chest", "Advanced","6", "12", "0", "false", "2u", "_AsPY1bQx70"));
 
         /*
 Rings:
@@ -257,51 +257,51 @@ Bench Press
 
 
         //Back Values
-        AddExerciseToDB(new ExerciseObject("Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3a", "none"));
+        AddExerciseToDB(new ExerciseObject("Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3a", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("One-arm Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3b", "none"));
+        AddExerciseToDB(new ExerciseObject("One-arm Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3b", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Australian Pull-ups", "Back", "Easy","6", "12", "0", "false", "3c", "none"));
+        AddExerciseToDB(new ExerciseObject("Australian Pull-ups", "Back", "Easy","6", "12", "0", "false", "3c", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Archer Australian Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3d", "none"));
+        AddExerciseToDB(new ExerciseObject("Archer Australian Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3d", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Australian Chin-ups", "Back", "Easy","6", "12", "0", "false", "3e", "none"));
+        AddExerciseToDB(new ExerciseObject("Australian Chin-ups", "Back", "Easy","6", "12", "0", "false", "3e", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Single Arm Australian Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3f", "none"));
+        AddExerciseToDB(new ExerciseObject("Single Arm Australian Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3f", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Chin-ups", "Back", "Intermediate","6", "12", "0", "false", "3g", "none"));
+        AddExerciseToDB(new ExerciseObject("Chin-ups", "Back", "Intermediate","6", "12", "0", "false", "3g", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Pull-up hold", "Back", "Easy","0", "0", "30", "false", "3h", "none"));
+        AddExerciseToDB(new ExerciseObject("Pull-up hold", "Back", "Easy","0", "0", "30", "false", "3h", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Chin-up Hold", "Back", "Easy","0", "0", "30", "false", "3i", "none"));
+        AddExerciseToDB(new ExerciseObject("Chin-up Hold", "Back", "Easy","0", "0", "30", "false", "3i", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Archer Australian Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3j", "none"));
+        AddExerciseToDB(new ExerciseObject("Archer Australian Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3j", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Slow Pull-ups", "Back", "Intermediate","1", "4", "0", "false", "3k", "none"));
+        AddExerciseToDB(new ExerciseObject("Slow Pull-ups", "Back", "Intermediate","1", "4", "0", "false", "3k", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Slow Chin-ups", "Back", "Intermediate","1", "4", "0", "false", "3l", "none"));
+        AddExerciseToDB(new ExerciseObject("Slow Chin-ups", "Back", "Intermediate","1", "4", "0", "false", "3l", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Archer Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3m", "none"));
+        AddExerciseToDB(new ExerciseObject("Archer Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3m", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Jump Negative Pull-ups", "Back", "Easy","6", "12", "0", "false", "3n", "none"));
+        AddExerciseToDB(new ExerciseObject("Jump Negative Pull-ups", "Back", "Easy","6", "12", "0", "false", "3n", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Jump Negative Chin-ups", "Back", "Easy","6", "12", "0", "false", "3o", "none"));
+        AddExerciseToDB(new ExerciseObject("Jump Negative Chin-ups", "Back", "Easy","6", "12", "0", "false", "3o", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Muscle-ups", "Back", "Advanced","4", "10", "0", "false", "3p", "none"));
+        AddExerciseToDB(new ExerciseObject("Muscle-ups", "Back", "Advanced","4", "10", "0", "false", "3p", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Negative Muscle-ups", "Back", "Intermediate","6", "12", "0", "false", "3q", "none"));
+        AddExerciseToDB(new ExerciseObject("Negative Muscle-ups", "Back", "Intermediate","6", "12", "0", "false", "3q", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Commando Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3r", "none"));
+        AddExerciseToDB(new ExerciseObject("Commando Pull-ups", "Back", "Intermediate","6", "12", "0", "false", "3r", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Single Arm Negative Commando Pull-ups", "Back", "Intermediate","4", "8", "0", "false", "3s", "none"));
+        AddExerciseToDB(new ExerciseObject("Single Arm Negative Commando Pull-ups", "Back", "Intermediate","4", "8", "0", "false", "3s", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Head Bangers", "Back", "Advanced","6", "12", "0", "false", "3t", "none"));
+        AddExerciseToDB(new ExerciseObject("Head Bangers", "Back", "Advanced","6", "12", "0", "false", "3t", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Tucked Front Lever Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3u", "none"));
+        AddExerciseToDB(new ExerciseObject("Tucked Front Lever Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3u", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("L-sit Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3v", "none"));
+        AddExerciseToDB(new ExerciseObject("L-sit Pull-ups", "Back", "Advanced","6", "12", "0", "false", "3v", "GfCqMv--ncA"));
 
-        AddExerciseToDB(new ExerciseObject("Supermans", "Back", "Easy","6", "12", "0", "false", "3w", "none"));
+        AddExerciseToDB(new ExerciseObject("Supermans", "Back", "Easy","6", "12", "0", "false", "3w", "GfCqMv--ncA"));
 
         /*
         Bent over barbell row
@@ -315,11 +315,11 @@ Bench Press
          */
 
         //Arms
-        AddExerciseToDB(new ExerciseObject("Skull Crushers", "Arms", "Intermediate","6", "12", "0", "false", "4a", "none"));
+        AddExerciseToDB(new ExerciseObject("Skull Crushers", "Arms", "Intermediate","6", "12", "0", "false", "4a", "gA-NDZb29I4"));
 
-        AddExerciseToDB(new ExerciseObject("Sphinx Push-ups", "Arms", "Easy","6", "12", "0", "false", "4b", "none"));
+        AddExerciseToDB(new ExerciseObject("Sphinx Push-ups", "Arms", "Easy","6", "12", "0", "false", "4b", "gA-NDZb29I4"));
 
-        AddExerciseToDB(new ExerciseObject("Bar Curl", "Arms", "Intermediate", "6", "12", "0", "false", "4c", "none"));
+        AddExerciseToDB(new ExerciseObject("Bar Curl", "Arms", "Intermediate", "6", "12", "0", "false", "4c", "gA-NDZb29I4"));
 
         /*
 Skull Crushers
@@ -346,79 +346,79 @@ Rope climbs (floor)
 
         //Core
 
-        AddExerciseToDB(new ExerciseObject("Crunches", "Core", "Easy","8", "15", "0", "false", "5a", "none"));
+        AddExerciseToDB(new ExerciseObject("Crunches", "Core", "Easy","8", "15", "0", "false", "5a", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Chair Crunches", "Core", "Easy","6", "12", "0", "false", "5b", "none"));
+        AddExerciseToDB(new ExerciseObject("Chair Crunches", "Core", "Easy","6", "12", "0", "false", "5b", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Star Crunches", "Core", "Easy","6", "12", "0", "false", "5c", "none"));
+        AddExerciseToDB(new ExerciseObject("Star Crunches", "Core", "Easy","6", "12", "0", "false", "5c", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Bicycles", "Core", "Easy","0", "0", "30", "false", "5d", "none"));
+        AddExerciseToDB(new ExerciseObject("Bicycles", "Core", "Easy","0", "0", "30", "false", "5d", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Criucifix", "Core", "Easy","6", "12", "0", "false", "5e", "none"));
+        AddExerciseToDB(new ExerciseObject("Criucifix", "Core", "Easy","6", "12", "0", "false", "5e", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Crucifix Hold", "Core", "Easy","0", "0", "30", "false", "5f", "none"));
+        AddExerciseToDB(new ExerciseObject("Crucifix Hold", "Core", "Easy","0", "0", "30", "false", "5f", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Boat Hold", "Core", "Easy","0", "0", "30", "false", "5g", "none"));
+        AddExerciseToDB(new ExerciseObject("Boat Hold", "Core", "Easy","0", "0", "30", "false", "5g", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("V-Sit Hold", "Core", "Intermediate","0", "0", "30", "false", "5h", "none"));
+        AddExerciseToDB(new ExerciseObject("V-Sit Hold", "Core", "Intermediate","0", "0", "30", "false", "5h", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("V-ups", "Core", "Intermediate","6", "12", "0", "false", "5i", "none"));
+        AddExerciseToDB(new ExerciseObject("V-ups", "Core", "Intermediate","6", "12", "0", "false", "5i", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Leg Raises (floor)", "Core", "Easy","6", "12", "0", "false", "5j", "none"));
+        AddExerciseToDB(new ExerciseObject("Leg Raises (floor)", "Core", "Easy","6", "12", "0", "false", "5j", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Lower Abdominal Raises", "Core", "Easy","6", "12", "0", "false", "5k", "none"));
+        AddExerciseToDB(new ExerciseObject("Lower Abdominal Raises", "Core", "Easy","6", "12", "0", "false", "5k", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Plank", "Core", "Easy","0", "0", "30", "false", "5l", "none"));
+        AddExerciseToDB(new ExerciseObject("Plank", "Core", "Easy","0", "0", "30", "false", "5l", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Plank Up-And-Down", "Core", "Easy","0", "0", "30", "false", "5m", "none"));
+        AddExerciseToDB(new ExerciseObject("Plank Up-And-Down", "Core", "Easy","0", "0", "30", "false", "5m", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Plank Side-To-Side", "Core", "Easy","0", "0", "30", "false", "5n", "none"));
+        AddExerciseToDB(new ExerciseObject("Plank Side-To-Side", "Core", "Easy","0", "0", "30", "false", "5n", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Plank Knees-To-Elbow", "Core", "Easy","0", "0", "30", "false", "5o", "none"));
+        AddExerciseToDB(new ExerciseObject("Plank Knees-To-Elbow", "Core", "Easy","0", "0", "30", "false", "5o", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Toe Touches", "Core", "Easy","0", "0", "30", "false", "5p", "none"));
+        AddExerciseToDB(new ExerciseObject("Toe Touches", "Core", "Easy","0", "0", "30", "false", "5p", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Russian Twitst", "Core", "Easy","6", "12", "0", "false", "5q", "none"));
+        AddExerciseToDB(new ExerciseObject("Russian Twitst", "Core", "Easy","6", "12", "0", "false", "5q", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Flutter Kicks", "Core", "Easy","0", "0", "30", "false", "5r", "none"));
+        AddExerciseToDB(new ExerciseObject("Flutter Kicks", "Core", "Easy","0", "0", "30", "false", "5r", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Windshield Wipers", "Core", "Advanced","0", "0", "30", "false", "5s", "none"));
+        AddExerciseToDB(new ExerciseObject("Windshield Wipers", "Core", "Advanced","0", "0", "30", "false", "5s", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Side Plank Hold", "Core", "Easy","0", "0", "30", "false", "5t", "none"));
+        AddExerciseToDB(new ExerciseObject("Side Plank Hold", "Core", "Easy","0", "0", "30", "false", "5t", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Side Plank Raises", "Core", "Easy","0", "0", "30", "false", "5u", "none"));
+        AddExerciseToDB(new ExerciseObject("Side Plank Raises", "Core", "Easy","0", "0", "30", "false", "5u", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Hanging Leg Raises", "Core", "Intermediate","6", "12", "0", "false", "5v", "none"));
+        AddExerciseToDB(new ExerciseObject("Hanging Leg Raises", "Core", "Intermediate","6", "12", "0", "false", "5v", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Hanging Knee Raises", "Core", "Easy","6", "12", "0", "false", "5w", "none"));
+        AddExerciseToDB(new ExerciseObject("Hanging Knee Raises", "Core", "Easy","6", "12", "0", "false", "5w", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Hanging Corner Raises", "Core", "Easy","6", "12", "0", "false", "5x", "none"));
+        AddExerciseToDB(new ExerciseObject("Hanging Corner Raises", "Core", "Easy","6", "12", "0", "false", "5x", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Front Lever Raises", "Core", "Advanced","6", "12", "0", "false", "5y", "none"));
+        AddExerciseToDB(new ExerciseObject("Front Lever Raises", "Core", "Advanced","6", "12", "0", "false", "5y", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Tuck Planche Raises", "Core", "Advanced","6", "12", "0", "false", "5z", "none"));
+        AddExerciseToDB(new ExerciseObject("Tuck Planche Raises", "Core", "Advanced","6", "12", "0", "false", "5z", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("L-Sit Hold", "Core", "Intermediate","0", "0", "20", "false", "5aa", "none"));
+        AddExerciseToDB(new ExerciseObject("L-Sit Hold", "Core", "Intermediate","0", "0", "20", "false", "5aa", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Tucked L-sit Hold", "Core", "Easy","0", "0", "30", "false", "5ab", "none"));
+        AddExerciseToDB(new ExerciseObject("Tucked L-sit Hold", "Core", "Easy","0", "0", "30", "false", "5ab", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Toes-To-Bar", "Core", "Advanced","6", "12", "0", "false", "5ac", "none"));
+        AddExerciseToDB(new ExerciseObject("Toes-To-Bar", "Core", "Advanced","6", "12", "0", "false", "5ac", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Back Lever Drop", "Core", "Advanced","3", "6", "0", "false", "5ad", "none"));
+        AddExerciseToDB(new ExerciseObject("Back Lever Drop", "Core", "Advanced","3", "6", "0", "false", "5ad", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Dragon Flag", "Core", "Advanced","2", "5", "0", "false", "5ae", "none"));
+        AddExerciseToDB(new ExerciseObject("Dragon Flag", "Core", "Advanced","2", "5", "0", "false", "5ae", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Bar Crunches", "Core", "Easy","6", "12", "0", "false", "5af", "none"));
+        AddExerciseToDB(new ExerciseObject("Bar Crunches", "Core", "Easy","6", "12", "0", "false", "5af", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Legs Down Hold", "Core", "Easy","0", "0", "30", "false", "5ag", "none"));
+        AddExerciseToDB(new ExerciseObject("Legs Down Hold", "Core", "Easy","0", "0", "30", "false", "5ag", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Inverted Hanging Deadlift", "Core", "Advanced","6", "12", "0", "false", "5ah", "none"));
+        AddExerciseToDB(new ExerciseObject("Inverted Hanging Deadlift", "Core", "Advanced","6", "12", "0", "false", "5ah", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Pull-Over", "Core", "Intermediate","2", "8", "0", "false", "5ai", "none"));
+        AddExerciseToDB(new ExerciseObject("Pull-Over", "Core", "Intermediate","2", "8", "0", "false", "5ai", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Skin-The-Cat", "Core", "Intermediate","6", "12", "0", "false", "5aj", "none"));
+        AddExerciseToDB(new ExerciseObject("Skin-The-Cat", "Core", "Intermediate","6", "12", "0", "false", "5aj", "fPTEhaZUd6k"));
 
-        AddExerciseToDB(new ExerciseObject("Hollow Body Hold", "Core", "Intermediate", "0", "0", "30", "false", "5ak", "none"));
+        AddExerciseToDB(new ExerciseObject("Hollow Body Hold", "Core", "Intermediate", "0", "0", "30", "false", "5ak", "fPTEhaZUd6k"));
         /*bar crunches
 ab wheel
 hip raises
@@ -436,41 +436,41 @@ Hollow Hold
          */
 
         //Legs
-        AddExerciseToDB(new ExerciseObject("Squats", "Legs", "Easy","6", "12", "0", "false", "6a", "none"));
+        AddExerciseToDB(new ExerciseObject("Squats", "Legs", "Easy","6", "12", "0", "false", "6a", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Sumo Squats", "Legs", "Easy","6", "12", "0", "false", "6b", "none"));
+        AddExerciseToDB(new ExerciseObject("Sumo Squats", "Legs", "Easy","6", "12", "0", "false", "6b", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Bulgarian Split Squats", "Legs", "Easy","10", "20", "0", "false", "6c", "none"));
+        AddExerciseToDB(new ExerciseObject("Bulgarian Split Squats", "Legs", "Easy","10", "20", "0", "false", "6c", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Jump Squats", "Legs", "Intermediate","6", "12", "0", "false", "6d", "none"));
+        AddExerciseToDB(new ExerciseObject("Jump Squats", "Legs", "Intermediate","6", "12", "0", "false", "6d", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Squat Kicks", "Legs", "Easy","6", "10", "0", "false", "6e", "none"));
+        AddExerciseToDB(new ExerciseObject("Squat Kicks", "Legs", "Easy","6", "10", "0", "false", "6e", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Wall Sit", "Legs", "Intermediate","6", "12", "0", "false", "6f", "none"));
+        AddExerciseToDB(new ExerciseObject("Wall Sit", "Legs", "Intermediate","6", "12", "0", "false", "6f", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Assisted Pistol Squats", "Legs", "Intermediate","3", "8", "0", "false", "6g", "none"));
+        AddExerciseToDB(new ExerciseObject("Assisted Pistol Squats", "Legs", "Intermediate","3", "8", "0", "false", "6g", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Pistol Squats", "Legs", "Advanced","3", "8", "0", "false", "6h", "none"));
+        AddExerciseToDB(new ExerciseObject("Pistol Squats", "Legs", "Advanced","3", "8", "0", "false", "6h", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Broad Jumps", "Legs", "Intermediate","0", "0", "30", "false", "6i", "none"));
+        AddExerciseToDB(new ExerciseObject("Broad Jumps", "Legs", "Intermediate","0", "0", "30", "false", "6i", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Lunges", "Legs", "Easy","10", "20", "0", "false", "6j", "none"));
+        AddExerciseToDB(new ExerciseObject("Lunges", "Legs", "Easy","10", "20", "0", "false", "6j", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Alternating Lunges", "Legs", "Intermediate","0", "0", "30", "false", "6k", "none"));
+        AddExerciseToDB(new ExerciseObject("Alternating Lunges", "Legs", "Intermediate","0", "0", "30", "false", "6k", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Box Jumps", "Legs", "Intermediate","5", "10", "30", "false", "6l", "none"));
+        AddExerciseToDB(new ExerciseObject("Box Jumps", "Legs", "Intermediate","5", "10", "30", "false", "6l", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Box Step-ups", "Legs", "Easy","10", "20", "30", "false", "6m", "none"));
+        AddExerciseToDB(new ExerciseObject("Box Step-ups", "Legs", "Easy","10", "20", "30", "false", "6m", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Calf Raises", "Legs", "Easy","10", "20", "0", "false", "6n", "none"));
+        AddExerciseToDB(new ExerciseObject("Calf Raises", "Legs", "Easy","10", "20", "0", "false", "6n", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Calf Raise Hold", "Legs", "Easy","0", "0", "20", "false", "6o", "none"));
+        AddExerciseToDB(new ExerciseObject("Calf Raise Hold", "Legs", "Easy","0", "0", "20", "false", "6o", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Crab Walks", "Legs", "Intermediate","0", "0", "20", "false", "6p", "none"));
+        AddExerciseToDB(new ExerciseObject("Crab Walks", "Legs", "Intermediate","0", "0", "20", "false", "6p", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Side Squats", "Legs", "Intermediate","6", "12", "0", "false", "6r", "none"));
+        AddExerciseToDB(new ExerciseObject("Side Squats", "Legs", "Intermediate","6", "12", "0", "false", "6r", "PMivT7MJ41M"));
 
-        AddExerciseToDB(new ExerciseObject("Tip-toe Wall Sit", "Legs", "Intermediate","0", "0", "30", "false", "6s", "none"));
+        AddExerciseToDB(new ExerciseObject("Tip-toe Wall Sit", "Legs", "Intermediate","0", "0", "30", "false", "6s", "PMivT7MJ41M"));
 
 
     }
