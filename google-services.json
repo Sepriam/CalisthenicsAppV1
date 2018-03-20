@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "165391958907",
+    "firebase_url": "https://calisthenicsapp-android.firebaseio.com",
+    "project_id": "calisthenicsapp-android",
+    "storage_bucket": "calisthenicsapp-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165391958907:android:ff5b2671f3b162bf",
+        "android_client_info": {
+          "package_name": "com.example.matt.calisthenicsappv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165391958907-gbll699fs20mf3phu64m64cbu3flktal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXQZ_OJCmsqI24uTc9eDNFPrxp-q1L1rQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

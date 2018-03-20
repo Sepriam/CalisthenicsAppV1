@@ -69,10 +69,13 @@ public class AppDBHandler extends SQLiteOpenHelper{
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
 
-    // Contacts table name
+    // Exercise table name
     private static final String TABLE_EXERCISES = "exercises";
+    // Routine table name
+    private static final String TABLE_ROUTINES = "routines";
 
-    // Contacts Table Columns names
+    // Exercise Table Columns names
+    // primary key for table
     private static final String KEY_NAME = "name";
     private static final String KEY_MUSCLE_GROUP = "muscle_group";
     private static final String KEY_DIFFICULTY = "difficulty";
@@ -80,9 +83,18 @@ public class AppDBHandler extends SQLiteOpenHelper{
     private static final String KEY_UPPER_REP_RANGE = "upper_rep_range";
     private static final String KEY_SUGGESTED_TIME = "suggested_time";
     private static final String KEY_SELECTED = "selected";
-    //newly added
     private static final String KEY_TIPS = "tips";
     private static final String KEY_LINK = "videoURL";
+
+    //Workout Table Column Names
+    //primary key for table
+    private static final String KEY_ROUTINE_ID = "r_id";
+    private static final String KEY_ROUTINE_NAME = "routine_name";
+    //will be foreign key to exercise table's key_name
+    private static final String KEY_EXERCISE_NAME = "exercise_name";
+
+
+    private static final String KEY_DEFAULT_ROUTINE_NAME = "Created Routine";
 
 
     public AppDBHandler(Context context) {
@@ -98,8 +110,13 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 + KEY_UPPER_REP_RANGE + " TEXT," + KEY_SUGGESTED_TIME + " TEXT,"
                 + KEY_SELECTED + " TEXT, " + KEY_TIPS + " TEXT, " + KEY_LINK + " TEXT" + ")";
 
+        String CREATE_ROUTINE_TABLE = "CREATE TABLE " + TABLE_ROUTINES + "("
+                + KEY_ROUTINE_ID + " NOT NULL INTEGER PRIMARY KEY," + KEY_ROUTINE_NAME + " TEXT,"
+                + KEY_EXERCISE_NAME + " TEXT" + ")";
+
 
         db.execSQL(CREATE_CONTACTS_TABLE);
+        db.execSQL(CREATE_ROUTINE_TABLE);
     }
 
 
@@ -108,6 +125,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXERCISES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ROUTINES);
 
         // Create tables again
         onCreate(db);
@@ -419,6 +437,25 @@ Rope climbs (floor)
         AddExerciseToDB(new ExerciseObject("Skin-The-Cat", "Core", "Intermediate","6", "12", "0", "false", "5aj", "fPTEhaZUd6k"));
 
         AddExerciseToDB(new ExerciseObject("Hollow Body Hold", "Core", "Intermediate", "0", "0", "30", "false", "5ak", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("Dead Bugs", "Core", "Intermediate", "0", "0", "45", "false", "5al", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("Half Wipers", "Core", "Intermediate", "6", "12", "30", "false", "5am", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("Raised Leg Circles", "Core", "Intermediate", "0", "0", "30", "false", "5an", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("Reverse Crunch", "Core", "Easy", "6", "12", "30", "false", "5ao", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("Side Crunch", "Core", "Easy", "0", "0", "30", "false", "5ap", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("JackKnifes", "Core", "Easy", "0", "0", "30", "false", "5aq", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("Side Jackknifes", "Core", "Intermediate", "0", "0", "30", "false", "5ar", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("Knee To Elbow Sit-ups", "Core", "Intermediate", "0", "0", "30", "false", "5as", "fPTEhaZUd6k"));
+
+        AddExerciseToDB(new ExerciseObject("V-sit Rotations", "Core", "Intermediate", "0", "0", "30", "false", "5at", "fPTEhaZUd6k"));
+
         /*bar crunches
 ab wheel
 hip raises
@@ -471,6 +508,10 @@ Hollow Hold
         AddExerciseToDB(new ExerciseObject("Side Squats", "Legs", "Intermediate","6", "12", "0", "false", "6r", "PMivT7MJ41M"));
 
         AddExerciseToDB(new ExerciseObject("Tip-toe Wall Sit", "Legs", "Intermediate","0", "0", "30", "false", "6s", "PMivT7MJ41M"));
+
+        AddExerciseToDB(new ExerciseObject("Knee Ups", "Legs", "Intermediate","5", "10", "0", "false", "6t", "PMivT7MJ41M"));
+
+        AddExerciseToDB(new ExerciseObject("Depth Jumps", "Legs", "Intermediate","0", "0", "30", "false", "6u", "PMivT7MJ41M"));
 
 
     }
@@ -942,4 +983,66 @@ Hollow Hold
         db.execSQL(resetQuery);
     }
 
+
+    //creating a new routine
+    public void addNewRoutine(String _routineName, ArrayList<ExerciseObject> exerciseObjects)
+    {
+        //get names of all exercise objects in list
+        String listOfExerciseNames = "";
+
+        //looping through list of objects passed to get their names
+        for(ExerciseObject e : exerciseObjects)
+        {
+            //separate with comma, can get string array back via comma separators
+            listOfExerciseNames += e.getExerciseName() + ",";
+        }
+
+
+
+        //assign name to routine.. if blank, assume default name value
+        String routineName;
+        if (_routineName.equals(""))
+        {
+            routineName = KEY_DEFAULT_ROUTINE_NAME;
+        }
+        else
+            routineName = _routineName;
+
+        //add to database
+        //open connection to db to write to it
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        /*String log = "EName: " + _newexercise.getExerciseName() + " ,MGroup: " + _newexercise.getMuscleGroup() + " ,Difficulty: " + _newexercise.getDifficulty() +
+                " ,LowerRepRange: " + String.valueOf(_newexercise.getLowerRepRange()) + " ,UpperRepRange: " + String.valueOf(_newexercise.getUpperRepRange()) +
+                " ,SuggestedTime: " + String.valueOf(_newexercise.getSuggestedTime()) + " ,Selected: " + String.valueOf(_newexercise.isSelected() + " ,Tips: " + _newexercise.getTips() +
+                " ,Video URL: " + _newexercise.getVideoURL());*/
+
+        //inserting row
+        db.insert(TABLE_ROUTINES, null, values);
+        db.close();
+    }
+
+
+
+    public void returnAllRoutines()
+    {
+
+    }
+
+    public void returnSpecificRoutine(String _routineName)
+    {
+
+    }
+
+    public void deleteRoutine(String _routineName)
+    {
+
+    }
+
+    public void editRoutine(String _routineName)
+    {
+        //delete the one with that id and assign a new one to the database with that id
+    }
 }

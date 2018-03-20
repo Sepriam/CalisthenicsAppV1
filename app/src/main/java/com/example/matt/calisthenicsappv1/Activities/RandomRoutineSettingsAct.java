@@ -210,7 +210,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
         return muscleGroupsSelected;
     }
 
-
+    //returning a list of execise objects that contain the correct muscle groups
     private ArrayList<ExerciseObject> _returnMuscleGroupAndExerciseList(ArrayList<ExerciseObject> _difficultyList )
     {
         //Should not have to pass the array of selected muscleGroups as it's global variable
@@ -236,7 +236,7 @@ public class RandomRoutineSettingsAct extends AppCompatActivity {
 
     }
 
-
+    //returning an arraylist of exerciseobjects that have the corrent difficulty listing
     private ArrayList<ExerciseObject> _returnMultipleDifficultiesEList(String _chosenDifficulty)
     {
         //creating an arraylist of Exercise objects that will be returned
