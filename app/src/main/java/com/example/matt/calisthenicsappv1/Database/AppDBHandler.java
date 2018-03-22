@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
+import com.example.matt.calisthenicsappv1.Objects.RoutineObject;
+import com.example.matt.calisthenicsappv1.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,7 +146,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
         //NOTED -- All the values passed should be strings
         //Must convert to string: LowerRepRange, UpperRepRange, SuggestedTime and isSelected
-       values.put(KEY_NAME, _newexercise.getExerciseName());
+        values.put(KEY_NAME, _newexercise.getExerciseName());
         values.put(KEY_MUSCLE_GROUP, _newexercise.getMuscleGroup());
         values.put(KEY_DIFFICULTY, _newexercise.getDifficulty());
         values.put(KEY_LOWER_REP_RANGE, String.valueOf(_newexercise.getLowerRepRange()));
@@ -1014,10 +1016,16 @@ Hollow Hold
 
         ContentValues values = new ContentValues();
 
-        /*String log = "EName: " + _newexercise.getExerciseName() + " ,MGroup: " + _newexercise.getMuscleGroup() + " ,Difficulty: " + _newexercise.getDifficulty() +
-                " ,LowerRepRange: " + String.valueOf(_newexercise.getLowerRepRange()) + " ,UpperRepRange: " + String.valueOf(_newexercise.getUpperRepRange()) +
-                " ,SuggestedTime: " + String.valueOf(_newexercise.getSuggestedTime()) + " ,Selected: " + String.valueOf(_newexercise.isSelected() + " ,Tips: " + _newexercise.getTips() +
-                " ,Video URL: " + _newexercise.getVideoURL());*/
+        /*
+         String CREATE_ROUTINE_TABLE = "CREATE TABLE " + TABLE_ROUTINES + "("
+                + KEY_ROUTINE_ID + " NOT NULL INTEGER PRIMARY KEY," + KEY_ROUTINE_NAME + " TEXT,"
+                + KEY_EXERCISE_NAME + " TEXT" + ")";
+          */
+
+        //Assigning actual values to the rows
+        //note -- no id added as it will be auto added on creation
+        values.put(KEY_ROUTINE_NAME, routineName);
+        values.put(KEY_EXERCISE_NAME, listOfExerciseNames);
 
         //inserting row
         db.insert(TABLE_ROUTINES, null, values);
@@ -1025,24 +1033,169 @@ Hollow Hold
     }
 
 
-
-    public void returnAllRoutines()
+    //overloaded create new routine function -- if the object is already created but needs name change
+    public void addNewRoutine(RoutineObject _routineObject, String _newRoutineName)
     {
+        //add to database
+        //open connection to db to write to it
+        SQLiteDatabase db = this.getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+
+        /*
+         String CREATE_ROUTINE_TABLE = "CREATE TABLE " + TABLE_ROUTINES + "("
+                + KEY_ROUTINE_ID + " NOT NULL INTEGER PRIMARY KEY," + KEY_ROUTINE_NAME + " TEXT,"
+                + KEY_EXERCISE_NAME + " TEXT" + ")";
+          */
+
+        //Assigning actual values to the rows
+        //note -- no id added as it will be auto added on creation
+        values.put(KEY_ROUTINE_NAME, _newRoutineName);
+
+        //creating tempString for storing exercise names;
+        String tempExerciseNames = "";
+
+        for (String exerciseName : _routineObject.getExerciseNames())
+        {
+            //re-assigning the comma back between the strings
+            tempExerciseNames += exerciseName + ",";
+        }
+
+        values.put(KEY_EXERCISE_NAME, tempExerciseNames);
+
+        //inserting row
+        db.insert(TABLE_ROUTINES, null, values);
+        db.close();
     }
 
-    public void returnSpecificRoutine(String _routineName)
-    {
 
+    //returning all the routineObjects from database
+    public ArrayList<RoutineObject> returnAllRoutines()
+    {
+        ArrayList<RoutineObject> routineList = new ArrayList<RoutineObject>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_ROUTINES;
+
+        //making connection to database that allows us write privileges
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a new routine objects
+                RoutineObject rObject = new RoutineObject();
+
+                /*
+                ORDER:
+                0 : ID (INTEGER)
+                1 : RoutineName (STRING)
+                2 : ExerciseNames (STRING) <-- Comma separated string
+                 */
+
+                //setting object variables to values returned from query
+                rObject.setR_ID(cursor.getInt(0));
+                rObject.setRoutineName(cursor.getString(1));
+
+                //need to convert string to string[] before assignment
+                String tempExerciseNames = cursor.getString(2);
+
+                String[] exerciseNameArray = tempExerciseNames.split(",");
+
+                routineList.add(rObject);
+
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //close entry to database
+        db.close();
+
+        // return routineList list
+        return routineList;
     }
 
-    public void deleteRoutine(String _routineName)
-    {
 
+    //function to return specific routine object -- unnecessary
+    public RoutineObject returnSpecificRoutine(RoutineObject _routineObject)
+    {
+        ArrayList<RoutineObject> routineList = new ArrayList<RoutineObject>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_ROUTINES;
+
+        //making connection to database that allows us write privileges
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //creating a return object
+        RoutineObject returnRoutine = new RoutineObject();
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a new routine objects
+                RoutineObject rObject = new RoutineObject();
+
+                /*
+                ORDER:
+                0 : ID (INTEGER)
+                1 : RoutineName (STRING)
+                2 : ExerciseNames (STRING) <-- Comma separated string
+                 */
+
+                //setting object variables to values returned from query
+                rObject.setR_ID(cursor.getInt(0));
+                rObject.setRoutineName(cursor.getString(1));
+
+                //need to convert string to string[] before assignment
+                String tempExerciseNames = cursor.getString(2);
+
+                String[] exerciseNameArray = tempExerciseNames.split(",");
+
+                routineList.add(rObject);
+
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //searching returned objects to find matching ID to object passed to method
+        for (RoutineObject search : routineList) {
+            if (search.getR_ID() == _routineObject.getR_ID())
+            {
+                returnRoutine = search;
+                //breaking out of loop for efficiency
+                break;
+            }
+        }
+
+        //close entry to database
+        db.close();
+
+        // return routineList list
+        return returnRoutine;
     }
 
-    public void editRoutine(String _routineName)
+
+    //function to delete an item from the routines database
+    public void deleteRoutine(RoutineObject _routineObject)
     {
-        //delete the one with that id and assign a new one to the database with that id
+        //making connection to database that allows us write privileges
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //DELETE FROM tablename WHERE columnname = value
+        db.execSQL("DELETE FROM " + TABLE_ROUTINES + " WHERE " + KEY_ROUTINE_ID + " = " + _routineObject.getR_ID());
+
+        //closing the database
+        db.close();
+    }
+
+
+    //function to change the name of the routineObject -- connect to a prompt instead of a textEditor
+    public void editRoutine(RoutineObject _routineObject, String _newRoutineName)
+    {
+        deleteRoutine(_routineObject);
+        addNewRoutine(_routineObject, _newRoutineName);
     }
 }

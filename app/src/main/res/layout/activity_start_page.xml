@@ -8,10 +8,16 @@
     tools:context="com.example.matt.calisthenicsappv1.Activities.StartPage"
     android:background="#292929">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/toSelectPageButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:onClick="ToSelectPage"
             android:text="@string/custom_routine_Button_Navigation_text"
             android:background="#6453a7ed"
@@ -21,7 +27,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/toRandomSettingActButton"
             android:onClick="ToRandomSettingPage"
             android:background="#b153a7ed"
@@ -31,15 +37,32 @@
             android:layout_margin="5dp"
             android:layout_weight="0.1"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:background="#53a7ed"
-        android:layout_margin="5dp"
-        android:text="STRETCHING?"
-        android:textColor="#e0ffff"/>
 
+    </LinearLayout>
 
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="0.5"
+    android:orientation="horizontal">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:background="#53a7ed"
+            android:layout_margin="5dp"
+            android:text="STRETCHING?"
+            android:textColor="#e0ffff"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:background="#53a7ed"
+            android:layout_margin="5dp"
+            android:text="Past Routines"
+            android:textColor="#e0ffff"/>
+
+    </LinearLayout>
 </LinearLayout>

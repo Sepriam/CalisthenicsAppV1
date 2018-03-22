@@ -10,6 +10,12 @@ public class RoutineObject {
     private Integer R_ID;
     private String[] ExerciseNames;
 
+    //default constructor
+    public RoutineObject() {
+
+    }
+
+    //value constructor
     public RoutineObject(String routineName, Integer r_ID, String[] exerciseNames) {
         RoutineName = routineName;
         R_ID = r_ID;
