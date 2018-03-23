@@ -1,13 +1,18 @@
 package com.example.matt.calisthenicsappv1.Activities;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.matt.calisthenicsappv1.Adapters.DisplayRandomExercisesAdapter;
 import com.example.matt.calisthenicsappv1.Adapters.DisplayRandomExercisesAndSuggestionAdapter;
+import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
 import com.example.matt.calisthenicsappv1.R;
 
@@ -31,7 +37,6 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
     Handler handler;
 
     int Seconds, Minutes, MilliSeconds ;
-
 
     ArrayList<ExerciseObject> passedExerciseObjectList;
     Boolean toggleSuggestions;
@@ -198,12 +203,40 @@ public class DisplayRandomRoutineAct extends AppCompatActivity {
     };
 
 
-    /*
-    TODO:
-    Create functionality that finds value in listview and passes it across an intent to page : exerciseExplanationAct
+    public void saveRoutine(View view) {
+
+        //creating new view
+        View newView = (LayoutInflater.from(DisplayRandomRoutineAct.this)).inflate(R.layout.newroutinename_prompt, null);
+
+        //creating a new dialog window for prompot
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(DisplayRandomRoutineAct.this);
+        alertBuilder.setView(newView);
+
+        //assiging editText variable to widget
+        final EditText userInput = (EditText) newView.findViewById(R.id.newroutinenameprompt_ET);
+
+        //setting an onclick method for the positiveAction button
+        alertBuilder.setCancelable(true).setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String tempName = userInput.getText().toString();
+                createNewRoutine(tempName);
+                Toast.makeText(getApplicationContext(), "Saved Routine", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Dialog dialog = alertBuilder.create();
+        dialog.show();
+    }
 
 
-    Move the onClickListeners into separate methods to clean code a little
-     */
+    public void createNewRoutine(String _routineName)
+    {
+        AppDBHandler db = new AppDBHandler(this);
+
+        db.addNewRoutine(_routineName, passedExerciseObjectList);
+
+        db.close();
+    }
 
 }

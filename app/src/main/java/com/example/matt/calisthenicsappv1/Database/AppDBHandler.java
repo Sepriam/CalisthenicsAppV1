@@ -66,7 +66,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 17;
+    private static final int DATABASE_VERSION = 19;
 
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
@@ -113,7 +113,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 + KEY_SELECTED + " TEXT, " + KEY_TIPS + " TEXT, " + KEY_LINK + " TEXT" + ")";
 
         String CREATE_ROUTINE_TABLE = "CREATE TABLE " + TABLE_ROUTINES + "("
-                + KEY_ROUTINE_ID + " NOT NULL INTEGER PRIMARY KEY," + KEY_ROUTINE_NAME + " TEXT,"
+                + KEY_ROUTINE_ID + " INTEGER PRIMARY KEY, " + KEY_ROUTINE_NAME + " TEXT, "
                 + KEY_EXERCISE_NAME + " TEXT" + ")";
 
 

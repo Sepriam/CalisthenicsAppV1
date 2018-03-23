@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.matt.calisthenicsappv1">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -26,7 +26,8 @@
         <activity android:name=".Activities.DisplayRandomRoutineAct" />
         <activity android:name=".Activities.DisplayCustomRoutineAct" />
         <activity android:name=".Activities.exerciseExplanationAct" />
-        <activity android:name=".Activities.selectMuscleGroupsAct"></activity>
+        <activity android:name=".Activities.selectMuscleGroupsAct" />
+        <activity android:name=".Activities.DisplaySavedRoutinesActivity"></activity>
     </application>
 
 </manifest>

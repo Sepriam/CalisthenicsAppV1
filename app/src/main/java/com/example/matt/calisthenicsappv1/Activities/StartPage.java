@@ -81,4 +81,8 @@ public class StartPage extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void toSavedRoutinesAct(View view) {
+        Intent intent = new Intent(this, DisplaySavedRoutinesActivity.class);
+        startActivity(intent);
+    }
 }
