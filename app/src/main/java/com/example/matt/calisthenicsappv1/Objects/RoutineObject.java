@@ -1,10 +1,12 @@
 package com.example.matt.calisthenicsappv1.Objects;
 
+import java.io.Serializable;
+
 /**
  * Created by Matt on 20/03/2018.
  */
 
-public class RoutineObject {
+public class RoutineObject implements Serializable{
 
     private String RoutineName;
     private Integer R_ID;
