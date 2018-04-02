@@ -12,6 +12,7 @@ import com.example.matt.calisthenicsappv1.Objects.RoutineObject;
 import com.example.matt.calisthenicsappv1.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -1103,6 +1104,15 @@ Hollow Hold
 
                 String[] exerciseNameArray = tempExerciseNames.split(",");
 
+                rObject.setExerciseNames(exerciseNameArray);
+
+                Log.d("these many strings: ", String.valueOf(exerciseNameArray.length));
+
+                for (String tempString : exerciseNameArray)
+                {
+                    Log.e("these string values: ", tempString);
+                }
+
                 routineList.add(rObject);
 
             } while (cursor.moveToNext());
@@ -1177,6 +1187,51 @@ Hollow Hold
         return returnRoutine;
     }
 
+
+    public ArrayList<ExerciseObject> decipherRoutine(RoutineObject _RO)
+    {
+        /*
+        get string array of exercise names
+        for each string, if any exercise has this name then add it to list
+         */
+
+        //return arraylist for function
+        ArrayList<ExerciseObject> returnExerciseObjectList = new ArrayList<>();
+
+        ArrayList<ExerciseObject> tempExerciseList = new ArrayList<>();
+        tempExerciseList.addAll(getAllCExercises());
+
+        Log.d("this many total ex: ", String.valueOf(tempExerciseList.size()));
+
+        for (String a : _RO.getExerciseNames())
+        {
+            Log.d("item: ", a + " Added1");
+        }
+
+        ArrayList<String> tempStringArray = new ArrayList<>();
+
+        //loop through each exercise name
+        for (String tempName : _RO.getExerciseNames())
+        {
+            //loop through each exercise object
+            for (ExerciseObject EO : tempExerciseList)
+            {
+                //compare current exercise object's name to the string array's name
+                if (tempName.equals(EO.getExerciseName()))
+                {
+                    //if equal then add to list
+                    returnExerciseObjectList.add(EO);
+                    //break out of inner loop -- mainly for a little efficiency
+                    break;
+                }
+            }
+        }
+
+
+        //return the list of exercises
+        return returnExerciseObjectList;
+
+    }
 
     //function to delete an item from the routines database
     public void deleteRoutine(RoutineObject _routineObject)

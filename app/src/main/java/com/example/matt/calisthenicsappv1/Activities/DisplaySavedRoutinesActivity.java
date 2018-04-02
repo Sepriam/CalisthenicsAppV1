@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.ExpandedMenuView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.matt.calisthenicsappv1.Database.AppDBHandler;
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
@@ -43,13 +45,19 @@ public class DisplaySavedRoutinesActivity extends AppCompatActivity {
         //make connection to db class
         AppDBHandler db = new AppDBHandler(this);
         //assign database routine objects to class' global list of these objects
-        routineObjects = db.returnAllRoutines();
+        routineObjects.addAll( db.returnAllRoutines());
+
+        Log.d("this routine name: ", String.valueOf(routineObjects.size()));
+
+
 
         //for loop to add all routine names to arraylist
         for (RoutineObject RO : routineObjects)
         {
             routineNames.add(RO.getRoutineName());
         }
+
+        db.close();
     }
 
     //assignment of listview variable
@@ -63,7 +71,7 @@ public class DisplaySavedRoutinesActivity extends AppCompatActivity {
 
         routineLV.setAdapter(itemsAdapter);
 
-
+        setLVOnClick();
     }
 
     private void setLVOnClick()
@@ -72,26 +80,44 @@ public class DisplaySavedRoutinesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                //creating a connection to the database class
+                AppDBHandler db = new AppDBHandler(getApplicationContext());
+
                 //get the name of the item clicked
                 String tempName = routineNames.get(position);
+
+
 
                 //creating a temporary routine object
                 RoutineObject tempRoutine = new RoutineObject();
 
+
                 //find the string in the list of routineObjects
                 for(RoutineObject RO : routineObjects)
                 {
-                    if (RO.getRoutineName() == tempName)
+                    if (RO.getRoutineName().equals(tempName))
                     {
                         //set routineObject
                         tempRoutine = RO;
+
+                        Log.d("this routine name: ", RO.getRoutineName());
+                        Log.d("this no. of exercises: ", String.valueOf(RO.getExerciseNames().length));
+
                         break;
                     }
                 }
 
+                for (String a : tempRoutine.getExerciseNames())
+                {
+                    Log.d("this string: ", a);
+                }
+
                 Intent i = new Intent(getApplicationContext(), DisplayCustomRoutineAct.class);
                 Bundle passBundle = new Bundle();
-                ArrayList<ExerciseObject> EO = getSelectedExerciseFromRoutine(tempRoutine);
+                //db funciton
+                ArrayList<ExerciseObject> EO = new ArrayList<>();
+                EO.addAll(db.decipherRoutine(tempRoutine));
+                Log.d("this many exercises: ", String.valueOf(EO.size()));
                 passBundle.putSerializable("CheckedExerciseList", EO);
                 i.putExtras(passBundle);
                 startActivity(i);
@@ -101,17 +127,6 @@ public class DisplaySavedRoutinesActivity extends AppCompatActivity {
     }
 
 
-    private ArrayList<ExerciseObject> getSelectedExerciseFromRoutine(RoutineObject _RO)
-    {
-        ArrayList<ExerciseObject> EO = new ArrayList<>();
-
-        //todo:
-        /*
-        get an exercise object list from the routine object passed to this function
-         */
-
-        return EO;
-    }
 
 
 }
