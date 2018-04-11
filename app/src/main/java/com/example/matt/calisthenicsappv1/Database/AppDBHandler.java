@@ -1272,7 +1272,7 @@ Hollow Hold
     }
 
 
-    //function to add a new stretching object to the database
+    //function to add a new stretching object to the database - Takes a Stretching Object as parameter
     public void addNewStretch(StretchingObject _stretchObject)
     {
         //open connection to db to write to it
@@ -1291,5 +1291,56 @@ Hollow Hold
         db.insert(TABLE_STRETCHING, null, values);
         //closing database connection
         db.close();
+    }
+
+    //function to add all hardcoded stretching objects to database
+    public void addDefaultStretchingItems()
+    {
+
+    }
+
+    //function to return a specific stretching Object from the database via the string passed
+    public StretchingObject returnSpecificStretchObject(String _StrechName)
+    {
+        //creating a new stretching object
+        StretchingObject SO = new StretchingObject();
+
+        //Creating a string query to select all the items from the stretching table
+        String selectQuery = "SELECT  * FROM " + TABLE_STRETCHING;
+
+        //making connection to database that allows us write privileges
+        SQLiteDatabase db = this.getWritableDatabase();
+        //executing the previous string query created
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //order : StretchName(String) > HoldTime(Int) > MuscleGroup(String) > StretchURL(String)
+
+                //setting object variables to values returned from query
+                SO.setStretchingName(cursor.getString(0));
+
+                //checking if the stretch object's name is same as one passed before assigning rest of values
+                if (SO.getStretchingName().equals(_StrechName))
+                {
+                    //assigning rest of values inside true condiiton for
+                    SO.setHoldTime(cursor.getInt(1));
+                    SO.setMuscleGroup(cursor.getString(2));
+                    SO.setStretchingURL(cursor.getString(3));
+
+                    //break out of loop as item has been assigned
+                    break;
+                }
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //close entry to database
+        db.close();
+
+        //returning the stretching object assigned
+        return SO;
     }
 }
