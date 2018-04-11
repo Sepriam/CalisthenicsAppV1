@@ -67,7 +67,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 19;
+    private static final int DATABASE_VERSION = 20;
 
     // Database Name
     private static final String DATABASE_NAME = "EXERCISE_LIST_TEST_DB";//"exerciseDatabase.db";
@@ -76,6 +76,8 @@ public class AppDBHandler extends SQLiteOpenHelper{
     private static final String TABLE_EXERCISES = "exercises";
     // Routine table name
     private static final String TABLE_ROUTINES = "routines";
+    // Stretching table name
+    private static final String TABLE_STRETCHING = "stretching";
 
     // Exercise Table Columns names
     // primary key for table
@@ -89,6 +91,7 @@ public class AppDBHandler extends SQLiteOpenHelper{
     private static final String KEY_TIPS = "tips";
     private static final String KEY_LINK = "videoURL";
 
+
     //Workout Table Column Names
     //primary key for table
     private static final String KEY_ROUTINE_ID = "r_id";
@@ -97,6 +100,15 @@ public class AppDBHandler extends SQLiteOpenHelper{
     private static final String KEY_EXERCISE_NAME = "exercise_name";
 
 
+    //Stretching table column names
+    //primary key for table
+    private static final String KEY_STRETCHNAME = "stretch_name";
+    private static final String KEY_HOLDTIME = "hold_time";
+    //private static final String KEY_MUSCLE_GROUP - will be part of stretching table";
+    private static final String KEY_STRETCHING_URL = "stretch_url";
+
+
+    //default name for the routine should none be assigned
     private static final String KEY_DEFAULT_ROUTINE_NAME = "Created Routine";
 
 
@@ -117,9 +129,13 @@ public class AppDBHandler extends SQLiteOpenHelper{
                 + KEY_ROUTINE_ID + " INTEGER PRIMARY KEY, " + KEY_ROUTINE_NAME + " TEXT, "
                 + KEY_EXERCISE_NAME + " TEXT" + ")";
 
+        String CREATE_STRETCHING_TABLE =  "CREATE TABLE " + TABLE_STRETCHING + "("
+                + KEY_STRETCHNAME + " TEXT, " + KEY_HOLDTIME + " INTEGER, "
+                + KEY_MUSCLE_GROUP + " TEXT, " + KEY_STRETCHING_URL + " TEXT" + ")";
 
         db.execSQL(CREATE_CONTACTS_TABLE);
         db.execSQL(CREATE_ROUTINE_TABLE);
+        db.execSQL(CREATE_STRETCHING_TABLE);
     }
 
 
