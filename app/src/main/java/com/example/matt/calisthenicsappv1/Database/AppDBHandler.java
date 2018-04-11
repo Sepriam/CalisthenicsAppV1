@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.matt.calisthenicsappv1.Objects.ExerciseObject;
 import com.example.matt.calisthenicsappv1.Objects.RoutineObject;
+import com.example.matt.calisthenicsappv1.Objects.StretchingObject;
 import com.example.matt.calisthenicsappv1.R;
 
 import java.util.ArrayList;
@@ -145,10 +146,10 @@ public class AppDBHandler extends SQLiteOpenHelper{
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXERCISES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ROUTINES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STRETCHING);
 
         // Create tables again
         onCreate(db);
-
     }
 
 
@@ -1268,5 +1269,27 @@ Hollow Hold
     {
         deleteRoutine(_routineObject);
         addNewRoutine(_routineObject, _newRoutineName);
+    }
+
+
+    //function to add a new stretching object to the database
+    public void addNewStretch(StretchingObject _stretchObject)
+    {
+        //open connection to db to write to it
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        //create new list of values to place in database
+        ContentValues values = new ContentValues();
+
+        //VALUE ORDER: StretchName(String) > HoldTime(Int) > MuscleGroup(String) > StretchingURL(String)
+        values.put(KEY_STRETCHNAME, _stretchObject.getStretchingName());
+        values.put(KEY_HOLDTIME, String.valueOf(_stretchObject.getHoldTime())); //Converted from int to string for db
+        values.put(KEY_MUSCLE_GROUP, _stretchObject.getMuscleGroup());
+        values.put(KEY_STRETCHING_URL, _stretchObject.getStretchingURL());
+
+        //inserting row
+        db.insert(TABLE_STRETCHING, null, values);
+        //closing database connection
+        db.close();
     }
 }
