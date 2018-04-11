@@ -1343,4 +1343,43 @@ Hollow Hold
         //returning the stretching object assigned
         return SO;
     }
+
+    //function to return all the stretching objects contained within database as an arraylist
+    public ArrayList<StretchingObject> returnAllStretchObjects()
+    {
+        //creating an arraylist for the stretching objects
+        ArrayList<StretchingObject> stretchingList = new ArrayList<StretchingObject>();
+        // Select All items from stretching table query string
+        String selectQuery = "SELECT  * FROM " + TABLE_STRETCHING;
+
+        //getting a writable connection to the database
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a stretching Object to assign values to
+                StretchingObject tempStretchObject = new StretchingObject();
+
+                //assigning the values from database to the temporary object
+                tempStretchObject.setStretchingName(cursor.getString(0));
+                tempStretchObject.setHoldTime(cursor.getInt(1));
+                tempStretchObject.setMuscleGroup(cursor.getString(2));
+                tempStretchObject.setStretchingURL(cursor.getString(3));
+
+                //adding the temporary object to the ArrayList
+                stretchingList.add(tempStretchObject);
+
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+
+        //close entry to database
+        db.close();
+
+        // return stretching object's list
+        return stretchingList;
+    }
 }
