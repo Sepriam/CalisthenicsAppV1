@@ -875,14 +875,11 @@ Hollow Hold
             } while (cursor.moveToNext());
             //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
         }
-
         //close entry to database
         db.close();
 
         // return exercise list
         return exerciseList;
-
-
     }
 
 
@@ -1344,7 +1341,7 @@ Hollow Hold
         return SO;
     }
 
-    //function to return all the stretching objects contained within database as an arraylist
+    //function to return all the stretching objects contained within database as an array list
     public ArrayList<StretchingObject> returnAllStretchObjects()
     {
         //creating an arraylist for the stretching objects
@@ -1381,5 +1378,53 @@ Hollow Hold
 
         // return stretching object's list
         return stretchingList;
+    }
+
+    //function to return specific stretching objects based on the muscle group(s) passed
+    public ArrayList<StretchingObject> returnStretchOnMuscleGroup(String[] _muscleGroups)
+    {
+        //creating an arraylist for the stretching objects
+        ArrayList<StretchingObject> returnStretchingList =  new ArrayList<>();
+
+        // String query to select all items from stretching table
+        String selectQuery = "SELECT  * FROM " + TABLE_STRETCHING;
+
+        //create a writable connection to the database
+        SQLiteDatabase db = this.getWritableDatabase();
+        //executing the query previously created and assigning the outcome to the cursor
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        //moveToFirst will 'move' cursor to first item in database
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                //creating a new stretching object
+                StretchingObject tempSO = new StretchingObject();
+
+                //assigning the muscle group name first as to check it against string array input params
+                tempSO.setMuscleGroup(cursor.getString(2));
+
+                //loop through each of the strings passed in array
+                for(String muscleGroup : _muscleGroups) {
+                    //compare the string passed to the muscle group previously assigned
+                    if (tempSO.getMuscleGroup().equals(muscleGroup))
+                    {
+                        //assign the rest of the variables
+                        tempSO.setStretchingName(cursor.getString(0));
+                        tempSO.setHoldTime(cursor.getInt(1));
+                        tempSO.setStretchingURL(cursor.getString(3));
+
+                        //add the object to the arraylist
+                        returnStretchingList.add(tempSO);
+                    }
+                }
+            } while (cursor.moveToNext());
+            //moveToNext 'moves' the cursor to the next item in database until end is reached in this case
+        }
+        //close entry to database
+        db.close();
+
+        //returning the arraylist created
+        return returnStretchingList;
     }
 }
