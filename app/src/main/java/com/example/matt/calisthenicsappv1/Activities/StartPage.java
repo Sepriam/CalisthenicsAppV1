@@ -16,20 +16,14 @@ import java.util.List;
 
 public class StartPage extends AppCompatActivity {
 
-    private Button changePageBtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
-
-        changePageBtn = (Button) findViewById(R.id.toSelectPageButton);
-
+        //creating connection to database class
         AppDBHandler db = new AppDBHandler(this);
-
         //checks if exercises are in table, adds default if false
         checkExercises(db);
-
     }
 
     //function to add exercises to list if first time run
@@ -42,11 +36,8 @@ public class StartPage extends AppCompatActivity {
         if (exerciseList.size() == 0)
         {
             Log.d("Insert: ", "No Exercises found, Inserting default exercises..");
-
             //add default values to sqlite database
             db.setDefaultValues();
-
-
             // Reading all contacts
             Log.d("Reading: ", "Reading all exercises..");
             //re-get all exercises after default values written to database
@@ -58,7 +49,6 @@ public class StartPage extends AppCompatActivity {
             Log.d("Reading: ", "Found exercises, beginning read..");
         }
 
-
         for (ExerciseObject cn : exerciseList) {
             String log = "EName: " + cn.getExerciseName() + " ,MGroup: " + cn.getMuscleGroup() + " ,Difficulty: " + cn.getDifficulty() +
                     " ,LowerRepRange: " + String.valueOf(cn.getLowerRepRange()) + " ,UpperRepRange: " + String.valueOf(cn.getUpperRepRange()) +
@@ -68,21 +58,37 @@ public class StartPage extends AppCompatActivity {
         }
     }
 
+    //onclick method for the custom routine btn
     public void ToSelectPage(View v)
     {
-        Intent intent = new Intent(this, SelectObjectsAct.class);
+        //creating intent to start new activity
+        Intent intent = new Intent(this, selectingExerciseTypesAct.class);
+        //creating and passing a string that includes the type of routine selected
+        String routineType = "custom";
+        intent.putExtra("routineType", routineType);
+        Log.d("Passing routine Type:", routineType);
+        Log.d("Starting activity:", "selectingExerciseTypesAct");
         startActivity(intent);
-
     }
 
+    //onclick function for the random routine selection btn
     public void ToRandomSettingPage(View v)
     {
-        Intent intent = new Intent(this, RandomRoutineSettingsAct.class);
+        //creating an intent to start next activity
+        Intent intent = new Intent(this, selectingExerciseTypesAct.class);
+        //creating and passing a string that includes the type of routine selected
+        String routineType = "random";
+        intent.putExtra("routineType", routineType);
+        Log.d("Passing routine Type:", routineType);
+        Log.d("Starting activity:", "selectingExerciseTypesAct");
         startActivity(intent);
     }
 
+    //onclick function for the saved routines btn
     public void toSavedRoutinesAct(View view) {
+        //creating the new intent and starting the next activity
         Intent intent = new Intent(this, DisplaySavedRoutinesActivity.class);
+        Log.d("Starting activity:","DisplaySavedRoutinesActivity");
         startActivity(intent);
     }
 }

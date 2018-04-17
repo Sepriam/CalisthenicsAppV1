@@ -27,7 +27,9 @@
         <activity android:name=".Activities.DisplayCustomRoutineAct" />
         <activity android:name=".Activities.exerciseExplanationAct" />
         <activity android:name=".Activities.selectMuscleGroupsAct" />
-        <activity android:name=".Activities.DisplaySavedRoutinesActivity"></activity>
+        <activity android:name=".Activities.DisplaySavedRoutinesActivity" />
+        <activity android:name=".Activities.StretchingTypeSelectionAct" />
+        <activity android:name=".Activities.selectingExerciseTypesAct"></activity>
     </application>
 
 </manifest>
