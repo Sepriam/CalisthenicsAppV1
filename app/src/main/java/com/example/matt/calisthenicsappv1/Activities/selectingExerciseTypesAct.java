@@ -16,7 +16,7 @@ public class selectingExerciseTypesAct extends AppCompatActivity {
     Button calistheincsSelectBtn, weightedSelectBtn, allSelectBtn;
 
     //global string variable to retrieve and pass the routine type passsed to activity
-    String routineType;
+    public String routineType;
     //only possibilities for the routine type are 'custom' or 'random'
 
     //creating static string to pass specific string values across to next activities
@@ -29,13 +29,10 @@ public class selectingExerciseTypesAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecting_routine_type);
 
-        //retrieving the routinetype passed from previous activity
-        Bundle extras = getIntent().getExtras();
-        if(extras !=null) {
-            String routineType = extras.getString("routineType");
+        routineType = getIntent().getStringExtra("routineType");
+        if (routineType != null) {
+            Log.d("Retrieved routineType: ", routineType + ". Successful.");
         }
-        Log.d("Retrieved routineType: ", routineType + ". Successful.");
-
         initiateWidgets();
     }
 

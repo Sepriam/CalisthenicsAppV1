@@ -10,6 +10,118 @@ import java.io.Serializable;
 
 public class ExerciseObject implements Serializable{
 
+
+
+    private String ExerciseName;
+    private String MuscleGroup;
+    private String Difficulty;
+    private int LowerRepRange;
+    private int UpperRepRange;
+    private int SuggestedTime;
+    private boolean IsSelected;
+    private String Tips;
+    private String VideoURL;
+
+    public ExerciseObject()
+    {
+        //Default constructor if empty exercise object needed
+    }
+
+    public ExerciseObject(String _exerciseName, String _muscleGroup,
+                          String _difficulty, String _lowerRepRange,
+                          String _upperRepRange, String _suggestedTime,
+                          String _selected, String _tips, String _videoURL)
+    {
+
+        this.ExerciseName = _exerciseName;
+        this.MuscleGroup = _muscleGroup;
+        this.Difficulty = _difficulty;
+        this.LowerRepRange = Integer.parseInt(_lowerRepRange);
+        this.UpperRepRange = Integer.parseInt(_upperRepRange);
+        this.SuggestedTime = Integer.parseInt(_suggestedTime);
+        this.IsSelected = Boolean.parseBoolean(_selected);
+        this.Tips = _tips;
+        this.VideoURL = _videoURL;
+
+        String log = "Name: "+_exerciseName+ " ,MuscleGroup: " + _muscleGroup + " ,Difficulty: " + _difficulty + " ,Lower Rep Range: " + _lowerRepRange
+                + " ,Upper Rep Range: " + _upperRepRange + " ,SuggestedTime: " + _suggestedTime + " ,Selected: " + _selected + " ,Video URL: " + _videoURL;
+        // Writing Contacts to log
+        Log.d("New Exercise: ", log);
+
+    }
+
+    public String getExerciseName() {
+        return ExerciseName;
+    }
+
+    public void setExerciseName(String exerciseName) {
+        ExerciseName = exerciseName;
+    }
+
+    public String getMuscleGroup() {
+        return MuscleGroup;
+    }
+
+    public void setMuscleGroup(String muscleGroup) {
+        MuscleGroup = muscleGroup;
+    }
+
+    public String getDifficulty() {
+        return Difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        Difficulty = difficulty;
+    }
+
+    public int getLowerRepRange() {
+        return LowerRepRange;
+    }
+
+    public void setLowerRepRange(int lowerRepRange) {
+        LowerRepRange = lowerRepRange;
+    }
+
+    public int getUpperRepRange() {
+        return UpperRepRange;
+    }
+
+    public void setUpperRepRange(int upperRepRange) {
+        UpperRepRange = upperRepRange;
+    }
+
+    public int getSuggestedTime() {
+        return SuggestedTime;
+    }
+
+    public void setSuggestedTime(int suggestedTime) {
+        SuggestedTime = suggestedTime;
+    }
+
+    public boolean isSelected() {
+        return IsSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        IsSelected = selected;
+    }
+
+    public String getTips() {
+        return Tips;
+    }
+
+    public void setTips(String tips) {
+        Tips = tips;
+    }
+
+    public String getVideoURL() {
+        return VideoURL;
+    }
+
+    public void setVideoURL(String videoURL) {
+        VideoURL = videoURL;
+    }
+}
     /*
     Requirements:
     1) Variables:
@@ -60,24 +172,7 @@ public class ExerciseObject implements Serializable{
     3.3.8 - Assign default value 0 to variable : suggestedTime
 
      */
-
-    private String ExerciseName;
-    private String MuscleGroup;
-    private String Difficulty;
-    private int LowerRepRange;
-    private int UpperRepRange;
-    private int SuggestedTime;  //Suggested Time in Seconds
-    private boolean IsSelected;
-    //newly added
-    private String Tips;
-    private String VideoURL;
-
-    public ExerciseObject()
-    {
-        //Default constructor if empty exercise object needed
-    }
-
-    //Default constructor with all values assigned
+//Default constructor with all values assigned
     /*public ExerciseObject(String _exerciseName, String _muscleGroup,
                           String _difficulty, int _lowerRepRange,
                           int _upperRepRange, int _suggestedTime)
@@ -161,102 +256,3 @@ public class ExerciseObject implements Serializable{
         Log.d("New Exercise: ", log);
 
     }*/
-
-    public ExerciseObject(String _exerciseName, String _muscleGroup,
-                          String _difficulty, String _lowerRepRange,
-                          String _upperRepRange, String _suggestedTime,
-                          String _selected, String _tips, String _videoURL)
-    {
-        //Default Constructor
-        this.ExerciseName = _exerciseName;
-        this.MuscleGroup = _muscleGroup;
-        this.Difficulty = _difficulty;
-        this.LowerRepRange = Integer.parseInt(_lowerRepRange);
-        this.UpperRepRange = Integer.parseInt(_upperRepRange);
-        this.SuggestedTime = Integer.parseInt(_suggestedTime);
-        this.IsSelected = Boolean.parseBoolean(_selected);
-        this.Tips = _tips;
-        this.VideoURL = _videoURL;
-
-        String log = "Name: "+_exerciseName+ " ,MuscleGroup: " + _muscleGroup + " ,Difficulty: " + _difficulty + " ,Lower Rep Range: " + _lowerRepRange
-                + " ,Upper Rep Range: " + _upperRepRange + " ,SuggestedTime: " + _suggestedTime + " ,Selected: " + _selected + " ,Video URL: " + _videoURL;
-        // Writing Contacts to log
-        Log.d("New Exercise: ", log);
-
-    }
-
-
-
-
-    public String getExerciseName() {
-        return ExerciseName;
-    }
-
-    public void setExerciseName(String exerciseName) {
-        ExerciseName = exerciseName;
-    }
-
-    public String getMuscleGroup() {
-        return MuscleGroup;
-    }
-
-    public void setMuscleGroup(String muscleGroup) {
-        MuscleGroup = muscleGroup;
-    }
-
-    public String getDifficulty() {
-        return Difficulty;
-    }
-
-    public void setDifficulty(String difficulty) {
-        Difficulty = difficulty;
-    }
-
-    public int getLowerRepRange() {
-        return LowerRepRange;
-    }
-
-    public void setLowerRepRange(int lowerRepRange) {
-        LowerRepRange = lowerRepRange;
-    }
-
-    public int getUpperRepRange() {
-        return UpperRepRange;
-    }
-
-    public void setUpperRepRange(int upperRepRange) {
-        UpperRepRange = upperRepRange;
-    }
-
-    public int getSuggestedTime() {
-        return SuggestedTime;
-    }
-
-    public void setSuggestedTime(int suggestedTime) {
-        SuggestedTime = suggestedTime;
-    }
-
-    public boolean isSelected() {
-        return IsSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        IsSelected = selected;
-    }
-
-    public String getTips() {
-        return Tips;
-    }
-
-    public void setTips(String tips) {
-        Tips = tips;
-    }
-
-    public String getVideoURL() {
-        return VideoURL;
-    }
-
-    public void setVideoURL(String videoURL) {
-        VideoURL = videoURL;
-    }
-}

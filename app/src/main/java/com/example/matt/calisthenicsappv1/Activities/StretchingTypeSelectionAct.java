@@ -38,15 +38,17 @@ public class StretchingTypeSelectionAct extends AppCompatActivity {
     //on click functionality method for random stretch btn
     //functionality to take user to the next activity _
     public void toRandomStretch_Click(View view) {
-        Intent i = new Intent(this, );
+        /*Intent i = new Intent(this, );
         startActivity(i);
-
+*/
     }
 
     //on click functionality method for random stretch btn
     //functionality to take user to the next activity _
     public void toCustomStretch_Click(View view) {
+        /*
         Intent i = new Intent(this, );
         startActivity(i);
+    */
     }
 }
