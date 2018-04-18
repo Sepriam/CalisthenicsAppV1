@@ -10,8 +10,6 @@ import java.io.Serializable;
 
 public class ExerciseObject implements Serializable{
 
-
-
     private String ExerciseName;
     private String MuscleGroup;
     private String Difficulty;
@@ -21,6 +19,7 @@ public class ExerciseObject implements Serializable{
     private boolean IsSelected;
     private String Tips;
     private String VideoURL;
+    private String ExerciseType;
 
     public ExerciseObject()
     {
@@ -30,7 +29,8 @@ public class ExerciseObject implements Serializable{
     public ExerciseObject(String _exerciseName, String _muscleGroup,
                           String _difficulty, String _lowerRepRange,
                           String _upperRepRange, String _suggestedTime,
-                          String _selected, String _tips, String _videoURL)
+                          String _selected, String _tips, String _videoURL,
+                          String _exerciseType)
     {
 
         this.ExerciseName = _exerciseName;
@@ -42,6 +42,7 @@ public class ExerciseObject implements Serializable{
         this.IsSelected = Boolean.parseBoolean(_selected);
         this.Tips = _tips;
         this.VideoURL = _videoURL;
+        this.ExerciseType = _exerciseType;
 
         String log = "Name: "+_exerciseName+ " ,MuscleGroup: " + _muscleGroup + " ,Difficulty: " + _difficulty + " ,Lower Rep Range: " + _lowerRepRange
                 + " ,Upper Rep Range: " + _upperRepRange + " ,SuggestedTime: " + _suggestedTime + " ,Selected: " + _selected + " ,Video URL: " + _videoURL;
@@ -120,6 +121,14 @@ public class ExerciseObject implements Serializable{
 
     public void setVideoURL(String videoURL) {
         VideoURL = videoURL;
+    }
+
+    public String getExerciseType() {
+        return ExerciseType;
+    }
+
+    public void setExerciseType(String exerciseType) {
+        ExerciseType = exerciseType;
     }
 }
     /*
